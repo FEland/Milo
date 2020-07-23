@@ -1,5 +1,4 @@
 import React from 'react'; 
-import BackToTop from './BackToTop'
 import Ropes from './Ropes'
 import Player from './Player'
 import Player2 from './Player2'
