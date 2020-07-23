@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.16a3ad81.chunk.css",
+    "main.js": "/static/js/main.4c754783.chunk.js",
+    "main.js.map": "/static/js/main.4c754783.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.c5baf975.chunk.js": "/static/js/2.c5baf975.chunk.js",
+    "static/js/2.c5baf975.chunk.js.map": "/static/js/2.c5baf975.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c8be72552aa89758c3b8781d0921a632.js": "/precache-manifest.c8be72552aa89758c3b8781d0921a632.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.16a3ad81.chunk.css.map": "/static/css/main.16a3ad81.chunk.css.map",
+    "static/media/mercha_tipcha.wav": "/static/media/mercha_tipcha.82e5e98c.wav",
+    "static/media/navigation_hover-tap.wav": "/static/media/navigation_hover-tap.50089db6.wav",
+    "static/media/state-change_confirm-up.wav": "/static/media/state-change_confirm-up.3a77f1ed.wav",
+    "static/media/ui_unlock.wav": "/static/media/ui_unlock.c281fe14.wav"
+  }
+}
