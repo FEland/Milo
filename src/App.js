@@ -4,10 +4,19 @@ import Player from './Player'
 import Player2 from './Player2'
 import Player3 from './Player3'
 import Grid from '@material-ui/core/Grid';
+import Switch from '@material-ui/core/Switch';
 
 
 export default function Final() {
 
+  const [state, setState] = React.useState({
+    toggle: false,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+  
 
   return (
     <div className="App">
@@ -17,18 +26,19 @@ export default function Final() {
         <Ropes />
 
         <Grid container spacing={2} justify="center" alignItems="center"> 
-                    <Grid item  >
-                      <Player /> 
-                    </Grid>
-                    <Grid item  >
-                      <Player2 /> 
-                    </Grid>
-                    <Grid item  >
-                      <Player3 /> 
-                    </Grid>
-                  </Grid>
+            <Grid item  > <Player /> </Grid>
+            <Grid item  > <Player2 /> </Grid>
+            <Grid item  > <Player3 /> </Grid>
+        </Grid>
 
-      <quiz>
+      <Switch
+        checked={state.toggle}
+        onChange={handleChange}
+        name="toggle"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
       שְׁמַ֖ע יִשְׂרָאֵ֑ל יְהוָ֥ה אֱלֹהֵ֖ינוּ יְהוָ֥ה ׀ אֶחָֽד׃<br/>
       ( :בָּרוּךְ שֵׁם כְּבוד מַלְכוּתו לְעולָם וָעֶד)<br/>
       וְאָ֣הַבְתָּ֔ אֵ֖ת יְהוָ֣ה אֱלֹהֶ֑יךָ בְּכָל־לְבָבְךָ֥ וּבְכָל־נַפְשְׁךָ֖ וּבְכָל־מְאֹדֶֽךָ׃
@@ -37,7 +47,7 @@ export default function Final() {
       וּקְשַׁרְתָּ֥ם לְא֖וֹת עַל־יָדֶ֑ךָ וְהָי֥וּ לְטֹטָפֹ֖ת בֵּ֥ין עֵינֶֽיךָ׃
       וּכְתַבְתָּ֛ם עַל־מְזוּזֹ֥ת בֵּיתֶ֖ךָ וּבִשְׁעָרֶֽיךָ׃
       </quiz>
-      <quiz>
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
       וְהָיָ֗ה אִם־שָׁמֹ֤עַ תִּשְׁמְעוּ֙ אֶל־מִצְוֺתַ֔י אֲשֶׁ֧ר אָנֹכִ֛י מְצַוֶּ֥ה אֶתְכֶ֖ם הַיּ֑וֹם לְאַהֲבָ֞ה אֶת־יְהוָ֤ה אֱלֹֽהֵיכֶם֙ וּלְעָבְד֔וֹ בְּכָל־לְבַבְכֶ֖ם וּבְכָל־נַפְשְׁכֶֽם׃
 וְנָתַתִּ֧י מְטַֽר־אַרְצְכֶ֛ם בְּעִתּ֖וֹ יוֹרֶ֣ה וּמַלְק֑וֹשׁ וְאָסַפְתָּ֣ דְגָנֶ֔ךָ וְתִֽירֹשְׁךָ֖ וְיִצְהָרֶֽךָ׃
 וְנָתַתִּ֛י עֵ֥שֶׂב בְּשָׂדְךָ֖ לִבְהֶמְתֶּ֑ךָ וְאָכַלְתָּ֖ וְשָׂבָֽעְתָּ׃
@@ -48,7 +58,7 @@ export default function Final() {
 וּכְתַבְתָּ֛ם עַל־מְזוּז֥וֹת בֵּיתֶ֖ךָ וּבִשְׁעָרֶֽיךָ׃
 לְמַ֨עַן יִרְבּ֤וּ יְמֵיכֶם֙ וִימֵ֣י בְנֵיכֶ֔ם עַ֚ל הָֽאֲדָמָ֔ה אֲשֶׁ֨ר נִשְׁבַּ֧ע יְהוָ֛ה לַאֲבֹתֵיכֶ֖ם לָתֵ֣ת לָהֶ֑ם כִּימֵ֥י הַשָּׁמַ֖יִם עַל־הָאָֽרֶץ׃
       </quiz>
-      <quiz>
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
       וַיֹּ֥אמֶר יְהוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃
 דַּבֵּ֞ר אֶל־בְּנֵ֤י יִשְׂרָאֵל֙ וְאָמַרְתָּ֣ אֲלֵהֶ֔ם וְעָשׂ֨וּ לָהֶ֥ם צִיצִ֛ת עַל־כַּנְפֵ֥י בִגְדֵיהֶ֖ם לְדֹרֹתָ֑ם וְנָֽתְנ֛וּ עַל־צִיצִ֥ת הַכָּנָ֖ף פְּתִ֥יל תְּכֵֽלֶת׃
 וְהָיָ֣ה לָכֶם֮ לְצִיצִת֒ וּרְאִיתֶ֣ם אֹת֗וֹ וּזְכַרְתֶּם֙ אֶת־כָּל־מִצְוֺ֣ת יְהוָ֔ה וַעֲשִׂיתֶ֖ם אֹתָ֑ם וְלֹֽא־תָתֻ֜רוּ אַחֲרֵ֤י לְבַבְכֶם֙ וְאַחֲרֵ֣י עֵֽינֵיכֶ֔ם אֲשֶׁר־אַתֶּ֥ם זֹנִ֖ים אַחֲרֵיהֶֽם׃

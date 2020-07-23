@@ -88,7 +88,7 @@ export default function Player() {
         color="primary"
         onClick={handleClick}
       >
-        Select Shema Paragraph
+        1st Shema Paragraph
       </Button>
       <StyledMenu
         id="customized-menu"
