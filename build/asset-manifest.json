@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.16a3ad81.chunk.css",
-    "main.js": "/static/js/main.4c754783.chunk.js",
-    "main.js.map": "/static/js/main.4c754783.chunk.js.map",
+    "main.css": "/static/css/main.17b7ba8b.chunk.css",
+    "main.js": "/static/js/main.3a1a9873.chunk.js",
+    "main.js.map": "/static/js/main.3a1a9873.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.c5baf975.chunk.js": "/static/js/2.c5baf975.chunk.js",
-    "static/js/2.c5baf975.chunk.js.map": "/static/js/2.c5baf975.chunk.js.map",
+    "static/js/2.242b90c2.chunk.js": "/static/js/2.242b90c2.chunk.js",
+    "static/js/2.242b90c2.chunk.js.map": "/static/js/2.242b90c2.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c8be72552aa89758c3b8781d0921a632.js": "/precache-manifest.c8be72552aa89758c3b8781d0921a632.js",
+    "precache-manifest.5279a1c5d4dece765e6c498d67d83e6e.js": "/precache-manifest.5279a1c5d4dece765e6c498d67d83e6e.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.16a3ad81.chunk.css.map": "/static/css/main.16a3ad81.chunk.css.map",
-    "static/media/mercha_tipcha.wav": "/static/media/mercha_tipcha.82e5e98c.wav",
-    "static/media/navigation_hover-tap.wav": "/static/media/navigation_hover-tap.50089db6.wav",
-    "static/media/state-change_confirm-up.wav": "/static/media/state-change_confirm-up.3a77f1ed.wav",
-    "static/media/ui_unlock.wav": "/static/media/ui_unlock.c281fe14.wav"
+    "static/css/main.17b7ba8b.chunk.css.map": "/static/css/main.17b7ba8b.chunk.css.map",
+    "static/media/SS_Haftorah.pdf": "/static/media/SS_Haftorah.b36d2701.pdf",
+    "static/media/SS_Torah.pdf": "/static/media/SS_Torah.d823a48c.pdf",
+    "static/media/styles.css": "/static/media/ShlomoStam.88620812.ttf",
+    "static/media/barmit.png": "/static/media/barmit.a446142a.png",
+    "static/media/tikkun-master4.png": "/static/media/tikkun-master4.cc5ffc45.png"
   }
 }
