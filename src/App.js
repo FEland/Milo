@@ -47,7 +47,7 @@ export default function Final() {
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />
 
-{state.toggleTranslation ? 
+{!state.toggleTranslation ? 
       <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
 
       שְׁמַ֖ע יִשְׂרָאֵ֑ל יְהוָ֥ה אֱלֹהֵ֖ינוּ יְהוָ֥ה ׀ אֶחָֽד׃<br/>
@@ -68,7 +68,7 @@ export default function Final() {
       inscribe them on the doorposts of your house and on your gates.
       </quiz>
 }
-{state.toggleTranslation ? 
+{!state.toggleTranslation ? 
       <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
 
       וְהָיָ֗ה אִם־שָׁמֹ֤עַ תִּשְׁמְעוּ֙ אֶל־מִצְוֺתַ֔י אֲשֶׁ֧ר אָנֹכִ֛י מְצַוֶּ֥ה אֶתְכֶ֖ם הַיּ֑וֹם לְאַהֲבָ֞ה אֶת־יְהוָ֤ה אֱלֹֽהֵיכֶם֙ וּלְעָבְד֔וֹ בְּכָל־לְבַבְכֶ֖ם וּבְכָל־נַפְשְׁכֶֽם׃
@@ -95,7 +95,7 @@ export default function Final() {
       to the end that you and your children may endure, in the land that the LORD swore to your fathers to assign to them, as long as there is a heaven over the earth.
       </quiz>
 }
-{state.toggleTranslation ? 
+{!state.toggleTranslation ? 
       <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
 
       וַיֹּ֥אמֶר יְהוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃

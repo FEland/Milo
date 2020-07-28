@@ -53,7 +53,8 @@ export default function Flashcard( {flashcard}) {
     <fll>
          <backup>
   <img src={flashcard.image} alt="icon" loading="lazy" width="50" height="50" onClick={() => {playSound(song) }}/>
-        
+  {/* <img src={flashcard.image} alt="icon" loading="lazy" width="50" height="50"/> */}
+
 
 </backup>
         {/* <LinearProgress /><LinearProgress color="secondary" /> */}
@@ -71,7 +72,7 @@ export default function Flashcard( {flashcard}) {
       />
 
         <CardContent className={classes.content} onClick={() => {playSound(song)} }>
-
+          {/* <audio controls src={flashcard.sound} /> */}
         <fl>
 
         <Typography variant="h9"> 
