@@ -5,7 +5,7 @@ import Player2 from './Player2'
 import Player3 from './Player3'
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
-
+import Slideshow from './Slideshow2';
 
 export default function Final() {
 
@@ -20,10 +20,14 @@ export default function Final() {
   
 
   return (
+    
     <div className="App">
+        <Slideshow />
+
        <div style={{backgroundColor: 'black', color: 'white' }}> 
           <h1>Special Trope Practice Site for Harrison!</h1>
         </div>
+
         <Ropes />
 
         <Grid container spacing={2} justify="center" alignItems="center"> 
