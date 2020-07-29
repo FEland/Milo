@@ -5,6 +5,8 @@ import Player2 from './Player2'
 import Player3 from './Player3'
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
+import { Slide } from "react-slideshow-image";
+
 
 
 export default function Final() {
