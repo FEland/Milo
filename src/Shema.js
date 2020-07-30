@@ -113,8 +113,6 @@ export default function Shema() {
   </quiz>
 }
 
-
-    <h4 style={{backgroundColor: 'white', color: 'black',position: 'flex' }}> Built by Effie </h4>
     </div>
 
   );
