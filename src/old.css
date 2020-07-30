@@ -1,0 +1,221 @@
+
+  ro {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10hw;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  ro:active {
+    color: yellow;
+  }
+  
+  ro:hover {
+    background-color: black;
+  }
+  
+ro:active .mercha_tipcha_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .mercha_tipcha_e {
+    display:none;
+}
+ro:active .mercha_tipcha_h {
+    display:none;
+}
+ro:active .munach_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .munach_e {
+    display:none;
+}
+ro:active .munach_h {
+    display:none;
+}
+ro:active .munach_zakef_katon_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .munach_zakef_katon_e {
+    display:none;
+}
+ro:active .munach_zakef_katon_h {
+    display:none;
+}
+ro:active .kadma_vazla_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .kadma_vazla_e {
+    display:none;
+}
+ro:active .kadma_vazla_h {
+    display:none;
+}
+ro:active .tlisha_ktana_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .tlisha_ktana_e {
+    display:none;
+}
+ro:active .tlisha_ktana_h {
+    display:none;
+}
+ro:active .tlisha_gdola_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .tlisha_gdola_e {
+    display:none;
+}
+ro:active .tlisha_gdola_h {
+    display:none;
+}
+ro:active .kadma_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .kadma_e {
+    display:none;
+}
+ro:active .kadma_h {
+    display:none;
+}
+ro:active .sof_pasuk_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .sof_pasuk_e {
+    display:none;
+}
+ro:active .sof_pasuk_h {
+    display:none;
+}
+ro:active .etnachta_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .etnachta_e {
+    display:none;
+}
+ro:active .etnachta_h {
+    display:none;
+}
+ro:active .munach_etnachta_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .munach_etnachta_e {
+    display:none;
+}
+ro:active .munach_etnachta_h {
+    display:none;
+}
+ro:active .zakef_gadol_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .zakef_gadol_e {
+    display:none;
+}
+ro:active .zakef_gadol_h {
+    display:none;
+}
+ro:active .munach_revii_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .munach_revii_e {
+    display:none;
+}
+ro:active .munach_revii_h {
+    display:none;
+}
+ro:active .gershayim_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .gershayim_e {
+    display:none;
+}
+ro:active .gershayim_h {
+    display:none;
+}
+ro:active .mapach_pashta_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .mapach_pashta_e {
+    display:none;
+}
+ro:active .mapach_pashta_h {
+    display:none;
+}
+ro:active .yetiv_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .yetiv_e {
+    display:none;
+}
+ro:active .yetiv_h {
+    display:none;
+}
+ro:active .munach_zarka_segol_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .munach_zarka_segol_e {
+    display:none;
+}
+ro:active .munach_zarka_segol_h {
+    display:none;
+}
+ro:active .darga_tvir_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .darga_tvir_e {
+    display:none;
+}
+ro:active .darga_tvir_h {
+    display:none;
+}
+ro:active .psik_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .psik_e {
+    display:none;
+}
+ro:active .psik_h {
+    display:none;
+}
+ro:active .pazer_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .pazer_e {
+    display:none;
+}
+ro:active .pazer_h {
+    display:none;
+}
+ro:active .pashta_e {
+    transition: 10s ease;
+    display:inline;
+}
+ro .pashta_e {
+    display:none;
+}
+ro:active .pashta_h {
+    display:none;
+}
