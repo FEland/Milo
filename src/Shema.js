@@ -60,12 +60,20 @@ export default function Shema() {
       </quiz>:
       <quiz style= { { 'font-family': 'Times New Roman'} } >
 
-      Hear, O Israel! The LORD is our God, the LORD is One.
-      You shall love the LORD your God with all your heart and with all your soul and with all your might.
+      Hear, O Israel! The LORD is our God, the LORD is One.<br/>
+        <i>(Blessed be the name of the glory of His kingdom forever and ever).</i><br/>
+      {/* You shall love the LORD your God with all your heart and with all your soul and with all your might.
       Take to heart these instructions with which I charge you this day.
       Impress them upon your children. Recite them when you stay at home and when you are away, when you lie down and when you get up.
       Bind them as a sign on your hand and let them serve as a symbol on your forehead;
-      inscribe them on the doorposts of your house and on your gates.
+      inscribe them on the doorposts of your house and on your gates. */}
+
+      You shall love the LORD your God with all your heart, with all your soul, and with all your might. 
+      And these words which I command you today shall be upon your heart. 
+      You shall teach them [deeply] to your children, 
+      and you shall speak of them when you sit in your house and when you walk on the road, when you lie down and when you rise. 
+      You shall bind them as a sign upon your hand, and they shall be for a reminder between your eyes [Tefillin]. 
+      And you shall write them upon the doorposts of your house and upon your gates [Mezuzot].
       </quiz>
 }
 {!state.toggleTranslation ? 
@@ -84,7 +92,7 @@ export default function Shema() {
 
       <quiz style= { { 'font-family': 'Times New Roman'} } >
 
-      If, then, you obey the commandments that I enjoin upon you this day, loving the LORD your God and serving Him with all your heart and soul,
+      {/* If, then, you obey the commandments that I enjoin upon you this day, loving the LORD your God and serving Him with all your heart and soul,
       I will grant the rain for your land in season, the early rain and the late. You shall gather in your new grain and wine and oil—
       I will also provide grass in the fields for your cattle—and thus you shall eat your fill.
       Take care not to be lured away to serve other gods and bow to them.
@@ -93,6 +101,24 @@ export default function Shema() {
       and teach them to your children—reciting them when you stay at home and when you are away, when you lie down and when you get up;
       and inscribe them on the doorposts of your house and on your gates—
       to the end that you and your children may endure, in the land that the LORD swore to your fathers to assign to them, as long as there is a heaven over the earth.
+       */}
+      And it will be, if you will diligently obey My commandments which I instruct you this day, 
+      to love the Lord your God and to serve Him with all your heart and with all your soul, 
+      I will give rain for your land at the proper time, the early rain and the late rain, 
+      and you will gather in your grain, your wine and your oil. 
+      And I will give grass in your fields for your cattle, and you will eat and be sated. 
+      Take care lest your heart be lured away, and you turn astray and worship alien gods and bow down to them. 
+      For then the Lord's wrath will flare up against you, and He will close the heavens 
+      so that there will be no rain and the earth will not yield its produce, 
+      and you will swiftly perish from the good land which the Lord gives you. 
+      Therefore, place these words of Mine upon your heart and upon your soul,
+       and bind them for a sign on your hand, and they shall be for a reminder between your eyes. 
+       You shall teach them to your children, to speak of them when you sit in your house and when you walk on the road, 
+       when you lie down and when you rise. 
+       And you shall inscribe them on the doorposts of your house and on your gates -
+       so that your days and the days of your children may be prolonged 
+       on the land which the Lord swore to your fathers to give to them for as long as the heavens are above the earth.
+
       </quiz>
 }
 {!state.toggleTranslation ? 
@@ -105,11 +131,21 @@ export default function Shema() {
 אֲנִ֞י יְהוָ֣ה אֱלֹֽהֵיכֶ֗ם אֲשֶׁ֨ר הוֹצֵ֤אתִי אֶתְכֶם֙ מֵאֶ֣רֶץ מִצְרַ֔יִם לִהְי֥וֹת לָכֶ֖ם לֵאלֹהִ֑ים אֲנִ֖י יְהוָ֥ה אֱלֹהֵיכֶֽם
       </quiz>:
   <quiz style= { { 'font-family': 'Times New Roman'} } >
-
+{/* 
   Speak to the Children of Israel and say to them that the spies who brought them disaster did so because they had gone after their own hearts, and after their own eyes. Therefore tell them to make Tzitzit—fringes on the corners of their garments throughout their generations and that they shall put on the Tzitzit, the fringe, of each corner of the garment a thread of blue wool to remind them of the blue sky and of the miraculous acts of the Eternal Who is above the heavens.
   This blue thread shall serve you as an indication; when you will see it, you will be reminded of all the commandments of the Eternal, and follow them, and you will not be enticed by the vain desires of your heart, and by the superficial look of your eyes, after which you follow, and become faithless to Me.
   The fringes of the Tallith shall serve that you will remember and follow all My commandments, and become holy to your Almighty.
   I am the Eternal Your Almighty, Who brought you out in a miraculous manner from the land of Egypt to be the Almighty to you. I am the Eternal, Your Almighty and shall be through all the times to come.
+   */}
+  The Lord spoke to Moses, saying: Speak to the children of Israel
+   and tell them to make for themselves fringes on the corners of their garments throughout their generations, 
+   and to attach a thread of blue on the fringe of each corner. They shall be to you as tzizit.
+   And you shall look upon them and remember all the commandments of the Lord and fulfill them, 
+   and you will not follow after your heart and after your eyes by which you go astray - 
+   so that you may remember and fulfill all My commandments and be holy to your God. 
+   I am the Lord your God who brought you out of the land of Egypt to be your God; 
+   I, the Lord, am your God. True.
+  
   </quiz>
 }
 
