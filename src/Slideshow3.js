@@ -30,8 +30,10 @@ const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg
 const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf'];
 const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf'];
 const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf'];
+const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf'];
+const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf'];
 
-const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, Mezuza, Sefira, YomYeru, Bereishit, Tishbav];
+const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Bereishit, Tishbav];
 
 
 const useStyles = makeStyles((theme) => ({
