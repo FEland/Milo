@@ -27,7 +27,7 @@ const Brachas = [importAll(require.context("./Slides/Brachas/", false, /^\.\/.*\
 const YomYeru = [importAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides/YomYeru/YomYeru.pdf'];
 const Tishbav = [importAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides/Tishbav/Tishbav.pdf'];
 const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides/Shema/Shema.pdf'];
-const Mezuza = [importAll(require.context("./Slides/Mezuza/", false, /^\.\/.*\.jpg$/)), "Mezuza", './Slides/Mezuza/Mezuza.pdf'];
+const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf'];
 const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf'];
 const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf'];
 
