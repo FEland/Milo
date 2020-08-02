@@ -30,12 +30,13 @@ const useStyles = makeStyles((theme) => ({
   content: {
     // flex: '1 0 auto',
     color: 'white',
-    width: '70%',
+    maxWidth: '70%',
     position: 'left',
     display: 'flex'
   },
   cover: {
-    width: '30%',
+    
+    maxWidth: '30%',
     position: 'right',
     display: 'flex',
   },

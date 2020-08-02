@@ -18,13 +18,6 @@ const useStyles = makeStyles(() =>
       padding: "20px",
       textAlign: "center"
     },
-    // grid: {
-    //   width: 500,
-    //   height: 450,
-    //   direction: "row",
-    //   justify: "center",
-    //   alignItems: "center",
-    // },
   })
 );
 

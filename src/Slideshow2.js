@@ -7,8 +7,8 @@ import { red, blue} from "@material-ui/core/colors";
 // import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import AutoRotatingCarousel from './AutoRotatingCarousel';
-import Slide from './Slides';
+import AutoRotatingCarousel from './AutoRotatingCarousel'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
+import Slide from './Slides'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';

@@ -5,7 +5,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Ropes from './Ropes'
 import Shema from './Shema'
 import Master from './Master'
-import Slideshow from './Slideshow2';
+import Slideshow from './Slideshow3';
 // import MainScreen from './MainScreen';
 
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
