@@ -83,7 +83,7 @@
   .MuiCardContent-root {
     /* visibility: hidden; */
     color: 'green';
-    width: '30%';
+    /* width: '30%'; */
     font-size: large;
     overflow-wrap: break-word;
     /* white-space: nowrap; */
@@ -101,10 +101,73 @@ backup{
 }
 
 @media screen and (max-width: 600px) {
-  .MuiCard-root{ 
+  /* .MuiGrid-root {
+    padding: 0mm;
+  } */
+  /* .MuiGrid-root{
     visibility: hidden;
-    display: 'flex';
+
+  } */
+
+  .MuiGrid-container {
+    padding: 1;
+    /* visibility: hidden; */
+
   }
+  .MuiCard-root{ 
+    /* visibility: visible; */
+    padding: 1;
+    visibility: hidden;
+    /* position: absolute; */
+    /* position: flex; */
+    /* font-size: x-small; */
+
+    /* display: 'flex'; */
+    /* background-color: #c9ad7a; */
+
+  }
+
+
+  .MuiCardContent-root{
+    visibility: visible;
+    font-size: x-small;
+    display: inherit;
+    background-color: #c9ad7a;
+
+    /* position: flex; */
+
+
+  }
+  .MuiCardMedia-media{
+    visibility: visible;
+    /* visibility: hidden; */
+
+  }
+  .MuiTabs-root{
+    font-size: x-small;
+    position: flex;
+    /* align-items: stretch; */
+    /* border: 1px solid #e7e7e7; */
+
+    /* width: '100%';
+    height: '100%';
+    max-width: 'initial';
+    max-height: 'initial';
+    margin: 0;
+    top: 0;
+    transform: 'none'; */
+
+    /* flex-direction: column; */
+    /* background-color: #c9ad7a; */
+    /* position: sticky;
+    position: -webkit-sticky;
+    top: 0; */
+  }
+  .MuiButton-label	{
+    font-size: x-small;
+    word-wrap: break-word;;
+  }
+
 
   backup{
     visibility: visible;
@@ -141,6 +204,7 @@ backup{
       /* display: inline-block; */
       float: right;
     }
+
 }
 
   /* .player__button {
@@ -222,12 +286,21 @@ backup{
 
   }
 
-  fl:hover {
-    color: white;
-    font-size: 150%;
+  fl {
+    font-family: 'ShlomosemiStam';
+  }
+  fl3 {
+    font-family: 'Times';
   }
 
-  
+  fl:hover {
+    color: yellow;
+    /* font-size: 150%; */
+  }
+
+  f2:hover {
+    color: green;
+  }
 
   player {
     display: block;

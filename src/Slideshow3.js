@@ -32,8 +32,8 @@ const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.j
 const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf'];
 const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf'];
 const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf'];
-
-const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Bereishit, Tishbav];
+const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf'];
+const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 
 const useStyles = makeStyles((theme) => ({
@@ -131,6 +131,8 @@ export default function Slideshow(){
         <div style={{color: 'white' }}> 
               <h1>Review the Lectures!</h1>
         </div> 
+      {/* <slidesOnScreen> */}
+
       <div>
       <Grid container spacing={4} justify="space-between" alignItems="center"> 
         {slideshows.map(lesson => { return (
@@ -161,6 +163,8 @@ export default function Slideshow(){
           )})}
       </Grid>
       </div>
+      {/* </slidesOnScreen> */}
+
     </div>
 
   );

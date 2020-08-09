@@ -5,7 +5,7 @@ import PauseCircleFilled from '@material-ui/icons/PauseCircleFilled';
 import PlayCircleFilled from '@material-ui/icons/PlayCircleFilled';
 
 // import SpeedIcon from '@material-ui/icons/Speed';
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+// import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 
 import CachedIcon from '@material-ui/icons/Cached';
 import Slider from '@material-ui/core/Slider';
@@ -36,21 +36,21 @@ export default function QuizShapes( { flashcards } ) {
     const [flag, setFlag] = useState(1);
     const [trope, setTrope] = useState(0);
 
-    const [speed, setSpeed] = useState(1);
+    // const [speed, setSpeed] = useState(1);
 
-    const handleSpeed = (val) => {
-        // setSpeed(speed => speed = val);
-        setSpeed(val);
-      }
+    // const handleSpeed = (val) => {
+    //     // setSpeed(speed => speed = val);
+    //     setSpeed(val);
+    //   }
   
       
     let i = -1;
     let myflag = 0;
     // var speed = 1;
 
-    function getSpeed(){
-        return speed;
-    }
+    // function getSpeed(){
+    //     return speed;
+    // }
 
     // const [count, setCount] = useState(0);
     // const [yesQuiz, setQuizTrue] = useState(0);
@@ -64,9 +64,9 @@ export default function QuizShapes( { flashcards } ) {
         if (i < quiz.length){
             // audio.preload = "auto";
             // audio.volume = 0.3;
-            console.log("nextSongSpeed", getSpeed());
+            // console.log("nextSongSpeed", getSpeed());
             audio.src = quiz[i].sound;
-            audio.playbackRate = speed;
+            // audio.playbackRate = speed;
             audio.play();
         }
         else{ 
@@ -89,7 +89,7 @@ export default function QuizShapes( { flashcards } ) {
     let items = flashcards;
 
     const [quiz, reloadQuiz] = useState(createQuiz(items, 4));
-    const [value, setValue] = React.useState(10);
+    const [value, setValue] = React.useState(4);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -151,11 +151,11 @@ export default function QuizShapes( { flashcards } ) {
                     endIcon={<CachedIcon  onClick={() =>  {reloadQuiz(createQuiz(items, value));}}/>}>
                 </Button> 
 
-                <Button variant="contained" color="primary"
+                {/* <Button variant="contained" color="primary"
                     startIcon = {<DoubleArrowIcon onChange={() => { handleSpeed(2) ;}} />}>
                         {speed}
                 </Button> 
-
+ */}
 
                 <Button size="small" variant="contained"> 
                     <Slider value={value} onChange={handleChange} defaultValue={4}

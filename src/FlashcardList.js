@@ -1,10 +1,11 @@
-// import React, {setState, event} from 'react'
-
 import React from 'react'
-import Flashcard from "./Flashcard";
+import Flashcard from "./FlashcardME";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import {Samples} from './Tropes';
+import { clone, cloneDeep } from "lodash";
 
+// import { clone, cloneDeep } from "lodash";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,32 +23,63 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-//   filter(e){
-//     this.setState({filter: e.target.value});
-// }
-  
+  function prePopulateItems(tropes){
+    let items = new Map();
+    tropes.forEach(element => {
+      items.set(element.id, element);
+    });
+    return items;
+  }
 
-  
-export default function FlashcardList( { flashcards } ) {
+  // let songList = new Map();
+  // Samples.forEach(element => {
+  //   songList.set(element.id, element);
+  // });
+  let songList = prePopulateItems(Samples);
+  // let songList = Samples;
 
-    // const [filter, filtered] = setState(event.target.value)
-    let items = flashcards;
+// export default function FlashcardList( { flashcards, callBack1} ) {
+export default function FlashcardList( { callBack1} ) {
 
-    const classes = useStyles();
+  // let songList = [...flashcards];
+  // let songList = cloneDeep(flashcards);
+  // let songList = new Map();
 
-    // if (filter){
-    //     items = items.filter( item =>
-    //         item.id.toLowerCase()
-    //         .includes.this.state.filter.toLowerCase)
+  console.log(songList);
+
+  const callBack2 = (val) => {
+    
+    
+    if (!songList.has(val.id)) {
+      // console.log("a" + val.id);
+      songList.set(val.id, val);
+      // songList.splice(songList.indexOf(val),1)
+    }
+    else {
+      // console.log("b" + val.id);
+      songList.delete(val.id);
+      // songList.splice(songList.indexOf(val),0,val);
+    }
+
+    // if (!songList.has(val.id)) {
+    //   console.log("a" + val.id);
+    //   songList.set(val.id, val);
+    //   // songList.splice(songList.indexOf(val),1)
     // }
+    // else {
+    //   console.log("b" + val.id);
+    //   songList.delete(val.id);
+    //   // songList.splice(songList.indexOf(val),0,val);
+    // }
+    console.log("i'm FlashcardList callback", songList, songList.size);
+    // console.log(items);
 
-    // editSearchTerm = (e) => {
-    //     this.setState({searchTerm: e.target.value})
-    //   }
-
-    // dynamicSearch = () => {
-    //     return flashcards.filter(name => name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-    //   }
+    callBack1(songList);
+  };
+    // let items = flashcards;
+    // let items = cloneDeep(flashcards);
+    let items = Samples;
+    const classes = useStyles();
     
 
     return (
@@ -55,14 +87,15 @@ export default function FlashcardList( { flashcards } ) {
         
     <div>
          <div className={classes.root}>
-         
-        {/* <input type="text" onChange={this.filtered.bind(this)}/> */} 
 
+      {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
       <Grid container spacing={3}> 
-      {items.map(flashcard => {
+      {items.map(flash => {
                   return (
                   <Grid item xs={3} >
-                    <Flashcard flashcard = {flashcard} key = {flashcard.id}> </Flashcard>
+                    
+                    <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2}> </Flashcard>
+                    {/* <Flashcard flashcard = {flashcard} key = {flashcard.id}> </Flashcard> */}
                   </Grid>
                   )
         })}

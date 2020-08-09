@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Tooltip from '@material-ui/core/Tooltip';
-import Ropes from './Ropes'
+import Ropes from './Ropes_8'
 import Shema from './Shema'
 import Master from './Master'
 import Slideshow from './Slideshow3';

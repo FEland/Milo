@@ -1,6 +1,7 @@
 export const Samples = [
     {
         id: 1,
+        checked: 1,
         image: "./images/kadma.png",
         options: ['1', '2','3'],
         sound: './sounds/kadma.wav',
@@ -9,14 +10,7 @@ export const Samples = [
     },
     {
         id: 2,
-        image: "./images/pashta.png",
-        options: ['1', '2','3'],
-        sound: './sounds/pashta.wav',
-        heb: ' פַּשְׁטָא֙',
-        eng: 'Pashta'
-    },
-    {
-        id: 3,
+        checked: 1,
         image: "./images/mapach_pashta.png",
         options: ['1', '2','3'],
         sound: './sounds/mapach_pashta.wav',
@@ -24,7 +18,17 @@ export const Samples = [
         eng: 'Mapach Pashta'
     },
     {
+        id: 3,
+        checked: 1,
+        image: "./images/pashta.png",
+        options: ['1', '2','3'],
+        sound: './sounds/pashta.wav',
+        heb: ' פַּשְׁטָא֙',
+        eng: 'Pashta'
+    },
+    {
         id: 4,
+        checked: 1,
         image: "./images/munach.png",
         options: ['1', '2','3'],
         sound: './sounds/munach.wav',
@@ -33,6 +37,7 @@ export const Samples = [
     },
     {
         id: 5,
+        checked: 1,
         image: "./images/munach_zakef_katon.png",
         options: ['1', '2','3'],
         sound: './sounds/munach_zakef_katon.wav',
@@ -41,6 +46,7 @@ export const Samples = [
     },
     {
         id: 6,
+        checked: 1,
         image: "./images/zakef_gadol.png",
         options: ['1', '2','3'],
         sound: './sounds/zakef_gadol.wav',
@@ -49,6 +55,7 @@ export const Samples = [
     },
     {
         id: 7,
+        checked: 1,
         image: "./images/etnachta.png",
         options: ['1', '2','3'],
         sound: './sounds/etnachta.wav',
@@ -57,6 +64,7 @@ export const Samples = [
     },
     {
         id: 8,
+        checked: 1,
         image: "./images/munach_etnachta.png",
         options: ['1', '2','3'],
         sound: './sounds/munach_etnachta.wav',
@@ -64,14 +72,16 @@ export const Samples = [
         eng: 'Munach Etnachta'
     },
     {
-        id: 10,
+        id: 9,
+        checked: 1,
         image: "./images/yetiv.png",
         options: ['1', '2','3'],
         sound: './sounds/yetiv.wav',
         heb:  ' יְ֚תִיב',
         eng: 'Yetiv'
     },{
-        id: 11,
+        id: 10,
+        checked: 1,
         image: "./images/darga_tvir.png",
         options: ['1', '2','3'],
         sound: './sounds/darga_tvir.wav',
@@ -79,7 +89,17 @@ export const Samples = [
         eng: 'Darga Tvir'
     },
     {
+        id: 11,
+        checked: 1,
+        image: "./images/mercha_tvir.png",
+        options: ['1', '2','3'],
+        sound: './sounds/mercha_tvir.wav',
+        heb: ' מֵרְכָ֥א תְּבִ֛יר',
+        eng: 'Mercha Tvir'
+    },
+    {
         id: 12,
+        checked: 1,
         image: "./images/munach_revii.png",
         options: ['1', '2','3'],
         sound: './sounds/munach_revii.wav',
@@ -88,6 +108,7 @@ export const Samples = [
     },
     {
         id: 13,
+        checked: 1,
         image: "./images/kadma_vazla.png",
         options: ['1', '2','3'],
         sound: './sounds/kadma_vazla.wav',
@@ -96,6 +117,7 @@ export const Samples = [
     },
     {
         id: 14,
+        checked: 1,
         image: "./images/gershayim.png",
         options: ['1', '2','3'],
         sound: './sounds/gershayim.wav',
@@ -103,15 +125,8 @@ export const Samples = [
         eng: 'gershayim'
     },
     {
-        id: 22,
-        image: "./images/mercha_tvir.png",
-        options: ['1', '2','3'],
-        sound: './sounds/mercha_tvir.wav',
-        heb: ' מֵרְכָ֥א תְּבִ֛יר',
-        eng: 'Mercha Tvir'
-    },
-    {
         id: 15,
+        checked: 1,
         image: "./images/mercha_tipcha.png",
         options: ['1', '2','3'],
         sound: './sounds/mercha_tipcha.wav',
@@ -120,6 +135,7 @@ export const Samples = [
     },
     {
         id: 16,
+        checked: 1,
         image: "./images/pazer.png",
         options: ['1', '2','3'],
         sound: './sounds/pazer.wav',
@@ -128,6 +144,7 @@ export const Samples = [
     },
     {
         id: 17,
+        checked: 1,
         image: "./images/tlisha_gdola.png",
         options: ['1', '2','3'],
         sound: './sounds/tlisha_ktana.wav',
@@ -136,6 +153,7 @@ export const Samples = [
     },
     {
         id: 18,
+        checked: 1,
         image: "./images/tlisha_ktana.png",
         options: ['1', '2','3'],
         sound: './sounds/tlisha_gdola.wav',
@@ -144,6 +162,7 @@ export const Samples = [
     },
     {
         id: 19,
+        checked: 1,
         image: "./images/zarka_segol.png",
         options: ['1', '2','3'],
         sound: './sounds/munach_zarka_segol.wav',
@@ -152,6 +171,7 @@ export const Samples = [
     },
     {
         id: 20,
+        checked: 1,
         image: "./images/sof_pasuk.png",
         options: ['1', '2','3'],
         sound: './sounds/sof_pasuk.wav',
@@ -160,6 +180,7 @@ export const Samples = [
     },
     {
         id: 21,
+        checked: 1,
         image: "./images/sof_aliya.png",
         options: ['1', '2','3'],
         sound: './sounds/sof_aliya.wav',
