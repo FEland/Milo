@@ -29,7 +29,7 @@
 
   quiz {
     border: 2px solid #e7e7e7;
-    font-size: x-large;
+    font-size: large;
     font-family: 'ShlomosemiStam';
     background-color: brown;
     color: rgb(204, 204, 204);
@@ -285,9 +285,22 @@ backup{
     /* overflow-y: auto; */
 
   }
+  hov:active {
+    color: yellow;
+    cursor: none;
+    /* font-size: 150%; */
+    background-color: rgb(33, 56, 6);
 
+  }
+  hov2:hover {
+    background-color: rgb(160, 96, 96);
+  }
+  vowel {
+    color: green;
+  }
   fl {
-    font-family: 'ShlomosemiStam';
+    /* font-family: 'ShlomosemiStam'; */
+    font-family:  serif;
   }
   fl3 {
     font-family: 'Times';

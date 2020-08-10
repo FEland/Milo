@@ -2,6 +2,8 @@ import React from 'react';
 import Player from './Player'
 import Player2 from './Player2'
 import Player3 from './Player3'
+import {Shemas} from './Effie';
+import Sophie from './Sophie';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
@@ -33,6 +35,8 @@ export default function Shema() {
     track: {},
   })(Switch);
 
+
+  // console.log(b);
   return (
     
     <div >
@@ -41,13 +45,13 @@ export default function Shema() {
           <h1>Practice the Shema!</h1>
         </div>
 
-
         <Grid container spacing={2} justify="center" alignItems="center"> 
             <Grid item  > <Player /> </Grid>
             <Grid item  > <Player2 /> </Grid>
             <Grid item  > <Player3 /> </Grid>
         </Grid>
 
+      <div>
       <Switch
         checked={state.toggle}
         onChange={handleChange}
@@ -70,10 +74,13 @@ export default function Shema() {
         name="toggleTranslation"
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />
-
+    </div>
 {!state.toggleTranslation ? 
-      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
-        {state.toggleTrope ? <>
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { }} >
+      {state.toggleTrope ? <Sophie p = {Shemas[0]}/> : <Sophie p = {Shemas[1]}/> }
+
+        {/* {state.toggleTrope ? <>
+
       שְׁמַ֖ע יִשְׂרָאֵ֑ל יְהוָ֥ה אֱלֹהֵ֖ינוּ יְהוָ֥ה ׀ אֶחָֽד׃<br/>
       <i> (בָּרוּךְ שֵׁם כְּבוֹד מַלְכוּתוֹ לְעוֹלָם וָעֶד)<br/></i>
       וְאָ֣הַבְתָּ֔ אֵ֖ת יְהוָ֣ה אֱלֹהֶ֑יךָ בְּכָל־לְבָבְךָ֥ וּבְכָל־נַפְשְׁךָ֖ וּבְכָל־מְאֹדֶֽךָ׃
@@ -89,7 +96,7 @@ export default function Shema() {
         וְשִׁנַּנְתָּם לְבָנֶיךָ וְדִבַּרְתָּ בָּם בְּשִׁבְתְּךָ בְּבֵיתֶךָ וּבְלֶכְתְּךָ בַדֶּרֶךְ וּבְשָׁכְבְּךָ וּבְקוּמֶךָ׃
         וּקְשַׁרְתָּם לְאוֹת עַל־יָדֶךָ וְהָיוּ לְטֹטָפֹת בֵּין עֵינֶיךָ׃
         וּכְתַבְתָּם עַל־מְזוּזֹת בֵּיתֶךָ וּבִשְׁעָרֶיךָ׃
-      </>}
+      </>} */}
       </quiz>:
       <quiz style= { { 'font-family': 'Times New Roman'} } >
 
@@ -110,8 +117,10 @@ export default function Shema() {
       </quiz>
 }
 {!state.toggleTranslation ? 
-      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
-        {state.toggleTrope ? <>
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { }} >
+      {state.toggleTrope ? <Sophie p = {Shemas[2]}/> : <Sophie p = {Shemas[3]}/> }
+
+        {/* {state.toggleTrope ? <>
 
       וְהָיָ֗ה אִם־שָׁמֹ֤עַ תִּשְׁמְעוּ֙ אֶל־מִצְוֺתַ֔י אֲשֶׁ֧ר אָנֹכִ֛י מְצַוֶּ֥ה אֶתְכֶ֖ם הַיּ֑וֹם לְאַהֲבָ֞ה אֶת־יְהוָ֤ה אֱלֹֽהֵיכֶם֙ וּלְעָבְד֔וֹ בְּכָל־לְבַבְכֶ֖ם וּבְכָל־נַפְשְׁכֶֽם׃
 וְנָתַתִּ֧י מְטַֽר־אַרְצְכֶ֛ם בְּעִתּ֖וֹ יוֹרֶ֣ה וּמַלְק֑וֹשׁ וְאָסַפְתָּ֣ דְגָנֶ֔ךָ וְתִֽירֹשְׁךָ֖ וְיִצְהָרֶֽךָ׃
@@ -134,7 +143,7 @@ export default function Shema() {
 וְלִמַּדְתֶּם אֹתָם אֶת־בְּנֵיכֶם לְדַבֵּר בָּם בְּשִׁבְתְּךָ בְּבֵיתֶךָ וּבְלֶכְתְּךָ בַדֶּרֶךְ וּבְשָׁכְבְּךָ וּבְקוּמֶךָ׃
 וּכְתַבְתָּם עַל־מְזוּזוֹת בֵּיתֶךָ וּבִשְׁעָרֶיךָ׃
 לְמַעַן יִרְבּוּ יְמֵיכֶם וִימֵי בְנֵיכֶם עַל הָאֲדָמָה אֲשֶׁר נִשְׁבַּע יְהוָה לַאֲבֹתֵיכֶם לָתֵת לָהֶם כִּימֵי הַשָּׁמַיִם עַל־הָאָרֶץ׃
-</>}
+</>} */}
 
       </quiz> :
 
@@ -170,8 +179,10 @@ export default function Shema() {
       </quiz>
 }
 {!state.toggleTranslation ? 
-      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} >
-        {state.toggleTrope ? <>
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { }} >
+      {state.toggleTrope ? <Sophie p = {Shemas[4]}/> : <Sophie p = {Shemas[5]}/> }
+
+        {/* {state.toggleTrope ? <>
 
       וַיֹּ֥אמֶר יְהוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃
 דַּבֵּ֞ר אֶל־בְּנֵ֤י יִשְׂרָאֵל֙ וְאָמַרְתָּ֣ אֲלֵהֶ֔ם וְעָשׂ֨וּ לָהֶ֥ם צִיצִ֛ת עַל־כַּנְפֵ֥י בִגְדֵיהֶ֖ם לְדֹרֹתָ֑ם וְנָֽתְנ֛וּ עַל־צִיצִ֥ת הַכָּנָ֖ף פְּתִ֥יל תְּכֵֽלֶת׃
@@ -185,7 +196,7 @@ export default function Shema() {
 וְהָיָה לָכֶם לְצִיצִת וּרְאִיתֶם אֹתוֹ וּזְכַרְתֶּם אֶת־כָּל־מִצְוֺת יְהוָה וַעֲשִׂיתֶם אֹתָם וְלֹא־תָתֻרוּ אַחֲרֵי לְבַבְכֶם וְאַחֲרֵי עֵינֵיכֶם אֲשֶׁר־אַתֶּם זֹנִים אַחֲרֵיהֶם׃
 לְמַעַן תִּזְכְּרוּ וַעֲשִׂיתֶם אֶת־כָּל־מִצְוֺתָי וִהְיִיתֶם קְדֹשִׁים לֵאלֹהֵיכֶם׃
 אֲנִי יְהוָה אֱלֹהֵיכֶם אֲשֶׁר הוֹצֵאתִי אֶתְכֶם מֵאֶרֶץ מִצְרַיִם לִהְיוֹת לָכֶם לֵאלֹהִים אֲנִי יְהוָה אֱלֹהֵיכֶם׃
-</>}
+</>} */}
 
       </quiz>:
   <quiz style= { { 'font-family': 'Times New Roman'} } >

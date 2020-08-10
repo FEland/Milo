@@ -54,7 +54,7 @@ export default function FlashcardList( { callBack1} ) {
         songList[i].checked ^= true;
     }
     callBack1(songList);
-    
+    // render(FlashcardList(callBack1));
   };
 
   const callBack2 = (val) => {
@@ -107,7 +107,7 @@ export default function FlashcardList( { callBack1} ) {
                   return (
                   <Grid item xs={3} >
                     
-                    <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2} > </Flashcard>
+                    <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2} state={state.toggle}> </Flashcard>
                     {/* <Flashcard flashcard = {flashcard} key = {flashcard.id}> </Flashcard> */}
                   </Grid>
                   )

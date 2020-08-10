@@ -20,6 +20,9 @@ export default function master ( ) {
                     width="50%" height="50%"
                     >
             </img>
+
+
+
             {/* <parsha_2 style={{backgroundColor: 'gray', color: 'orange'}}>
     1 When you enter the land that the LORD your God is giving you as a heritage, and you possess it and settle in it,
     <br></br>2 you shall take some of every first fruit of the soil, which you harvest from the land that the LORD your God is giving you, put it in a basket and go to the place where the LORD your God will choose to establish His name.

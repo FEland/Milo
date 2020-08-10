@@ -40,6 +40,7 @@ export default function Flashcard( {...props}) {
     const classes = useStyles();
       
     const [checked, setChecked] = React.useState(true);
+    // const [checked, setChecked] = React.useState(props.state);
   
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -55,6 +56,7 @@ export default function Flashcard( {...props}) {
 
 
   return (
+    
     <div className={classes.root}>
       <Paper className={classes.paper} >
         <Grid container spacing={2}>
