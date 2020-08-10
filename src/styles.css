@@ -4,6 +4,7 @@
     /* font-family: url(/assets/fonts/ShlomosemiStam.ttf); */
     text-align: center; 
     overflow-x: auto;
+    /* font-size: 2vw; */
   }
 @font-face {
     font-family: "ShlomosemiStam";
@@ -12,7 +13,8 @@
   }
 
   body {
-    background-color:#2f92a8;
+    background-color:#03313b;
+    /* background-color:#2f92a8; */
     font-size: x-large;
     text-align: center;
     display: flex;  
@@ -30,7 +32,6 @@
   quiz {
     border: 2px solid #e7e7e7;
     font-size: large;
-    font-family: 'ShlomosemiStam';
     background-color: brown;
     color: rgb(204, 204, 204);
     position: center;
@@ -38,6 +39,8 @@
     padding: 5px 32px;
     text-align: center;
     display: inline-block;
+    overflow-wrap: break-word;
+
   }
 
 @media screen and (max-width: 600px) {
@@ -100,6 +103,10 @@ backup{
   visibility: hidden;
 }
 
+boxy{
+  /* visibility: hidden; */
+  position: flex
+}
 @media screen and (max-width: 600px) {
   /* .MuiGrid-root {
     padding: 0mm;
@@ -289,15 +296,19 @@ backup{
     color: yellow;
     cursor: none;
     /* font-size: 150%; */
-    background-color: rgb(33, 56, 6);
+    background-color: rgb(13, 20, 6);
 
   }
   hov2:hover {
-    background-color: rgb(160, 96, 96);
+    cursor: none; 
+    background-color: rgba(160, 100, 96, 0.527);
   }
   vowel {
-    color: green;
+    /* color: rgb(143, 216, 79); */
+    color: rgb(223, 162, 57);
+
   }
+
   fl {
     /* font-family: 'ShlomosemiStam'; */
     font-family:  serif;

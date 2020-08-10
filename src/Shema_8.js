@@ -76,29 +76,29 @@ export default function Shema() {
       />
     </div>
 {!state.toggleTranslation ? 
-      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { }} >
-        {state.toggleTrope ? <Sophie p = {Shemas[0]}/> : <Sophie p = {Shemas[1]}/> }
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { 'font-family': 'ShlomosemiStam' }} >
+        {!state.toggleTrope ? <Sophie p = {Shemas[0]}/> : <Sophie p = {Shemas[1]}/> }
       </quiz>:
       <quiz style= { { 'font-family': 'Times New Roman'} } >
 
-      Hear, O Israel! The LORD is our God, the LORD is One.<br/>
+      {/* Hear, O Israel! The LORD is our God, the LORD is One.<br/>
         <i>(Blessed be the name of the glory of His kingdom forever and ever).</i><br/>
       You shall love the LORD your God with all your heart, with all your soul, and with all your might. 
       And these words which I command you today shall be upon your heart. 
       You shall teach them [deeply] to your children, 
       and you shall speak of them when you sit in your house and when you walk on the road, when you lie down and when you rise. 
       You shall bind them as a sign upon your hand, and they shall be for a reminder between your eyes [Tefillin]. 
-      And you shall write them upon the doorposts of your house and upon your gates [Mezuzot].
+      And you shall write them upon the doorposts of your house and upon your gates [Mezuzot]. */}
       </quiz>
 }
 {!state.toggleTranslation ? 
-      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { }} >
-        {state.toggleTrope ? <Sophie p = {Shemas[2]}/> : <Sophie p = {Shemas[3]}/> }
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { 'font-family': 'ShlomosemiStam' }} >
+        {!state.toggleTrope ? <Sophie p = {Shemas[2]}/> : <Sophie p = {Shemas[3]}/> }
       </quiz> :
 
       <quiz style= { { 'font-family': 'Times New Roman'} } >
 
-      And it will be, if you will diligently obey My commandments which I instruct you this day, 
+      {/* And it will be, if you will diligently obey My commandments which I instruct you this day, 
       to love the Lord your God and to serve Him with all your heart and with all your soul, 
       I will give rain for your land at the proper time, the early rain and the late rain, 
       and you will gather in your grain, your wine and your oil. 
@@ -113,31 +113,33 @@ export default function Shema() {
        when you lie down and when you rise. 
        And you shall inscribe them on the doorposts of your house and on your gates -
        so that your days and the days of your children may be prolonged 
-       on the land which the Lord swore to your fathers to give to them for as long as the heavens are above the earth.
+       on the land which the Lord swore to your fathers to give to them for as long as the heavens are above the earth. */}
 
       </quiz>
 }
 {!state.toggleTranslation ? 
-      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { }} >
-          {state.toggleTrope ? <Sophie p = {Shemas[4]}/> : <Sophie p = {Shemas[5]}/> }
+      <quiz style= { !state.toggle ? { 'font-family': 'Times New Roman', 'font-size': 'x-large'} : { 'font-family': 'ShlomosemiStam' }} >
+          {!state.toggleTrope ? <Sophie p = {Shemas[4]}/> : <Sophie p = {Shemas[6]}/> }
       </quiz>:
   <quiz style= { { 'font-family': 'Times New Roman'} } >
 
-  The Lord spoke to Moses, saying: Speak to the children of Israel
+  {/* The Lord spoke to Moses, saying: Speak to the children of Israel
    and tell them to make for themselves fringes on the corners of their garments throughout their generations, 
    and to attach a thread of blue on the fringe of each corner. They shall be to you as tzizit.
    And you shall look upon them and remember all the commandments of the Lord and fulfill them, 
    and you will not follow after your heart and after your eyes by which you go astray - 
    so that you may remember and fulfill all My commandments and be holy to your God. 
    I am the Lord your God who brought you out of the land of Egypt to be your God; 
-   I, the Lord, am your God. True.
+   I, the Lord, am your God. True. */}
   
   </quiz>
 }
+<img src="./images/AlephBetBanner.png" alt="icon" align="center" loading="lazy"  width="100%" />
 
     </div>
 
   );
+
 
 
 }
