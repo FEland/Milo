@@ -6,7 +6,13 @@ export default function master ( ) {
         <div style={{'color': 'white'}}>
             <h1 >Welcome to Harrison's Bar Mitzva Website! </h1>
             <h2 >Explore the Links Above</h2>
-            <img src="/Slides/Shema/02.jpg" 
+        <frontpage>
+        <img src="/Slides/Melech4.jpg" alt="frontpage" loading="lazy" 
+        />
+            
+        </frontpage>
+        {/* <div style={{'position':"absolute"}}> */}
+            {/* <img src="/Slides/Shema/02.jpg" 
                     alt="icon"
                     align="center"
                     loading="lazy"  
@@ -19,7 +25,9 @@ export default function master ( ) {
                     loading="lazy"  
                     width="50%" height="50%"
                     >
-            </img>
+            </img> */}
+
+
         </div>
 );
 }

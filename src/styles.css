@@ -52,6 +52,16 @@
 
   }
 
+frontpage {
+  
+  padding: 10px 10px;
+  position: center;
+  width: 80%;
+  background-color: brown;
+  display: inline-block; 
+
+}
+
 @media screen and (max-width: 600px) {
     body{
       font-size: small;
@@ -123,6 +133,8 @@ boxy{
   word-break: break-all;
   overflow-wrap: break-word;
   hyphens: auto;
+  margin: 10px auto;
+
   
 }
 @media screen and (max-width: 600px) {
