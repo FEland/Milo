@@ -122,7 +122,7 @@ export const Samples = [
         options: ['1', '2','3'],
         sound: './sounds/gershayim.wav',
         heb: ' גֵּרְשַׁ֞יִם',
-        eng: 'gershayim'
+        eng: 'Gershayim'
     },
     {
         id: 15,

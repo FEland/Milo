@@ -150,7 +150,10 @@ export const Shemas = [
     par_to_letter_list(third_plain),
     par_to_letter_list(third_trope),
     par_to_letter_list_stripped(third_plain, hebrewLetters),
-    third_eng
+    third_eng,
+    first_trope,
+    second_trope,
+    third_trope
 ]
 
 // export const Shemas = [

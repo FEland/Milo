@@ -11,25 +11,30 @@ import { purple } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
 
-export default function Shema() {
+import FlashcardList from "./FlashcardList_4";
+import { makeStyles, createStyles,} from "@material-ui/core/styles";
 
-  const [state, setState] = React.useState({
-    toggle: false,
-    toggleTranslation: false,
-    toggleTrope: false,
-    checked: false
-  });
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+        flexGrow: 1,
+    },
+    container: {
+      padding: "20px",
+      textAlign: "center"
+    },
+  })
+);
+
+export default function FE() {
+
+    const classes = useStyles();  
+    const [state, setState] = React.useState({toggle: false, toggleTranslation: false, toggleTrope: false, checked: false});
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-//   const [checked, setChecked] = React.useState(true);
-
-//   const handleCheck = (event) => {
-//     setChecked(event.target.checked);
-//   };
-  
   const PurpleSwitch = withStyles({
     switchBase: {
       color: 'white',
@@ -44,16 +49,21 @@ export default function Shema() {
     track: {},
   })(Switch);
 
-
-  // console.log(b);
   return (
     
     <div >
 
        <div style={{ color: 'white' }}> 
-          <h1>Practice the Shema!</h1>
+          <h1>The Shema</h1>
         </div>
+    <Grid container spacing={2}> 
+        <Grid item xs={12} sm={6}>
+        <div className={classes.root} style={{ color: 'white' }}>
+            <FlashcardList/>
+        </div>
+        </Grid>
 
+    <Grid item  xs={12} sm={6}>
         <Grid container spacing={2} justify="center" alignItems="center"> 
             <Grid item  > <Player /> </Grid>
             <Grid item  > <Player2 /> </Grid>
@@ -115,38 +125,14 @@ export default function Shema() {
             </quiz>
         :
         <quiz> {Shemas[11]}</quiz>
-        
     }
 
+    <img src="./images/AlephBetBanner.png" alt="icon" align="center" loading="lazy"  width="100%" />
 
+    <iframe title="u2ube" width="560" height="315" src="https://www.youtube.com/embed/IIwVrHG0Ut4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; full-screen" allowfullscreen="allowfullscreen"></iframe>
 
-
-
-
-
-
-
-    {/* {!state.toggleTranslation ? 
-        !state.toggleTrope ?
-            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}> <Sophie p = {Shemas[8]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam' }}> <Sophie p = {Shemas[10]}/> </quiz> 
-            : 
-            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}>
-                <Grid container spacing={2} justify="center" alignItems="center"> 
-                    <Grid item  >
-                        {!state.checked ? <Sophie p = {Shemas[9]}/> :  <Batsheva p = {Shemas[9]} />  }
-                    </Grid>
-                    <Grid item  >
-                        <Checkbox checked={state.checked} onChange={handleChange} color="primary" name="checked" inputProps={{ 'position' : 'right' }}/>
-                    </Grid>
-                </Grid>
-            </quiz>
-        :
-        <quiz> {Shemas[11]}</quiz>
-    } */}
-
-
-<img src="./images/AlephBetBanner.png" alt="icon" align="center" loading="lazy"  width="100%" />
-
+    </Grid>
+    </Grid>
     </div>
 
   );
@@ -154,3 +140,7 @@ export default function Shema() {
 
 
 }
+
+
+
+

@@ -11,7 +11,16 @@
     src: url(./fonts/ShlomoStam/ShlomoStam.ttf);
     
   }
-
+  .topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  .topRight {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
   body {
     background-color:#03313b;
     /* background-color:#2f92a8; */
@@ -66,12 +75,14 @@
     }
 }
   .MuiTabs-root{
-    font-size: x-small;
+    font-size: large;
     position: flex;
     /* align-items: stretch; */
-    border: 1px solid #e7e7e7;
+    border: 2px solid #e7e7e7;
     /* flex-direction: column; */
-    background-color: #c9ad7a;
+    /* background-color: #c9ad7a; */
+    background-color: rgb(151, 155, 137);
+    /* color: black; */
     /* position: sticky;
     position: -webkit-sticky;
     top: 0; */
@@ -104,8 +115,15 @@ backup{
 }
 
 boxy{
+
   /* visibility: hidden; */
-  position: flex
+  position: flex;
+  /* word-wrap: break-word; */
+  white-space: pre-line;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  
 }
 @media screen and (max-width: 600px) {
   /* .MuiGrid-root {
@@ -305,7 +323,10 @@ boxy{
   }
   vowel {
     /* color: rgb(143, 216, 79); */
-    color: rgb(223, 162, 57);
+    /* color: rgb(223, 162, 57); */
+    /* color: rgb(255, 255, 134); */
+    /* color: rgb(255, 255, 255); */
+    color: white
 
   }
 
