@@ -43,12 +43,11 @@ export default function FlashcardList( { callBack1} ) {
   // let songList = cloneDeep(flashcards);
   // let songList = new Map();
 
-  const [state, setState] = React.useState({
-    toggle: false,
-  });
+  const [flip, setFlip] = React.useState(false);
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setFlip(!flip);
+    // setState({ ...state, [event.target.name]: event.target.checked });
     var arrayLength = songList.length;
     for (var i = 0; i < arrayLength; i++) {
         songList[i].checked ^= true;
@@ -57,9 +56,13 @@ export default function FlashcardList( { callBack1} ) {
     // render(FlashcardList(callBack1));
   };
 
+  
+
   const callBack2 = (val) => {
     
     songList[val-1].checked ^= true;
+
+    callBack1(songList);
 
     // var arrayLength = songList.length;
     // for (var i = 0; i < arrayLength; i++) {
@@ -78,8 +81,6 @@ export default function FlashcardList( { callBack1} ) {
     // });
 
     // console.log("i'm FlashcardList callback", songList);
-    callBack1(songList);
-
   };
     // let items = flashcards;
     // let items = cloneDeep(flashcards);
@@ -94,7 +95,7 @@ export default function FlashcardList( { callBack1} ) {
          <div className={classes.root}>
 
             <Switch
-            checked={state.toggle}
+            checked={flip}
             onChange={handleChange}
             name="toggle"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -107,7 +108,7 @@ export default function FlashcardList( { callBack1} ) {
                   return (
                   <Grid item xs={3} >
                     
-                    <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2} state={state.toggle}> </Flashcard>
+                    <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2} flip={flip}> </Flashcard>
                     {/* <Flashcard flashcard = {flashcard} key = {flashcard.id}> </Flashcard> */}
                   </Grid>
                   )

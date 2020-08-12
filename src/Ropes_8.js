@@ -44,6 +44,10 @@ export default function Ropes ( ) {
 
     // let songList = {...Samples};
     const [checked, setChecked] = React.useState({songList});
+    
+    const callBack4 = (...val) => {
+      console.log("in Ropes callback4 starting w" + val, ...val);
+    }
 
     const callBack1 = (...val) => {
       console.log("in Ropes callback1 starting w" + val, ...val);
@@ -57,7 +61,6 @@ export default function Ropes ( ) {
       // Quiz.reloadQuiz(createQuiz(flashcard, 1));
       // if (!songList.includes(val.id)) {songList.push(val.id)}
       // else {songList.pop(val.id) }
-        
       // Quiz.items = songList;
       // console.log(val);
       // return (<p>HELP</p>);
@@ -92,7 +95,7 @@ export default function Ropes ( ) {
         </h2>
         {/* <FlashcardList flashcards = {Samples} checkedFlash = {checkedFlash}/> */}
         {/* <FlashcardList flashcards = {Samples} callBack1={callBack1}/> */}
-        <FlashcardList callBack1={callBack1}/>
+        <FlashcardList callBack1={callBack1} callBack4={callBack4}/>
 
 
         </div>

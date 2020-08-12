@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Checkbox from '@material-ui/core/Checkbox';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
@@ -38,12 +39,27 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Flashcard( {...props}) {
     const classes = useStyles();
-      
-    const [checked, setChecked] = React.useState(true);
-    // const [checked, setChecked] = React.useState(props.state);
+
+    let toggle = props.flashcard.checked;
+
+    const [center, setcEnter] = useState(props.flashcard.checked);
+
+  // const handleChange2 = (event) => {
+  //   setChecked(event.target.checked);
+  //   var arrayLength = songList.length;
+  //   for (var i = 0; i < arrayLength; i++) {
+  //       props.flashcard.checked ^= true;
+  //   }
+  //   callBack1(songList);
+  //   // render(FlashcardList(callBack1));
+  // };
+
   
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    // setChecked(event.target.checked);
+    // setEnter(!enter);
+    setcEnter(!center);
+    toggle ^= true;
     props.callBack2(props.flashcard.id);
     console.log("checked id", props.flashcard.id);
   };
@@ -53,6 +69,7 @@ export default function Flashcard( {...props}) {
     audioFile.play();
   };
   const song =  new Audio(props.flashcard.sound)
+
 
 
   return (
@@ -72,9 +89,10 @@ export default function Flashcard( {...props}) {
               </Grid>
 
             </Grid>
+
             <Grid item>
               {/* <Typography variant="subtitle1"> */}
-              <Checkbox checked={checked} onChange={handleChange}/>
+              <Checkbox checked={toggle} onChange={handleChange}/>
               {/* </Typography> */}
             </Grid>
           </Grid>
