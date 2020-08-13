@@ -11,7 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
+import { Link, Route, Switch, HashRouter } from "react-router-dom";
+
 // import Countdown from './countdown'; // /** This countdown component is from https://medium.com/@kristin_baumann/react-countdown-6455838b6faf */
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +26,7 @@ export default function Final(props) {
   const classes = useStyles();
 
   return (
-    <BrowserRouter>
+    <HashRouter>
     <div className={classes.root}>
 
     {/* <Countdown date={'2020-09-05T09:00:00'} text='Ki Tavo Bar Mitzva Countdown'  /> */}
@@ -93,7 +94,7 @@ export default function Final(props) {
     Built by Effie Landau. No recordings or lectures may be shared without my written consent.</h6>
     </div>
     
-  </BrowserRouter>
+  </HashRouter>
   
   
 
