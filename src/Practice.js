@@ -31,9 +31,33 @@ export default function FE() {
     const classes = useStyles();  
     const [state, setState] = React.useState({toggle: false, toggleTranslation: false, toggleTrope: false, checked: false});
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+    const handleChange = (event) => {
+
+        if (event.target.name === 'checked') {
+            setState(state.toggleTrope = true );
+            setState(state.toggle = false );
+            setState(state.toggleTranslation = false );
+        }
+        if (event.target.name === 'toggleTrope') {
+            setState(state.checked = false );
+            setState(state.toggle = false );
+            setState(state.toggleTranslation = false );
+        }
+        if (event.target.name === 'toggleTranslation') {
+            setState(state.toggle = false );
+            setState(state.toggleTrope = false );
+            setState(state.checked = false );
+        }
+        if (event.target.name === 'toggle') {
+            setState(state.toggleTranslation = false );
+            setState(state.toggleTrope = false );
+            setState(state.checked = false );
+        }
+    
+        setState({ ...state, [event.target.name]: event.target.checked });
+    
+      };
+    
 
   const PurpleSwitch = withStyles({
     switchBase: {

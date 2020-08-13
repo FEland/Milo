@@ -21,7 +21,30 @@ export default function Shema() {
   });
 
   const handleChange = (event) => {
+
+    if (event.target.name === 'checked') {
+        setState(state.toggleTrope = true );
+        setState(state.toggle = false );
+        setState(state.toggleTranslation = false );
+    }
+    if (event.target.name === 'toggleTrope') {
+        setState(state.checked = false );
+        setState(state.toggle = false );
+        setState(state.toggleTranslation = false );
+    }
+    if (event.target.name === 'toggleTranslation') {
+        setState(state.toggle = false );
+        setState(state.toggleTrope = false );
+        setState(state.checked = false );
+    }
+    if (event.target.name === 'toggle') {
+        setState(state.toggleTranslation = false );
+        setState(state.toggleTrope = false );
+        setState(state.checked = false );
+    }
+
     setState({ ...state, [event.target.name]: event.target.checked });
+
   };
 
 //   const [checked, setChecked] = React.useState(true);

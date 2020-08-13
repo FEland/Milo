@@ -6,7 +6,7 @@ import Ropes from './Ropes_8';
 import Shema from './Shema_4';
 import Master from './Master';
 import Slideshow from './Slideshow3';
-import FE from './FE';
+import Practice from './Practice';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -79,7 +79,7 @@ export default function Final(props) {
               <Route path="/Shema" render={() => <div> <Shema/> </div>} />
               <Route path="/Lectures" render={() => <div> <Slideshow/> </div>} />
               <Route path="/Tropes" render={() => <div> <Ropes/>  </div>} />
-              <Route path="/Practice" render={() => <div> <FE/>  </div>} />
+              <Route path="/Practice" render={() => <div> <Practice/>  </div>} />
 
               {/* <Route path="/" render={() => <div> <MainScreen/> </div>} /> */}
               <Route path="/" render={() => <div> <Master/> </div>} />

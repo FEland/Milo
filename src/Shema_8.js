@@ -18,7 +18,16 @@ export default function Shema() {
   });
 
   const handleChange = (event) => {
+
+
+    // console.log(event.target.name);
+
+    // if (event.target.name === state.toggleTranslation){
+    //   console.log("huuuuu");
+    // }
+
     setState({ ...state, [event.target.name]: event.target.checked });
+
   };
   
   const PurpleSwitch = withStyles({
@@ -35,8 +44,6 @@ export default function Shema() {
     track: {},
   })(Switch);
 
-
-  // console.log(b);
   return (
     
     <div >
