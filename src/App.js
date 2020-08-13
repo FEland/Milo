@@ -40,6 +40,7 @@ export default function Final(props) {
               <Grid container spacing={3}> 
                 <Grid item xs={2} >
                   <div class="topleft">
+                  {/* TODO REMOVE PIC ON OPEN PAGE */}
                   <Link to="/Practice">
                       <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                   </Link>

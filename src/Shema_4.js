@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react'
 import Player from './Player_8';
 import {Songs, Shemas} from './Effie';
 import Sophie, {Batsheva} from './Sophie';
@@ -8,6 +8,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { purple } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
+// import ReactColorPicker from '@super-effective/react-color-picker'; //https://github.com/super-effective/react-color-picker
+import ColorModal from './ColorModal';
 
 export default function Shema() {
 
@@ -45,6 +47,7 @@ export default function Shema() {
 
   };
 
+
 //   const [checked, setChecked] = React.useState(true);
 
 //   const handleCheck = (event) => {
@@ -65,13 +68,19 @@ export default function Shema() {
     track: {},
   })(Switch);
 
+  const [color, setColor] = useState('#b7bfbe');
+//   let color = 'white';
 
+  const callBack = (...val) => {
+    setColor(val);
+  }
   // console.log(b);
   return (
     
     <div >
 
        <div style={{ color: 'white' }}> 
+        {/* <div style={{ color: color }}>  */}
           <h1>Practice the Shema!</h1>
         </div>
 
@@ -95,47 +104,49 @@ export default function Shema() {
             <Tooltip title="Highlight Trope" arrow placement="down">
                 <Checkbox checked={state.checked} onChange={handleChange} color='secondary' name="checked" inputProps={{ 'position' : 'right' }}/>
             </Tooltip>
+            <Tooltip title="Adjust Text Color" arrow placement="down">
+                 <ColorModal color = {color} callBack = {callBack} />
+            </Tooltip> 
             <Tooltip title="See English Translation" arrow placement="right">
                 <Switch checked={state.toggleTranslation} onChange={handleChange}
                     color="primary" name="toggleTranslation"inputProps={{ 'aria-label': 'primary checkbox' }}
                 />
             </Tooltip>
-
         </div>
 
     {/* 1st Paragraph */}
     {!state.toggleTranslation ? 
         !state.toggleTrope ?
-            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}> <Sophie p = {Shemas[0]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam' }}> <Sophie p = {Shemas[2]}/> </quiz> 
+            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}> <Sophie p = {Shemas[0]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam', 'color': color }}> <Sophie p = {Shemas[2]}/> </quiz> 
             : 
-            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}>
+            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>
                 {state.checked ? <Sophie p = {Shemas[1]}/> :  <Batsheva p = {Shemas[1]} />  }
             </quiz>
         :
-        <quiz> {Shemas[3]}</quiz>
+        <quiz style = {{ 'color': color}}> {Shemas[3]}</quiz>
     }
     
     {/* 2nd Paragraph */}
     {!state.toggleTranslation ? 
         !state.toggleTrope ?
-            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}> <Sophie p = {Shemas[4]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam' }}> <Sophie p = {Shemas[6]}/> </quiz> 
+            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}> <Sophie p = {Shemas[4]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam', 'color': color }}> <Sophie p = {Shemas[6]}/> </quiz> 
             : 
-            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}>
+            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>
                 {state.checked ? <Sophie p = {Shemas[5]}/> :  <Batsheva p = {Shemas[5]} />  }
             </quiz>
         :
-        <quiz> {Shemas[7]}</quiz>
+        <quiz style = {{ 'color': color}}> {Shemas[7]}</quiz>
     }
     {/* 3rd Paragraph */}
     {!state.toggleTranslation ? 
         !state.toggleTrope ?
-            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}> <Sophie p = {Shemas[8]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam' }}> <Sophie p = {Shemas[10]}/> </quiz> 
+            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}> <Sophie p = {Shemas[8]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam', 'color': color }}> <Sophie p = {Shemas[10]}/> </quiz> 
             : 
-            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large'}}>    
+            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>    
                 {state.checked ? <Sophie p = {Shemas[9]}/> :  <Batsheva p = {Shemas[9]} />  }
             </quiz>
         :
-        <quiz> {Shemas[11]}</quiz>
+        <quiz style = {{ 'color': color}}> {Shemas[11]}</quiz>
         
     }
 

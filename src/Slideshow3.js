@@ -19,20 +19,20 @@ function importAll(r) {
   return r.keys().map(r);
 }
 
-const Mitzvas = [importAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides/Mitzvas/Mitzvas.pdf'];
-const Neshama = [importAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides/Neshama/Neshama.pdf'];
-const Abraham = [importAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides/Abraham/Abraham.pdf'];
-const Bereishit = [importAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides/Bereishit/Creation.pdf'];
-const Brachas = [importAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides/Brachas/Brachas.pdf'];
-const YomYeru = [importAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides/YomYeru/YomYeru.pdf'];
-const Tishbav = [importAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides/Tishbav/Tishbav.pdf'];
-const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides/Shema/Shema.pdf'];
-const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf'];
-const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf'];
-const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf'];
-const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf'];
-const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf'];
-const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf'];
+const Mitzvas = [importAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides/Mitzvas/Mitzvas.pdf', '8/8', 1];
+const Neshama = [importAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides/Neshama/Neshama.pdf', '8/8', 2];
+const Abraham = [importAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides/Abraham/Abraham.pdf', '8/8', 3];
+const Bereishit = [importAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides/Bereishit/Creation.pdf', '8/8', 4];
+const Brachas = [importAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides/Brachas/Brachas.pdf', '8/8', 5];
+const YomYeru = [importAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides/YomYeru/YomYeru.pdf', '8/8', 6];
+const Tishbav = [importAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides/Tishbav/Tishbav.pdf', '8/8', 7];
+const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides/Shema/Shema.pdf', '8/8', 8];
+const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf', '8/8', 9];
+const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf', '8/8', 10];
+const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf', '8/8', 11];
+const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf', '8/8', 12];
+const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf', '8/8', 13];
+const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf', '8/8', 14];
 const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 
@@ -50,12 +50,12 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center"
     },
     grid: {
-      padding: theme.spacing(2),
-      width: 500,
-      height: 450,
-      direction: "row",
-      justify: "center",
-      alignItems: "center",
+      // // padding: theme.spacing(2),
+      // width: 500,
+      // height: 450,
+      // direction: "row",
+      // justify: "center",
+      // alignItems: "center",
     },
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
@@ -73,7 +73,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
       <div>
 
         <div>
-        <Grid container spacing={4} justify="space-between" alignItems="center"> 
+        <Grid container spacing={2} justify="space-between" alignItems="center"> 
             <Grid item >
               <Button variant="contained" color="primary" 
               style={{fontSize: 20 }} 
@@ -90,6 +90,9 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
               </a>
               </Button>
             </Grid>
+            <Grid item >
+              {lesson[3]}
+            </Grid>
           </Grid>
         </div>
         <AutoRotatingCarousel
@@ -104,7 +107,8 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
             {lesson[0].map(image => {
                         return (
                         <Slide
-                        media={<img key={image} src={image} alt={image} width='150%'/>}
+                        media={<img src={image} alt={image} width='150%'/>}
+                        // media={<img key={image} src={image} alt={image} width='150%'/>}
                         mediaBackgroundStyle={{ backgroundColor: red[400] }}
                         style={{backgroundColor: red[600]}}
                         />
@@ -121,7 +125,6 @@ export default function Slideshow(){
   const classes = useStyles();
 
   const down = (pdf, title) => {
-    console.log("HIT IMAGE");
     return <a href={pdf} download={title}>aasdfas</a>
   }
   
