@@ -1,8 +1,6 @@
 import React from 'react';
-import Player from './Player'
-import Player2 from './Player2'
-import Player3 from './Player3'
-import {Shemas} from './Effie';
+import Player from './Player_8';
+import {Songs, Shemas} from './Effie';
 import Sophie, {Batsheva} from './Sophie';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
@@ -78,9 +76,9 @@ export default function Shema() {
         </div>
 
         <Grid container spacing={2} justify="center" alignItems="center"> 
-            <Grid item  > <Player /> </Grid>
-            <Grid item  > <Player2 /> </Grid>
-            <Grid item  > <Player3 /> </Grid>
+            <Grid item > <Player {...Songs[0]} /> </Grid>
+            <Grid item > <Player {...Songs[1]} /> </Grid>
+            <Grid item > <Player {...Songs[2]} /> </Grid>
         </Grid>
 
         <div>

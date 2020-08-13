@@ -137,8 +137,36 @@ I, the Lord, am your God. True.`
 // const _third_plain = par_to_letter_list(third_plain);
 // const _sarahsue = par_to_letter_list_stripped(third_plain, hebrewLetters);
 
+export const Songs = [
 
-export const Shemas = [
+    {
+        id: 1,
+        label: "1st Shema Paragraph",
+        title1: "1st Paragraph - just Hebrew",
+        song1: "./sounds/1-plain.mp3", 
+        title2: "1st Paragraph - with Trope",
+        song2: "./sounds/1-trope.mp3",
+    },
+    {
+        id: 2,
+        label: "2nd Shema Paragraph",
+        title1: "2nd Paragraph - just Hebrew",
+        song1: "./sounds/2-plain.mp3", 
+        title2: "2nd Paragraph - with Trope",
+        song2: "./sounds/2-trope.mp3",
+    },  
+    {
+        id: 3,
+        label: "3rd Shema Paragraph",
+        title1: "3rd Paragraph - just Hebrew",
+        song1: "./sounds/3-plain.mp3", 
+        title2: "3rd Paragraph - with Trope",
+        song2: "./sounds/3-trope.mp3",
+    }
+
+]
+
+ export const Shemas = [
     par_to_letter_list(first_plain),
     par_to_letter_list(first_trope),
     par_to_letter_list_stripped(first_plain, hebrewLetters),
