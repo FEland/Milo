@@ -52,10 +52,16 @@ export default function Flashcard( {...props}) {
 
 
   var audio = new Audio();
+  const [playing, setPlaying] = React.useState(false);
 
   audio.addEventListener('playing', function () {
     setLoading(false);
-}, false);
+    setPlaying(true);
+  }, false);
+
+  audio.addEventListener('ended', function () {
+    setPlaying(false);
+  }, false);
 
   const playSound = (song) => {
       // new Audio(song).play();
@@ -88,6 +94,17 @@ export default function Flashcard( {...props}) {
               <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
                     <fl>{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
+              {playing ?  
+                <Grid item>
+                  <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7">
+                  <g fill="#000000">
+                    <rect id="bar1" transform="translate(0.5, 6.0) rotate(180.0) translate(-0.5, -6.0) " x="0" y="5" width="1" height="2" />
+                    <rect id="bar2" transform="translate(3.5, 4.5) rotate(180.0) translate(-3.5, -4.5) " x="3" y="2" width="1" height="5" />
+                    <rect id="bar3" transform="translate(6.5, 3.5) rotate(180.0) translate(-6.5, -3.5) " x="6" y="0" width="1" height="7" />
+                    <rect id="bar4" transform="translate(9.5, 5.0) rotate(180.0) translate(-9.5, -5.0) " x="9" y="3" width="1" height="4" />
+                  </g>
+                </svg>
+                 </Grid>  : ""}
             </Grid>
           </Grid>
         </Grid>

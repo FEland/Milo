@@ -45,7 +45,7 @@ export default function ChromeSite(props) {
                     </div>
                   </Grid>
                 <Grid item xs={8} >
-                  <Tabs value={location.pathname} indicatorColor="primary" textColor="primary" centered > 
+                  <Tabs value={location.pathname}  textColor="primary" variant="fullWidth" centered > 
                     <Tooltip title="Practice the Shema" arrow placement="left">
                       <Tab label="Shema" component={Link} to="/Shema" />
                     </Tooltip>
