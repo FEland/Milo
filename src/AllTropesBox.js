@@ -128,7 +128,7 @@ export default function AllTropesBox( ) {
             <Grid container spacing={2} > 
             
                 <Grid item xs={2}>
-                <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.mp3' />
+                <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.m4a' />
 
                      <Grid container direction='row' spacing={12}>
                         <Grid item>

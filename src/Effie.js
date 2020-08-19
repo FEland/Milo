@@ -143,25 +143,25 @@ export const Songs = [
         id: 1,
         label: "1st Shema Paragraph",
         title1: "1st Paragraph - just Hebrew",
-        song1: "./sounds/1-plain.mp3", 
+        song1: "./sounds/1-plain.m4a", 
         title2: "1st Paragraph - with Trope",
-        song2: "./sounds/1-trope.mp3",
+        song2: "./sounds/1-trope.m4a",
     },
     {
         id: 2,
         label: "2nd Shema Paragraph",
         title1: "2nd Paragraph - just Hebrew",
-        song1: "./sounds/2-plain.mp3", 
+        song1: "./sounds/2-plain.m4a", 
         title2: "2nd Paragraph - with Trope",
-        song2: "./sounds/2-trope.mp3",
+        song2: "./sounds/2-trope.m4a",
     },  
     {
         id: 3,
         label: "3rd Shema Paragraph",
         title1: "3rd Paragraph - just Hebrew",
-        song1: "./sounds/3-plain.mp3", 
+        song1: "./sounds/3-plain.m4a", 
         title2: "3rd Paragraph - with Trope",
-        song2: "./sounds/3-trope.mp3",
+        song2: "./sounds/3-trope.m4a",
     }
 
 ]

@@ -155,7 +155,7 @@ export const Samples = [
         id: 19,
         checked: 1,
         image: "./images/psik.png",
-        sound: './sounds/psik.mp3',
+        sound: './sounds/psik.m4a',
         heb:  ' פְּסִיק ׀ ',
         eng: 'Psik'
     },
