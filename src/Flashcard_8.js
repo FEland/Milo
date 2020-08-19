@@ -113,7 +113,6 @@ export default function Flashcard( {...props}) {
         <Grid container spacing={2}>
           {/* <Grid item> */}
             <ButtonBase className={classes.image}>
-            {load ? <CircularProgress color="secondary" /> : ""}
 
             <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(props.flashcard.sound) }}  onMouseOver={() => {setFlip(!flip)}}/>
 
@@ -129,11 +128,17 @@ export default function Flashcard( {...props}) {
 
             </Grid>
 
+            <Grid item xs container direction="column" spacing={2}>
+
             <Grid item>
-              {/* <Typography variant="subtitle1"> */}
               <Checkbox checked={toggle} onChange={handleChange}/>
 
-              {/* </Typography> */}
+              </Grid>
+              <Grid item>
+
+              {load ? <CircularProgress color="secondary" /> : ""}
+
+            </Grid>
             </Grid>
 
             {/* <Slider id="demo"

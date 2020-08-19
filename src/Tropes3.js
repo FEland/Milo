@@ -111,7 +111,7 @@ export const Samples = [
         id: 14,
         checked: 1,
         image: "./images/azla_gereish.png",
-        sound: './sounds/azla_gereish.mp3',
+        sound: './sounds/azla_gereish.m4a',
         heb:  '  אַזְלָא־גֵּ֜רֵשׁ ',
         eng: 'Azla Gereish'
     },
