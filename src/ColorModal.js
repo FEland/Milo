@@ -26,6 +26,34 @@ import IconButton from "@material-ui/core/Button";
 
 // }
 
+
+// export function microtaskDebounce(fn) {
+//   let called = false
+//   return () => {
+//     if (called) {
+//       return
+//     }
+//     called = true
+//     window.Promise.resolve().then(() => {
+//       called = false
+//       fn()
+//     })
+//   }
+// }
+
+// export function taskDebounce(fn) {
+//   let scheduled = false;
+//   return () => {
+//     if (!scheduled) {
+//       scheduled = true;
+//       setTimeout(() => {
+//         scheduled = false;
+//         fn();
+//       }, timeoutDuration);
+//     }
+//   };
+// }
+
 export default function ColorModal({callBack}) {
 
   const [open, setOpen] = React.useState(false);
@@ -56,6 +84,7 @@ export default function ColorModal({callBack}) {
   var onColorChange2 = debounce(function(newColor) {
     handleColor(newColor);
   }, 150);
+
 
   // const onColorChange = (updatedColor) => {
   //   throttle2(handleColor(updatedColor), 200);
