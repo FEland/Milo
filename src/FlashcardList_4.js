@@ -2,7 +2,7 @@ import React from 'react'
 import Flashcard from "./Flashcard_4";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import {Samples} from './Tropes';
+import {Samples} from './Tropes3';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,6 +26,13 @@ export default function FlashcardList( ) {
 
     const classes = useStyles();
     
+    let volume = .5; //delete me later and uncomment below
+  // const [volume, setVolume] = React.useState(.5);
+//   const handleVolumeChange = (event, newValue) => {
+//     setVolume(newValue);
+//     // console.log("vol in list is ", volume);
+// };
+
 
     return (
 
@@ -34,11 +41,15 @@ export default function FlashcardList( ) {
          <div className={classes.root}>
 
       <Grid container spacing={3}> 
+
+      {/* <Slider  volume={volume} onChange={handleVolumeChange} 
+                    defaultValue={.5} step={.1} min={0} max={1} /> */}
+
       {songList.map(flash => {
                   return (
                   <Grid item xs={3} >
                     
-                    <Flashcard flashcard = {flash} key = {flash.id}> </Flashcard>
+                    <Flashcard flashcard = {flash} key = {flash.id} volume={volume}> </Flashcard>
                   </Grid>
                   )
         })}

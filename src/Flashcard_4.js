@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
@@ -41,12 +43,33 @@ export default function Flashcard( {...props}) {
       
 
   const [flip, setFlip] = useState(false);
-  const playSound = audioFile => {
-    audioFile.play();
-  };
+  // const playSound = audioFile => {
+  //   audioFile.play();
+  // };
 
-  const song =  new Audio(props.flashcard.sound)
+  // const song =  new Audio(props.flashcard.sound)
+  const [load, setLoading] = React.useState(false);
 
+
+  var audio = new Audio();
+
+  audio.addEventListener('playing', function () {
+    setLoading(false);
+}, false);
+
+  const playSound = (song) => {
+      // new Audio(song).play();
+      setLoading(true);
+
+      audio.src = song;
+
+      audio.preload = "metadata";
+      audio.playbackRate = 1;
+      audio.volume = props.volume;
+      audio.controls = true;
+      audio.play();
+
+    };
 
   return (
     
@@ -55,12 +78,14 @@ export default function Flashcard( {...props}) {
         <Grid container spacing={2}>
           {/* <Grid item> */}
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(song) }}  onMouseOver={() => {setFlip(!flip)}}/>
+            {load ? <CircularProgress color="secondary" /> : ""}
+
+              <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(props.flashcard.sound) }}  onMouseOver={() => {setFlip(!flip)}}/>
             </ButtonBase>
           {/* </Grid> */}
           <Grid item  sm container>
             <Grid item xs container direction="column">
-              <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} >
+              <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
                     <fl>{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
             </Grid>
