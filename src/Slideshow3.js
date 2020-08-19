@@ -19,20 +19,24 @@ function importAll(r) {
   return r.keys().map(r);
 }
 
-const Mitzvas = [importAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides/Mitzvas/Mitzvas.pdf', '8/8', 1];
-const Neshama = [importAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides/Neshama/Neshama.pdf', '8/8', 2];
-const Abraham = [importAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides/Abraham/Abraham.pdf', '8/8', 3];
-const Bereishit = [importAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides/Bereishit/Creation.pdf', '8/8', 4];
-const Brachas = [importAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides/Brachas/Brachas.pdf', '8/8', 5];
-const YomYeru = [importAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides/YomYeru/YomYeru.pdf', '8/8', 6];
-const Tishbav = [importAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides/Tishbav/Tishbav.pdf', '8/8', 7];
-const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides/Shema/Shema.pdf', '8/8', 8];
-const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf', '8/8', 9];
-const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf', '8/8', 10];
-const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf', '8/8', 11];
-const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf', '8/8', 12];
-const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf', '8/8', 13];
-const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf', '8/8', 14];
+function sizeofAll(r) {
+  return r.keys().map(r).length + ' slides';
+}
+
+const Mitzvas = [importAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides/Mitzvas/Mitzvas.pdf', sizeofAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), 1];
+const Neshama = [importAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides/Neshama/Neshama.pdf', sizeofAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), 2];
+const Abraham = [importAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides/Abraham/Abraham.pdf', sizeofAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), 3];
+const Bereishit = [importAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides/Bereishit/Creation.pdf', sizeofAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), 4];
+const Brachas = [importAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides/Brachas/Brachas.pdf', sizeofAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), 5];
+const YomYeru = [importAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides/YomYeru/YomYeru.pdf', sizeofAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), 6];
+const Tishbav = [importAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides/Tishbav/Tishbav.pdf', sizeofAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), 7];
+const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides/Shema/Shema.pdf', sizeofAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), 8];
+const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf', sizeofAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), 9];
+const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf', sizeofAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), 10];
+const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf', sizeofAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), 11];
+const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf', sizeofAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), 12];
+const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf', sizeofAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), 13];
+const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf', sizeofAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), 14];
 const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 
