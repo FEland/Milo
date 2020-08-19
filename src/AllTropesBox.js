@@ -140,7 +140,8 @@ export default function AllTropesBox( ) {
                             onChange={handleVolumeChange} 
                             defaultValue={.5}
                             step={.1} min={0} max={1} 
-                            valueLabelDisplay="auto" />
+                            // valueLabelDisplay="auto" 
+                            />
                         </Grid>
                         <Grid item>
                         <VolumeUp />
