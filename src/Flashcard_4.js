@@ -84,8 +84,6 @@ export default function Flashcard( {...props}) {
         <Grid container spacing={2}>
           {/* <Grid item> */}
             <ButtonBase className={classes.image}>
-            {load ? <CircularProgress color="secondary" /> : ""}
-
               <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(props.flashcard.sound) }}  onMouseOver={() => {setFlip(!flip)}}/>
             </ButtonBase>
           {/* </Grid> */}
@@ -94,6 +92,7 @@ export default function Flashcard( {...props}) {
               <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
                     <fl>{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
+              {load ? <CircularProgress color="primary" /> : ""}
               {playing ?  
                 <Grid item>
                   <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7">

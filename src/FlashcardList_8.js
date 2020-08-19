@@ -6,6 +6,7 @@ import {Samples} from './Tropes3';
 import Switch from '@material-ui/core/Switch';
 import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
+import Hidden from '@material-ui/core/Hidden';
 
 // import Slider from "@material-ui/core/Slider";
 
@@ -127,13 +128,26 @@ export default function FlashcardList( { callBack1} ) {
 
 
       {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
-      <Grid container spacing={3} direction='row-reverse' > 
+      <Grid container spacing={2} direction='row-reverse' > 
       {songList.map(flash => {
                   return (
-                  <Grid item xs={3} >
+                    // <Hidden smUp>
+                    <>
+                    <Hidden smDown>
+
+                    <Grid item xs={3} >
+                      
+                      <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2} flip={flip} volume={volume}> </Flashcard>
+                    </Grid>
+                  </Hidden>
+                  <Hidden mdUp>
+
+                  <Grid item xs={4} >
                     
                     <Flashcard flashcard = {flash} key = {flash.id} callBack2={callBack2} flip={flip} volume={volume}> </Flashcard>
                   </Grid>
+                </Hidden>
+                  </>
                   )
         })}
         

@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
       padding: "20px",
       textAlign: "center"
     },
+    cover: {
+      height: "100%",
+    },
     grid: {
       // // padding: theme.spacing(2),
       // width: 500,
@@ -80,7 +83,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
         <Grid container spacing={2} justify="space-between" alignItems="center"> 
             <Grid item >
               <Button variant="contained" color="primary" 
-              style={{fontSize: 20 }} 
+              style={{fontSize: '1.5vw' }} 
               onClick={() => setHandleOpen({ open: true })} 
               startIcon={<OpenInNewIcon />}> 
                 {lesson[1]} 
@@ -90,7 +93,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
 
               <Button variant="contained" color="secondary" >
               <a href={lesson[2]} download={lesson[1]}>
-              <CloudDownloadIcon style={{ color: blue[500], fontSize: 30 }} />
+              <CloudDownloadIcon style={{ color: blue[500], fontSize: '2.5vw' }} />
               </a>
               </Button>
             </Grid>
@@ -143,7 +146,7 @@ export default function Slideshow(){
       <div>
       <Grid container spacing={4} justify="space-between" alignItems="center"> 
         {slideshows.map(lesson => { return (
-              <Grid item xs={3} sm={4}>
+              <Grid item sm={4} xs={6}>
 
                   <Card className={classes.root} >
 
