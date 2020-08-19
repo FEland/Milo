@@ -66,6 +66,15 @@ export default function AllTropesBox( ) {
   const [volume, setVolume] = React.useState(.5);
   var audio = new Audio();
 
+  const [playing, setPlaying] = React.useState(false);
+
+    audio.addEventListener('playing', function () {
+        setPlaying(true);
+    }, false);
+
+    audio.addEventListener('ended', function () {
+        setPlaying(false);
+    }, false);
 
     const classes = useStyles();
     
@@ -135,11 +144,9 @@ export default function AllTropesBox( ) {
                         <VolumeDown />
                         </Grid>
                         <Grid item xs={4}>
-                        <Slider id="demo"
-                            volume={volume} 
-                            onChange={handleVolumeChange} 
-                            defaultValue={.5}
-                            step={.1} min={0} max={1} 
+                        <Slider 
+                            volume={volume} onChange={handleVolumeChange} 
+                            defaultValue={.5} step={.1} min={0} max={1} 
                             // valueLabelDisplay="auto" 
                             />
                         </Grid>
@@ -168,6 +175,18 @@ export default function AllTropesBox( ) {
                             {/* TODO COLOR */}
                             {/* <ColorModal color = {color} callBack = {callBack} /> */}
                         </Grid>
+                        
+                    {playing ?  
+                        <Grid item>
+                        <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7">
+                        <g fill="#000000">
+                            <rect id="bar1" transform="translate(0.5, 6.0) rotate(180.0) translate(-0.5, -6.0) " x="0" y="5" width="1" height="2" />
+                            <rect id="bar2" transform="translate(3.5, 4.5) rotate(180.0) translate(-3.5, -4.5) " x="3" y="2" width="1" height="5" />
+                            <rect id="bar3" transform="translate(6.5, 3.5) rotate(180.0) translate(-6.5, -3.5) " x="6" y="0" width="1" height="7" />
+                            <rect id="bar4" transform="translate(9.5, 5.0) rotate(180.0) translate(-9.5, -5.0) " x="9" y="3" width="1" height="4" />
+                        </g>
+                        </svg> </Grid>  : ''}
+
                     </Grid>
 
                     
@@ -190,11 +209,11 @@ export default function AllTropesBox( ) {
             {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
             <Tooltip title="Click the words to hear indivual recordings 
             or listen to all of them by pressing the button on the far left" arrow placement="right">
-                <div style={{color:'blue'}}> &lt;&lt;&lt; </div>
+                <div style={{color:'blue', 'font-size':'2vw'}}> &lt;&lt;&lt; </div>
             </Tooltip>
                     {songList.map(flash => {
                                 return (
-                                    <fl onClick = {() => {playSound(flash.sound)}}>
+                                    <fl style={{ 'font-size':'2vw'}} onClick = {() => {playSound(flash.sound)}}>
                                     {/* TODO COLOR */}
                                         {/* {state.checked ? < div style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>{flash.heb} {'\u00A0'}</div> :  <>{flash.eng} {'\u00A0'}</> } */}
                                         {!state.checked ? <>{flash.heb} {'\u00A0'}</> :  <>{flash.eng} {'\u00A0'}</> }
@@ -202,7 +221,9 @@ export default function AllTropesBox( ) {
                                 )
                         })}
                         
-                </Grid>
+            </Grid>
+
+
             
                 
             </Grid>

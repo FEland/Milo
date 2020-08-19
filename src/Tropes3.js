@@ -176,6 +176,14 @@ export const Samples = [
         heb: ' ♢סוֹף עָלִיָה' ,
         eng: 'Sof Aliya'
     },
+    // {
+    //     id: 22,
+    //     checked: 1,
+    //     image: "./images/spinach.png",
+    //     sound: './sounds/spinach.m4a',
+    //     heb: ' ספיניק' ,
+    //     eng: 'Spinach'
+    // },
 
   ]
 
