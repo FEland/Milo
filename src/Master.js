@@ -4,7 +4,7 @@ export default function master ( ) {
 
     return (
         <div style={{'color': 'white'}}>
-            <h1 >Welcome to Harrison's Bar Mitzva Website! </h1>
+            <h1 >Welcome to Harrison's Bar Mitzvah Website! </h1>
             <h2 >Explore the Links Above</h2>
         <frontpage>
         <img src="/Slides/Melech4.jpg" alt="frontpage" loading="lazy" 

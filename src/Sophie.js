@@ -3,7 +3,7 @@ import React from 'react';
 // const hebrewLetters = "אבגדהוזחטיכךלמםנןסעפףצץקרשת" ;
 
 // const hebrewLetters = "אבבּגדהוזחטיככּךלמםנןסעפפּףצץקרשׁשׂתתּ" ;
-const nekudot = " ֯ ֮ ֭ ֬ ֫ ֩ ֨ ֧ ֦ ֥ ֤ ֣ ֽ֢ ֢ ֡ ֠ ֟ ֞ ֝ ֜ ֛ ֚  ֙ ֘ ֗ ֖ ֕  ֔ ֓ ֒ ֑  ׀    ֑ "
+const nekudot = " ֯ ֮ ֭ ֬ ֫ ֩ ֨ ֧ ֦ ֥ ֤ ֣ ֽ֢ ֢ ֡ ֠ ֟ ֞ ֝ ֜ ֛ ֚  ֙ ֘ ֗ ֖ ֕  ֔ ֓ ֒ ֑  ׀    ֑♢ "
 
 
 export default function Sophie ( {p}) {

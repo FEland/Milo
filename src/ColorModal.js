@@ -4,11 +4,27 @@ import ReactColorPicker from '@super-effective/react-color-picker'; //https://gi
 import Tooltip from '@material-ui/core/Tooltip';
 import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
 import IconButton from "@material-ui/core/Button";
+// import { visitFunctionBody } from 'typescript';
 // import ColorLensTwoToneIcon from '@material-ui/icons/ColorLensTwoTone';
 // import debounce from 'lodash';
+// import throttle from 'lodash';
 
 
 
+// function throttle2 (func, limit) {
+//   var wait = false;                  // Initially, we're not waiting
+//   return function () {  
+//     // We return a throttled function
+//       if (!wait) {                   // If we're not waiting
+//           func.apply(this, arguments);
+//           wait = true;               // Prevent future invocations
+//           setTimeout(function () {   // After a period of time
+//               wait = false;          // And allow future invocations
+//           }, limit);
+//       }
+//   }
+
+// }
 
 export default function ColorModal({callBack}) {
 
@@ -24,17 +40,31 @@ export default function ColorModal({callBack}) {
 
   const [color, setColor] = useState('white');
   
-  // const onChangeDebounced = (e) => {
-  //   (console.log(e, "e" );
-  //   , 3000);
+//https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+  const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  var onColorChange2 = debounce(function(newColor) {
+    handleColor(newColor);
+  }, 150);
+
+  // const onColorChange = (updatedColor) => {
+  //   throttle2(handleColor(updatedColor), 200);
   // }
 
-  const onColorChange = (updatedColor) => {
-    // debounce();
-    // onChangeDebounced(updatedColor);
-    // _debounce(onChangeDebounced, 2000);
-    setColor(updatedColor);
-    callBack(updatedColor);
+  function handleColor(newColor){
+    callBack(newColor);
+    setColor(newColor);
+    // setTimeout( () => {console.log(newColor)}, 800);
   }
 
   
@@ -55,7 +85,7 @@ export default function ColorModal({callBack}) {
                                               "borderRadius" : "10px", "backgroundColor": 'rgb(151, 155, 137)',
                                               }}
                       showHex = {false} showSwatch = {false}
-                      color={color} onChange={onColorChange} 
+                      color={color} onChange={onColorChange2} 
                   />
         </Modal>
     </>

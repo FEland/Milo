@@ -4,7 +4,19 @@
     /* font-family: url(/assets/fonts/ShlomosemiStam.ttf); */
     text-align: center; 
     overflow-x: auto;
+
     /* font-size: 2vw; */
+  }
+
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 200%;
+      }  
+    to {
+      margin-left: 0%;
+      width: 80%;
+      }  
   }
 @font-face {
     font-family: "ShlomosemiStam";
@@ -59,7 +71,8 @@ frontpage {
   width: 80%;
   background-color: brown;
   display: inline-block; 
-
+  animation-duration: 2s;
+  animation-name: slidein;
 }
 
 @media screen and (max-width: 600px) {

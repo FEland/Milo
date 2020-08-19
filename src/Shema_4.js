@@ -10,6 +10,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
 // import ReactColorPicker from '@super-effective/react-color-picker'; //https://github.com/super-effective/react-color-picker
 import ColorModal from './ColorModal';
+import open from "./sounds/ui_lock.wav";
+import close from "./sounds/ui_unlock.wav";
+
 
 export default function Shema() {
 
@@ -20,7 +23,22 @@ export default function Shema() {
     checked: false
   });
 
+  const openAudio = new Audio(open);
+  const closeAudio = new Audio(close);
+
+  const playSound = audioFile => {
+    audioFile.play();
+  };
+
+
   const handleChange = (event) => {
+
+
+    if (event.target.checked) {
+        playSound(closeAudio);  
+      } else {
+        playSound(openAudio);
+      }  
 
     if (event.target.name === 'checked') {
         setState(state.toggleTrope = true );

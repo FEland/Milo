@@ -10,6 +10,8 @@ export default function Final(props) {
   if (Safari){
     return (
       <SafariSite/>
+      // <ChromeSite/>
+
     );
   }
   if (Chrome){

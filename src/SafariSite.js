@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import AllTropesBox from "./AllTropesBox"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,7 @@ export default function SafariSite(props) {
   return (
     <div className={classes.root}>
         <div style={{'color': 'white'}}>
-        <h1 >Welcome to Harrison's Bar Mitzva Website! </h1>
+        <h1 >Welcome to Harrison's Bar Mitzvah Website! </h1>
     <br/>
     <frontpage>
         <a href="https://milowitz.netlify.app">
@@ -27,7 +28,14 @@ export default function SafariSite(props) {
         <br/><br/>
         We look forward to seeing you back at <a href="https://milowitz.netlify.app" color="yellow">https://milowitz.netlify.app</a> soon!
         </h3>
+        </frontpage>
+
+        <frontpage>
+
+        <AllTropesBox/>
+
     </frontpage>
+
         <h6 style={{backgroundColor: 'white', color: 'black',position: 'flex' }}> Copyright © 2020 Year13 Productions. All Rights Reserved.
             Built by Effie Landau. No recordings or lectures may be shared without my written consent.
         </h6>

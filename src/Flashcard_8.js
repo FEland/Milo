@@ -5,6 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Checkbox from '@material-ui/core/Checkbox';
 
+// import Slider from "@material-ui/core/Slider";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,26 +67,63 @@ export default function Flashcard( {...props}) {
   };
 
   const [flip, setFlip] = useState(false);
-  const playSound = audioFile => {
-    audioFile.play();
-  };
-  const song =  new Audio(props.flashcard.sound)
+  // const playSound = audioFile => {
+  //   audioFile.play();
+  // };
+  // const song =  new Audio(props.flashcard.sound)
 
+  //TODO: handle volume
+  // const [volume, setVolume] = React.useState(.5);
 
+  const [load, setLoading] = React.useState(false);
+
+  var audio = new Audio();
+
+  audio.addEventListener('playing', function () {
+    setLoading(false);
+}, false);
+
+  const playSound = (song) => {
+      // new Audio(song).play();
+      console.log("vol in card is", props.volume);
+      setLoading(true);
+
+      audio.src = song;
+      audio.preload = "metadata";
+      audio.playbackRate = 1;
+      audio.volume = props.volume;
+      audio.controls = true;
+      audio.play();
+
+    };
+    //TODO: handle volume
+  // const handleVolumeChange = (event, newValue) => {
+  //     // setVolume(newValue);
+  //     audio.volume = newValue;
+  //     // document.getElementById(id).volume = volume;
+  // };
+  ///
 
   return (
     
     <div className={classes.root}>
+
       <Paper className={classes.paper} >
+
         <Grid container spacing={2}>
           {/* <Grid item> */}
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(song) }}  onMouseOver={() => {setFlip(!flip)}}/>
+            {load ? <CircularProgress color="secondary" /> : ""}
+
+            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(props.flashcard.sound) }}  onMouseOver={() => {setFlip(!flip)}}/>
+
+              {/* <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(song) }}  onMouseOver={() => {setFlip(!flip)}}/> */}
             </ButtonBase>
           {/* </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-              <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} >
+            <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
+              {/* <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} > */}
                     <fl>{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
 
@@ -93,8 +132,17 @@ export default function Flashcard( {...props}) {
             <Grid item>
               {/* <Typography variant="subtitle1"> */}
               <Checkbox checked={toggle} onChange={handleChange}/>
+
               {/* </Typography> */}
             </Grid>
+
+            {/* <Slider id="demo"
+                            volume={volume} 
+                            onChange={handleVolumeChange} 
+                            defaultValue={.5}
+                            step={.1} min={0} max={1} 
+                            valueLabelDisplay="auto" /> */}
+
           </Grid>
         </Grid>
       </Paper>

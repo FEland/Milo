@@ -1,8 +1,11 @@
 import React from 'react'; 
 import FlashcardList from "./FlashcardList_8";
-import {Samples} from './Tropes';
+// import {allTropes, Samples} from './Tropes3';
+import {Samples} from './Tropes3';
+
 import SimpleModal from "./SimpleModal_8";
 import Grid from '@material-ui/core/Grid';
+import AllTropesBox from "./AllTropesBox"
 
 import {
     makeStyles,
@@ -50,10 +53,10 @@ export default function Ropes ( ) {
     }
 
     const callBack1 = (...val) => {
-      console.log("in Ropes callback1 starting w" + val, ...val);
+      // console.log("in Ropes callback1 starting w" + val, ...val);
       songList = {...val};
       setChecked(...val);
-      console.log("in Ropes callback1 invoked", songList);
+      // console.log("in Ropes callback1 invoked", songList);
 
       // console.log("in Ropes callback1 invoked" + songList);
 
@@ -93,11 +96,21 @@ export default function Ropes ( ) {
         <h2>
         Press any trope below to hear the recording and view transliteration
         </h2>
-        {/* <FlashcardList flashcards = {Samples} checkedFlash = {checkedFlash}/> */}
-        {/* <FlashcardList flashcards = {Samples} callBack1={callBack1}/> */}
+
         <FlashcardList callBack1={callBack1} callBack4={callBack4}/>
+
+        <br/>
+
+        <frontpage>
+
+<AllTropesBox/>
+
+</frontpage>
+        
 
 
         </div>
+
     );
+    
 }
