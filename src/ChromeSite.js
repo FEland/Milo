@@ -5,7 +5,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Ropes from './Ropes_8';
 import Shema from './Shema_4';
 import Master from './Master';
-import Slideshow from './Slideshow4';
+import Slideshow from './Slideshow3';
 import Practice from './Practice';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
