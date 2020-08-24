@@ -37,7 +37,8 @@ const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg
 const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf', sizeofAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), 12];
 const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf', sizeofAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), 13];
 const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf', sizeofAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), 14];
-const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
+const Months = [importAll(require.context("./Slides/Months/", false, /^\.\/.*\.jpg$/)), "Jewish Calendar", './Slides/Months/Months.pdf', sizeofAll(require.context("./Slides/Months/", false, /^\.\/.*\.jpg$/)), 14];
+const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Months, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 
 const useStyles = makeStyles((theme) => ({
