@@ -5,7 +5,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Ropes from './Ropes_8';
 import Shema from './Shema_4';
 import Master from './Master';
-import Slideshow from './Slideshow3';
+import Slideshow from './Slideshow4';
 import Practice from './Practice';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -39,6 +39,13 @@ export default function ChromeSite(props) {
                   <Grid item xs={2} >
                     <div class="topleft">
                     {/* TODO REMOVE PIC ON OPEN PAGE */}
+
+              
+
+
+
+
+                    {/*  */}
                     <Link to="/Practice">
                         <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                     </Link>
