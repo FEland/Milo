@@ -11,7 +11,7 @@ export default function Master ( ) {
             <h1 >Welcome to Harrison's Bar Mitzvah Website! </h1>
             <h2 >Explore the Links Above</h2>
         <frontpage>
-        <img src="/Slides/Melech4.jpg" alt="frontpage" loading="lazy" 
+        <img src="/Slides3/Melech5.jpg" alt="frontpage" loading="lazy" 
         />
  
         </frontpage>

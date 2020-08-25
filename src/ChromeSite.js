@@ -68,7 +68,7 @@ export default function ChromeSite(props) {
                 <Grid item xs={2} >
                 <div class="topright">
                   <Link to="/">
-                    <img src="/Slides/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" />
+                    <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" />
                   
                   </Link>
                 </div>
