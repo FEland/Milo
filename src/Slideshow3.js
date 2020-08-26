@@ -14,6 +14,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import RenderSmoothImage from './RenderSmoothImage';
 
 function importAll(r) {
   return r.keys().map(r);
@@ -118,7 +119,10 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
             {lesson[0].map(image => {
                         return (
                         <Slide
-                        media={<img src={image} alt={image} width='150%'/>}
+                        // media={<img src={image} alt={image} width='150%'/>}
+                        media={<RenderSmoothImage src={image}></RenderSmoothImage>}
+                        // media={<img src={image} alt={image} width='150%'/>}
+
                         // media={<img key={image} src={image} alt={image} width='150%'/>}
                         mediaBackgroundStyle={{ backgroundColor: red[400] }}
                         style={{backgroundColor: red[600]}}
