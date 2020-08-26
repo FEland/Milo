@@ -17,6 +17,9 @@ import Player from './Player_uno';
 // import ColorModal from './ColorModal';
 // import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
+import Divider from '@material-ui/core/Divider';
+import Hidden from '@material-ui/core/Hidden';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -138,11 +141,13 @@ export default function AllTropesBox( ) {
             
                 <Grid item xs={2}>
                 <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.m4a' />
+                <Hidden smDown>
 
                      <Grid container direction='row' spacing={12}>
                         <Grid item>
                         <VolumeDown />
                         </Grid>
+
                         <Grid item xs={4}>
                         <Slider 
                             volume={volume} onChange={handleVolumeChange} 
@@ -154,6 +159,7 @@ export default function AllTropesBox( ) {
                         <VolumeUp />
                         </Grid>
                     </Grid>
+                </Hidden>
 
                     <Grid container direction='row' spacing={12}>
                         <Grid item>
@@ -188,6 +194,7 @@ export default function AllTropesBox( ) {
                         </svg> </Grid>  : ''}
 
                     </Grid>
+                
 
                     
                     {/* <Switch
@@ -198,18 +205,21 @@ export default function AllTropesBox( ) {
                     /> */}
 
                 </Grid>
+
                 <Grid item xs>
-                    </Grid>
+                </Grid>
+
             <Grid item xs={9}>
 
 
             <Grid container direction='row-reverse'  > 
-                
+
 
             {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
             <Tooltip title="Click the words to hear indivual recordings 
             or listen to all of them by pressing the button on the far left" arrow placement="right">
                 <div style={{color:'blue', 'font-size':'2vw'}}> &lt;&lt;&lt; </div>
+
             </Tooltip>
                     {songList.map(flash => {
                                 return (
@@ -222,11 +232,9 @@ export default function AllTropesBox( ) {
                         })}
                         
             </Grid>
-
-
-            
                 
             </Grid>
+            <Divider orientation='vertical' flexItem/>
 
         </Grid>
 

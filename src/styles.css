@@ -143,10 +143,13 @@ boxy{
   position: flex;
   /* word-wrap: break-word; */
   white-space: pre-line;
+  text-align: right;
   word-break: break-all;
+  line-break: loose;
   overflow-wrap: break-word;
   hyphens: auto;
   margin: 10px auto;
+  justify-items: right;
 
   
 }
