@@ -13,7 +13,7 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CardMedia from '@material-ui/core/CardMedia';
 import RenderSmoothImage from './RenderSmoothImage';
 
 function importAll(r) {
@@ -139,9 +139,9 @@ export default function Slideshow(){
   const matches = useMediaQuery("(max-width:600px)");
   const classes = useStyles();
 
-  const down = (pdf, title) => {
-    return <a href={pdf} download={title}>Downloading...</a>
-  }
+  // const down = (pdf, title) => {
+  //   return <a href={pdf} download={title}>Downloading...</a>
+  // }
   
   return (
 
@@ -158,10 +158,12 @@ export default function Slideshow(){
 
                   <Card className={classes.root} >
 
-                  <CardMedia
+                  {/* <CardMedia
                       component="img" className={classes.cover} image={lesson[0][0]} 
                       onClick={() => {down(lesson[2] , lesson[1])} } 
-                    />
+                    /> */}
+                  {/* <img src="/Slides3/loadin.gif" alt="icon" width='250%' position="absolute" style={{display: 'none'}}/> */}
+                  <RenderSmoothImage src={lesson[0][0]}></RenderSmoothImage>
 
                   <CardContent className={classes.content}>
 
