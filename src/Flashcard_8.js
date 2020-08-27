@@ -6,6 +6,8 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Tooltip from '@material-ui/core/Tooltip';
+
 // import Slider from "@material-ui/core/Slider";
 import CircularProgress from '@material-ui/core/CircularProgress';
 // import EqualizerIcon from '@material-ui/icons/Equalizer';
@@ -86,6 +88,7 @@ export default function Flashcard( {...props}) {
   // const [volume, setVolume] = React.useState(.5);
 
   const [load, setLoading] = React.useState(false);
+  
   const [playing, setPlaying] = React.useState(false);
 
   var audio = new Audio();
@@ -138,7 +141,7 @@ export default function Flashcard( {...props}) {
           <Grid item xs={12} sm container>
             <Grid item  container direction="column" spacing={2} style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
                 {/* <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} > */}
-                    <fl style={{ 'font-size':'2vw'}} >{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
+                    <fl style={{ 'font-size':'2vw' , 'line-height': '1.5'}} >{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
 
             {/* </Grid> */}
@@ -157,12 +160,15 @@ export default function Flashcard( {...props}) {
                   </g>
                 </svg>
                  </Grid>  :
-              <Checkbox
-                icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
-                checkedIcon={<CheckBoxIcon fontSize="small" />}
-                checked={toggle} 
-                onChange={handleChange}
-              />
+              <Tooltip title="Add trope to quizlet above" arrow placement="center">
+                <Checkbox
+                  icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                  checkedIcon={<CheckBoxIcon fontSize="small" />}
+                  checked={toggle} 
+                  onChange={handleChange}
+                />
+              </Tooltip>
+
             }
               {/* <Checkbox checked={toggle} onChange={handleChange}/> */}
 

@@ -33,15 +33,29 @@ const styles = {
       outline: 'none'
     }
   },
+  contentFullScreen: {
+    width: '100%',
+    maxWidth: 'initial',
+    maxHeight: 'initial',
+    // maxWidth: 700,
+    height: 'calc(100% - 96px)',
+    // maxHeight: 600,
+    margin: '-16px auto 0',
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(-50%)',
+  },
   content: {
-    width: '60%',
+    width: '100%',
+    // maxWidth: 'initial',
+    // maxHeight: 'initial',
     maxWidth: 700,
     height: 'calc(100% - 96px)',
     maxHeight: 600,
     margin: '-16px auto 0',
     position: 'relative',
     top: '50%',
-    transform: 'translateY(-50%)'
+    transform: 'translateY(-50%)',
   },
   contentMobile: {
     width: '100%',
@@ -102,6 +116,10 @@ const styles = {
     transform: 'translateY(-50vh)',
     display: 'inline-block',
     width: 'auto'
+  },
+  slideFullScreen: {
+    width: '130%',
+    height: '130%'
   },
   slide: {
     width: '100%',
@@ -182,10 +200,12 @@ class AutoRotatingCarousel extends Component {
       label2,
       landscape: landscapeProp,
       mobile,
+      fullScreen,
       ModalProps,
       open,
       onClose,
-      onStart
+      onStart,
+      // onFullScreen
     } = this.props
     const landscape = mobile && landscapeProp
     const transitionDuration = { enter: duration.enteringScreen, exit: duration.leavingScreen }
@@ -213,7 +233,8 @@ class AutoRotatingCarousel extends Component {
     return (
       <Modal
         className={classNames(classes.root, {
-          [classes.rootMobile]: mobile
+          [classes.rootMobile]: mobile,
+          // [classes.fullScreen]: fullScreen
         })}
         open={open}
         onClose={onClose}
@@ -228,7 +249,8 @@ class AutoRotatingCarousel extends Component {
         >
           <div
             className={classNames(classes.content, {
-              [classes.contentMobile]: mobile
+              [classes.contentMobile]: mobile,
+              [classes.contentFullScreen]: fullScreen
             })}
             onClick={this.handleContentClick}
           >
@@ -254,6 +276,15 @@ class AutoRotatingCarousel extends Component {
                   {label}
                 </Button>
                 }
+                {/* {label && <Button
+                  variant='contained'
+                  onClick={onFullScreen}
+                //   onClick={down(lesson[1])}
+                  {...ButtonProps}
+                >
+                  {label}
+                </Button> */}
+                
                 {label2 && <Button
                   variant='contained'
                   {...ButtonProps}
@@ -303,6 +334,7 @@ AutoRotatingCarousel.defaultProps = {
   interval: 3000,
   mobile: false,
   open: false,
+  fullScreen: false,
   hideArrows: false
 }
 
@@ -325,6 +357,8 @@ AutoRotatingCarousel.propTypes = {
   landscape: PropTypes.bool,
   /** If `true`, the screen width and height is filled. */
   mobile: PropTypes.bool,
+  /** If `true`, the screen width and height is filled. */
+  fullScreen: PropTypes.bool,
   /** Properties applied to the [Modal](https://material-ui.com/api/modal/) element. */
   ModalProps: PropTypes.object,
   /** Fired when the index changed. Returns current index. */
@@ -334,6 +368,8 @@ AutoRotatingCarousel.propTypes = {
   /** Fired when the user clicks the getting started button. */
   onStart: PropTypes.func,
     /** Fired when the user clicks the download button. */
+  // onFullScreen: PropTypes.func,
+    /** Fired when the user clicks the fullscreen button. */
   open: PropTypes.bool,
   /** If `true`, the left and right arrows are hidden in the desktop version. */
   hideArrows: PropTypes.bool

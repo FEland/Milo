@@ -7,6 +7,7 @@ import Switch from '@material-ui/core/Switch';
 import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
 import Hidden from '@material-ui/core/Hidden';
+import Tooltip from '@material-ui/core/Tooltip';
 
 // import Slider from "@material-ui/core/Slider";
 
@@ -118,12 +119,14 @@ export default function FlashcardList( { callBack1} ) {
           </Grid>      
           </Grid> */}
 
+      <Tooltip title="Select Tropes to quiz yourself on" arrow placement="right">
             <Switch
             checked={flip}
             onChange={handleChange}
             name="toggle"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
         />
+      </Tooltip>
 
 
 

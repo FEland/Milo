@@ -80,6 +80,7 @@ export default function Flashcard( {...props}) {
   return (
     
     <div className={classes.root}>
+      HELLO
       <Paper className={classes.paper} >
         <Grid container spacing={2}>
           {/* <Grid item> */}

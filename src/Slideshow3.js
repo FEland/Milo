@@ -138,63 +138,6 @@ const useStyles = makeStyles((theme) => ({
     );
 }
 
-const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
-    const [handleOpen, setHandleOpen] = useState({ open: false });
-    const [handleFullScreen, setHandleFullScreen] = useState({ fullScreen: false });
-
-    return (
-      <div>
-
-        <div>
-        <Grid container spacing={2} justify="space-between" alignItems="center"> 
-            <Grid item >
-              <Button variant="contained" color="primary" 
-              style={{fontSize: '1.5vw' }} 
-              onClick={() => setHandleOpen({ open: true })} 
-              startIcon={<OpenInNewIcon />}> 
-                {lesson[1]} 
-              </Button>
-            </Grid>
-
-            <Grid item >
-
-              <Button variant="contained" color="secondary" >
-              <a href={lesson[2]} download={lesson[1]}>
-              <CloudDownloadIcon style={{ color: blue[500], fontSize: '2.5vw' }} />
-              </a>
-              </Button>
-            </Grid>
-
-            <Grid item >
-              {lesson[3]}
-            </Grid>
-          </Grid>
-        </div>
-        <AutoRotatingCarousel
-          label = {lesson[1]}
-          open={handleOpen.open}
-          onClose={() => setHandleOpen({ open: false })}
-          onStart={() => setHandleOpen({ open: false })}
-          onFullScreen={() => setHandleFullScreen({ fullScreen: false})}
-          autoplay={false}
-          mobile={isMobile}
-          fullScreen={handleFullScreen.fullScreen}
-          style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
-        >
-            {lesson[0].map(image => {
-                        return (
-                        <Slide
-                        media={<RenderSmoothImage src={image}></RenderSmoothImage>}
-                        mediaBackgroundStyle={{ backgroundColor: red[400] }}
-                        style={{backgroundColor: red[600]}}
-                        />
-                        )
-                    })}
-        </AutoRotatingCarousel>
-      </div>
-    );
-  };
-
 export default function Slideshow(){
 
   const classes = useStyles();

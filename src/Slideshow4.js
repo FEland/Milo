@@ -14,6 +14,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import RenderSmoothImage from './RenderSmoothImage';
 
 function importAll(r) {
   return r.keys().map(r);
@@ -23,21 +24,23 @@ function sizeofAll(r) {
   return r.keys().map(r).length + ' slides';
 }
 
-const Mitzvas = [importAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides/Mitzvas/Mitzvas.pdf', sizeofAll(require.context("./Slides/Mitzvas/", false, /^\.\/.*\.jpg$/)), 1];
-const Neshama = [importAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides/Neshama/Neshama.pdf', sizeofAll(require.context("./Slides/Neshama/", false, /^\.\/.*\.jpg$/)), 2];
-const Abraham = [importAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides/Abraham/Abraham.pdf', sizeofAll(require.context("./Slides/Abraham/", false, /^\.\/.*\.jpg$/)), 3];
-const Bereishit = [importAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides/Bereishit/Creation.pdf', sizeofAll(require.context("./Slides/Bereishit/", false, /^\.\/.*\.jpg$/)), 4];
-const Brachas = [importAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides/Brachas/Brachas.pdf', sizeofAll(require.context("./Slides/Brachas/", false, /^\.\/.*\.jpg$/)), 5];
-const YomYeru = [importAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides/YomYeru/YomYeru.pdf', sizeofAll(require.context("./Slides/YomYeru/", false, /^\.\/.*\.jpg$/)), 6];
-const Tishbav = [importAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides/Tishbav/Tishbav.pdf', sizeofAll(require.context("./Slides/Tishbav/", false, /^\.\/.*\.jpg$/)), 7];
-const Shema = [importAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides/Shema/Shema.pdf', sizeofAll(require.context("./Slides/Shema/", false, /^\.\/.*\.jpg$/)), 8];
-const Mezuza = [importAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides/Mezuzah/Mezuzah.pdf', sizeofAll(require.context("./Slides/Mezuzah/", false, /^\.\/.*\.jpg$/)), 9];
-const Sefira = [importAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides/Sefira/Sefira.pdf', sizeofAll(require.context("./Slides/Sefira/", false, /^\.\/.*\.jpg$/)), 10];
-const Vocab = [importAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides/Vocab/Vocab.pdf', sizeofAll(require.context("./Slides/Vocab/", false, /^\.\/.*\.jpg$/)), 11];
-const TenCommandments = [importAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides/TenCommandments/TenCommandments.pdf', sizeofAll(require.context("./Slides/TenCommandments/", false, /^\.\/.*\.jpg$/)), 12];
-const AlephBet2 = [importAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides/AlephBet2/AlephBet2.pdf', sizeofAll(require.context("./Slides/AlephBet2/", false, /^\.\/.*\.jpg$/)), 13];
-const HebrewBasics1 = [importAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides/HebrewBasics1/HebrewBasics1.pdf', sizeofAll(require.context("./Slides/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), 14];
-const Months = [importAll(require.context("./Slides/Months/", false, /^\.\/.*\.jpg$/)), "Jewish Calendar", './Slides/Months/Months.pdf', sizeofAll(require.context("./Slides/Months/", false, /^\.\/.*\.jpg$/)), 14];
+// const lol = [importAll(require.context("./Slides3/*/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides3/Mitzvas/Mitzvas.pdf', sizeofAll(require.context("./Slides3/Mitzvas/", false, /^\.\/.*\.jpg$/)), 1];
+
+const Mitzvas = [importAll(require.context("./Slides3/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides3/Mitzvas/Mitzvas.pdf', sizeofAll(require.context("./Slides3/Mitzvas/", false, /^\.\/.*\.jpg$/)), 1];
+const Neshama = [importAll(require.context("./Slides3/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides3/Neshama/Neshama.pdf', sizeofAll(require.context("./Slides3/Neshama/", false, /^\.\/.*\.jpg$/)), 2];
+const Abraham = [importAll(require.context("./Slides3/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides3/Abraham/Abraham.pdf', sizeofAll(require.context("./Slides3/Abraham/", false, /^\.\/.*\.jpg$/)), 3];
+const Bereishit = [importAll(require.context("./Slides3/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides3/Bereishit/Creation.pdf', sizeofAll(require.context("./Slides3/Bereishit/", false, /^\.\/.*\.jpg$/)), 4];
+const Brachas = [importAll(require.context("./Slides3/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides3/Brachas/Brachas.pdf', sizeofAll(require.context("./Slides3/Brachas/", false, /^\.\/.*\.jpg$/)), 5];
+const YomYeru = [importAll(require.context("./Slides3/YomYeru/", false, /^\.\/.*\.jpg$/)), "Israel", './Slides3/YomYeru/YomYeru.pdf', sizeofAll(require.context("./Slides3/YomYeru/", false, /^\.\/.*\.jpg$/)), 6];
+const Tishbav = [importAll(require.context("./Slides3/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides3/Tishbav/Tishbav.pdf', sizeofAll(require.context("./Slides3/Tishbav/", false, /^\.\/.*\.jpg$/)), 7];
+const Shema = [importAll(require.context("./Slides3/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides3/Shema/Shema.pdf', sizeofAll(require.context("./Slides3/Shema/", false, /^\.\/.*\.jpg$/)), 8];
+const Mezuza = [importAll(require.context("./Slides3/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides3/Mezuzah/Mezuzah.pdf', sizeofAll(require.context("./Slides3/Mezuzah/", false, /^\.\/.*\.jpg$/)), 9];
+const Sefira = [importAll(require.context("./Slides3/Sefira/", false, /^\.\/.*\.jpg$/)), "The Omer", './Slides3/Sefira/Sefira.pdf', sizeofAll(require.context("./Slides3/Sefira/", false, /^\.\/.*\.jpg$/)), 10];
+const Vocab = [importAll(require.context("./Slides3/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides3/Vocab/Vocab.pdf', sizeofAll(require.context("./Slides3/Vocab/", false, /^\.\/.*\.jpg$/)), 11];
+const TenCommandments = [importAll(require.context("./Slides3/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides3/TenCommandments/TenCommandments.pdf', sizeofAll(require.context("./Slides3/TenCommandments/", false, /^\.\/.*\.jpg$/)), 12];
+const AlephBet2 = [importAll(require.context("./Slides3/AlephBet2/", false, /^\.\/.*\.jpg$/)), "Alep Bet 2", './Slides3/AlephBet2/AlephBet2.pdf', sizeofAll(require.context("./Slides3/AlephBet2/", false, /^\.\/.*\.jpg$/)), 13];
+const HebrewBasics1 = [importAll(require.context("./Slides3/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides3/HebrewBasics1/HebrewBasics1.pdf', sizeofAll(require.context("./Slides3/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), 14];
+const Months = [importAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), "Jewish Calendar", './Slides3/Months/Months.pdf', sizeofAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), 14];
 const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Months, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 
@@ -73,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
 
   }));
   
-const IndividualSlide = ({image}) => {
+const IndividualCover = ({image}) => {
     const [loaded, setLoaded] = useState(false);
 
     function handleImageLoad() {
@@ -82,23 +85,44 @@ const IndividualSlide = ({image}) => {
 
     return (
 
-            <Slide
-            media={
             <div>
                 <img src={image} alt={image} width='150%' onLoad={handleImageLoad} style={loaded ? {} : {display: 'none'}} />
-                {!loaded ? <img src="/Slides/loadin.gif" alt="icon" position="absolute" /> : ''}
+                {!loaded ? <img src="/Slides3/loadin.gif" alt="icon" width='250%' position="absolute" /> : ''}
             </div>
-            }
-                   
-            // <img src={image} alt={image} width='150%' style={loaded ? {} : {display: 'none'}} onLoad={() => setLoad(true)}/>
-        
-            // media={<img src={image} alt={image} onLoad={handleImageLoad} width='150%'/>}
-            mediaBackgroundStyle={{ backgroundColor: red[400] }}
-            style={{backgroundColor: red[600]}}
-            >
 
-                </Slide>
   );
+};
+
+const IndividualSlide = ({image}) => {
+  const [loaded, setLoaded] = useState(false);
+
+  function handleImageLoad() {
+      setLoaded(true);
+    }
+
+  return (
+
+          <Slide
+          media={
+          <div>
+            {/* <img src={image} alt={image} width='150%' loading="lazy" onLoad={handleImageLoad} style={loaded ? {} : {display: 'none'}} /> */}
+            {/* {!loaded ? <img src="/Slides3/loadin.gif" alt="icon" position="absolute" /> : ''} */}
+          
+          <RenderSmoothImage src={image}></RenderSmoothImage>
+
+          </div>
+
+          }
+                 
+          // <img src={image} alt={image} width='150%' style={loaded ? {} : {display: 'none'}} onLoad={() => setLoad(true)}/>
+      
+          // media={<img src={image} alt={image} onLoad={handleImageLoad} width='150%'/>}
+          mediaBackgroundStyle={{ backgroundColor: red[400] }}
+          style={{backgroundColor: red[600]}}
+          >
+
+              </Slide>
+);
 };
 
 const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
@@ -155,6 +179,12 @@ export default function Slideshow(){
   const matches = useMediaQuery("(max-width:600px)");
   const classes = useStyles();
 
+  const [loaded, setLoaded] = useState(false);
+
+  function handleImageLoad() {
+      setLoaded(true);
+    }
+
   const down = (pdf, title) => {
     return <a href={pdf} download={title}>Downloading...</a>
   }
@@ -172,12 +202,19 @@ export default function Slideshow(){
         {slideshows.map(lesson => { return (
               <Grid item sm={4} xs={6}>
 
-                  <Card className={classes.root} >
+                  {/* <Card className={classes.root} > */}
+                  <Card  >
 
-                  <CardMedia
+                  {/* <CardMedia
                       component="img" className={classes.cover} image={lesson[0][0]} 
                       onClick={() => {down(lesson[2] , lesson[1])} } 
-                    />
+                    /> */}
+
+                {/* <img src={lesson[0][0]} alt={lesson[0][0]} width='100%' onLoad={handleImageLoad} style={loaded ? {} : {display: 'none'}} />
+                {!loaded ? <img src="/Slides3/loadin.gif" alt="icon" width='200%' position="absolute" /> : ''}
+ */}
+
+                  <IndividualCover image={lesson[0][0]} />
 
                   <CardContent className={classes.content}>
 

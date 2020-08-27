@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
@@ -19,6 +19,7 @@ import Player from './Player_uno';
 import Tooltip from '@material-ui/core/Tooltip';
 import Divider from '@material-ui/core/Divider';
 import Hidden from '@material-ui/core/Hidden';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AllTropesBox( ) {
 
-
+    const [trope, setTrope] = useState(0);
     const [state, setState] = React.useState({
         // flip: false,
         // volume: 0.5,
@@ -66,12 +67,15 @@ export default function AllTropesBox( ) {
 
 
 //   const [flip, setFlip] = React.useState(false);
+
+    const [load, setLoading] = React.useState(false);
   const [volume, setVolume] = React.useState(.5);
   var audio = new Audio();
 
   const [playing, setPlaying] = React.useState(false);
 
     audio.addEventListener('playing', function () {
+        setLoading(false);
         setPlaying(true);
     }, false);
 
@@ -83,7 +87,9 @@ export default function AllTropesBox( ) {
     
     const playSound = (song) => {
         // new Audio(song).play();
-        console.log(volume);
+        setLoading(true);
+
+        // console.log(volume);
         audio.src = song;
         audio.preload = "metadata";
         audio.playbackRate = 1;
@@ -103,10 +109,6 @@ export default function AllTropesBox( ) {
     const handleChange = (event) => {
 
         setState({ ...state, [event.target.name]: event.target.checked });
-        // setFlip(!flip);
-        // setState(!state.flip);
-        // setState({ ...state, [state.flip]: !state.flip });
-
 
         if (event.target.flip) {
             playSound(close);  
@@ -115,19 +117,10 @@ export default function AllTropesBox( ) {
         }
     };
 
-    // const player = document.getElementById('player');
-
-    // const handleSuccess = function(stream) {
-    //     if (window.URL) {
-    //     player.srcObject = stream;
-    //     } else {
-    //     player.src = stream;
-    //     }
-    // };
-
-    // navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-    //     .then(handleSuccess);
-
+    // const highlight = (song) => {
+    //     // new Audio(song).play();
+    //     setTrope = trope
+    //   };
 
     return (
 <div>
@@ -181,8 +174,10 @@ export default function AllTropesBox( ) {
                             {/* TODO COLOR */}
                             {/* <ColorModal color = {color} callBack = {callBack} /> */}
                         </Grid>
-                        
-                    {playing ?  
+                    
+                    {load && <Grid item> <CircularProgress color="primary"  className={classes.progress} /> </Grid> }
+
+                    {playing &&  
                         <Grid item>
                         <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7">
                         <g fill="#000000">
@@ -191,7 +186,7 @@ export default function AllTropesBox( ) {
                             <rect id="bar3" transform="translate(6.5, 3.5) rotate(180.0) translate(-6.5, -3.5) " x="6" y="0" width="1" height="7" />
                             <rect id="bar4" transform="translate(9.5, 5.0) rotate(180.0) translate(-9.5, -5.0) " x="9" y="3" width="1" height="4" />
                         </g>
-                        </svg> </Grid>  : ''}
+                        </svg> </Grid> }
 
                     </Grid>
                 
@@ -223,10 +218,29 @@ export default function AllTropesBox( ) {
             </Tooltip>
                     {songList.map(flash => {
                                 return (
-                                    <fl style={{ 'font-size':'2vw'}} onClick = {() => {playSound(flash.sound)}}>
+                                    <fl style={{ 'font-size':'2vw', 'line-height': '1.6'}} onClick = {() => {playSound(flash.sound)}}>
+                                    
+                                    
+
                                     {/* TODO COLOR */}
                                         {/* {state.checked ? < div style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>{flash.heb} {'\u00A0'}</div> :  <>{flash.eng} {'\u00A0'}</> } */}
-                                        {!state.checked ? <>{flash.heb} {'\u00A0'}</> :  <>{flash.eng} {'\u00A0'}</> }
+                                        {/* {!state.checked ? <>{flash.heb} {'\u00A0'}</> :  <>{flash.eng} {'\u00A0'}</> } */}
+                                        {!state.checked ? <>{flash.heb} {'\u00A0'}</> : 
+                                        <>
+                                        <Hidden smDown>
+                                            {(trope === flash.id) ? 
+                                            <img src={flash.image} alt="trope" loading="lazy" width="70" style={ {'opacity' : '.8'} } onMouseOver = {() => {setTrope(flash.id)}} onMouseOut = {() => {setTrope(-1)}}/> : 
+                                            <img src={flash.image} alt="trope" loading="lazy" width="70" style={ {'opacity' : '1'} } onMouseOver = {() => {setTrope(flash.id)}} onMouseOut = {() => {setTrope(-1)}}/>
+                                            }                                         </Hidden>
+                                         <Hidden mdUp>
+                                            {(trope === flash.id) ? 
+                                            <img src={flash.image} alt="trope" loading="lazy" width="40" style={ {'opacity' : '.8'} } onMouseOver = {() => {setTrope(flash.id)}} onMouseOut = {() => {setTrope(-1)}}/> : 
+                                            <img src={flash.image} alt="trope" loading="lazy" width="40" style={ {'opacity' : '1'} } onMouseOver = {() => {setTrope(flash.id)}} onMouseOut = {() => {setTrope(-1)}}/>
+                                            }
+                                         </Hidden>
+                                        </>}
+
+                                        
                                     </fl>
                                 )
                         })}
