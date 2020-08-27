@@ -53,10 +53,17 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
       padding: "20px",
-      textAlign: "center"
+      textAlign: "center",
+      // backgroundColor: '#835d16'
+
+      
     },
     cover: {
       height: "100%",
+      backgroundColor: '#835d16'
+    },
+    content: {
+      backgroundColor: '#835d16'
     },
     grid: {
       // // padding: theme.spacing(2),
@@ -74,6 +81,62 @@ const useStyles = makeStyles((theme) => ({
 
   }));
   
+  const Yalla = ({lesson}) => {
+    const [handleOpen, setHandleOpen] = useState({ open: false });
+    const [handleFullScreen, setHandleFullScreen] = useState({ fullScreen: false });
+    const matches = useMediaQuery("(max-width:600px)");
+    const classes = useStyles();
+  
+    return (
+        <div>
+        <Card className={classes.root} style={{backgroundColor: '#835d16'}} >
+
+            <div class="lecture-cover" onClick={() => setHandleOpen({ open: true })} >
+            <RenderSmoothImage src={lesson[0][0]} ></RenderSmoothImage>
+            </div>
+                  <CardContent className={classes.content} >
+                      <Grid container spacing={2} justify="space-between" alignItems="center"> 
+                        <Grid item >
+                          <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} 
+                            onClick={() => setHandleOpen({ open: true })} startIcon={<OpenInNewIcon />}> 
+                            {lesson[1]} 
+                          </Button>
+                        </Grid>
+
+                        <Grid item >
+                          <Button variant="contained" color="secondary" >
+                            <a href={lesson[2]} download={lesson[1]}>
+                              <CloudDownloadIcon style={{ color: blue[500], fontSize: '2.5vw' }} />
+                            </a>
+                          </Button>
+                        </Grid>
+
+                        <Grid item >
+                          {lesson[3]}
+                        </Grid>
+                      </Grid>
+                  <AutoRotatingCarousel
+                    label = {lesson[1]} open={handleOpen.open}
+                    onClose={() => setHandleOpen({ open: false })}
+                    onStart={() => setHandleOpen({ open: false })}
+                    onFullScreen={() => setHandleFullScreen({ fullScreen: false})}
+                    autoplay={false} mobile={matches} fullScreen={handleFullScreen.fullScreen}
+                    style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
+                  >
+                      {lesson[0].map(image => { return (
+                                  <Slide
+                                    // media={<img src={image} alt={image} width='150%'/>}
+                                    media={<RenderSmoothImage src={image}></RenderSmoothImage>}
+                                    mediaBackgroundStyle={{ backgroundColor: red[400] }}
+                                    style={{backgroundColor: red[600]}}
+                                  />)})}
+                  </AutoRotatingCarousel>
+              </CardContent>
+
+          </Card>
+        </div>
+    );
+}
 
 const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
     const [handleOpen, setHandleOpen] = useState({ open: false });
@@ -92,6 +155,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
                 {lesson[1]} 
               </Button>
             </Grid>
+
             <Grid item >
 
               <Button variant="contained" color="secondary" >
@@ -100,6 +164,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
               </a>
               </Button>
             </Grid>
+
             <Grid item >
               {lesson[3]}
             </Grid>
@@ -119,11 +184,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
             {lesson[0].map(image => {
                         return (
                         <Slide
-                        // media={<img src={image} alt={image} width='150%'/>}
                         media={<RenderSmoothImage src={image}></RenderSmoothImage>}
-                        // media={<img src={image} alt={image} width='150%'/>}
-
-                        // media={<img key={image} src={image} alt={image} width='150%'/>}
                         mediaBackgroundStyle={{ backgroundColor: red[400] }}
                         style={{backgroundColor: red[600]}}
                         />
@@ -136,12 +197,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
 
 export default function Slideshow(){
 
-  const matches = useMediaQuery("(max-width:600px)");
   const classes = useStyles();
-
-  // const down = (pdf, title) => {
-  //   return <a href={pdf} download={title}>Downloading...</a>
-  // }
   
   return (
 
@@ -149,41 +205,15 @@ export default function Slideshow(){
         <div style={{color: 'white' }}> 
               <h1>Review the Lectures!</h1>
         </div> 
-      {/* <slidesOnScreen> */}
-
       <div>
       <Grid container spacing={4} justify="space-between" alignItems="center"> 
         {slideshows.map(lesson => { return (
               <Grid item sm={4} xs={6}>
-
-                  <Card className={classes.root} >
-
-                  {/* <CardMedia
-                      component="img" className={classes.cover} image={lesson[0][0]} 
-                      onClick={() => {down(lesson[2] , lesson[1])} } 
-                    /> */}
-                  {/* <img src="/Slides3/loadin.gif" alt="icon" width='250%' position="absolute" style={{display: 'none'}}/> */}
-                  <RenderSmoothImage src={lesson[0][0]}></RenderSmoothImage>
-
-                  <CardContent className={classes.content}>
-
-                    <AutoRotatingCarouselModal isMobile={matches} lesson={lesson} 
-                          modalProps={{
-                            BackdropProps: {
-                              backgroundColor: 'green'
-                            }
-                          }}
-                    />
-                  </CardContent>
-
-                  </Card>
-
-
+                <Yalla lesson = {lesson}/>
               </Grid>
           )})}
       </Grid>
       </div>
-      {/* </slidesOnScreen> */}
 
     </div>
 

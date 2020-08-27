@@ -23,6 +23,19 @@
     src: url(./fonts/ShlomoStam/ShlomoStam.ttf);
     
   }
+  div.lecture-cover :hover{
+    /* border: 3px solid green; */
+    background-color: red;
+    padding: 5px 5px;
+
+    /* transition: opacity 1ms; */
+  }
+  div.lecture-cover {
+    /* border: 3px solid black; */
+    background-color: black;
+
+    /* transition: opacity 1ms; */
+  }
   .topleft {
     position: absolute;
     top: 8px;
@@ -123,6 +136,7 @@ frontpage {
     /* width: '30%'; */
     font-size: large;
     overflow-wrap: break-word;
+    background-color: #835d16;
     /* white-space: nowrap; */
 
     /* transform: rotate(90); */
@@ -178,6 +192,8 @@ boxy{
     /* display: 'flex'; */
     /* background-color: #c9ad7a; */
 
+    background-color: #835d16;
+
   }
 
 
@@ -185,11 +201,9 @@ boxy{
     visibility: visible;
     font-size: x-small;
     display: inherit;
-    background-color: #c9ad7a;
-
+    /* background-color: #c9ad7a; */
+    background-color: #835d16;
     /* position: flex; */
-
-
   }
   .MuiCardMedia-media{
     visibility: visible;
