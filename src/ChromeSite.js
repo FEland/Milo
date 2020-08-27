@@ -15,6 +15,29 @@ import { Link, Route, Switch, HashRouter } from "react-router-dom";
 
 // import Countdown from './countdown'; // /** This countdown component is from https://medium.com/@kristin_baumann/react-countdown-6455838b6faf */
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+import green from '@material-ui/core/colors/green';
+
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#8eacbb',
+      main: '#607d8b',
+      dark: '#34515e',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#718792',
+      main: '#455a64',
+      dark: '#1c313a',
+      contrastText: '#000',
+    },
+  },
+});
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,6 +49,8 @@ export default function ChromeSite(props) {
   const classes = useStyles();
 
     return (
+      <ThemeProvider theme={theme}>
+
       <HashRouter>
       <div className={classes.root}>
       {/* <Countdown date={'2020-09-05T09:00:00'} text='Ki Tavo Bar Mitzva Countdown'  /> */}
@@ -52,7 +77,7 @@ export default function ChromeSite(props) {
                     </div>
                   </Grid>
                 <Grid item xs={8} >
-                  <Tabs value={location.pathname}  textColor="primary" variant="fullWidth" centered > 
+                  <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
                     <Tooltip title="Practice the Shema" arrow placement="left">
                       <Tab label="Shema" component={Link} to="/Shema" />
                     </Tooltip>
@@ -101,7 +126,7 @@ export default function ChromeSite(props) {
       </div>
       
     </HashRouter>
-    
+    </ThemeProvider>
     
 
     );

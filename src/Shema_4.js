@@ -5,7 +5,7 @@ import Sophie, {Batsheva} from './Sophie';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
-import { purple } from '@material-ui/core/colors';
+import { red, blue, purple } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
 // import ReactColorPicker from '@super-effective/react-color-picker'; //https://github.com/super-effective/react-color-picker
@@ -75,15 +75,25 @@ export default function Shema() {
   const PurpleSwitch = withStyles({
     switchBase: {
       color: 'white',
-      '&$checked': {
-        color: purple[500],
-      },
-      '&$checked + $track': {
-        backgroundColor: purple[500],
-      },
-    },
-    checked: {},
-    track: {},
+      '&$checked': {color: purple[500],},
+      '&$checked + $track': {backgroundColor: purple[600],},
+    }, checked: {},track: {},
+  })(Switch);
+
+  const RedSwitch = withStyles({
+    switchBase: {
+      color: 'white',
+      '&$checked': {color: red[500],},
+      '&$checked + $track': {backgroundColor: red[600],},
+    }, checked: {},track: {},
+  })(Switch);
+
+  const BlueSwitch = withStyles({
+    switchBase: {
+      color: 'white',
+      '&$checked': {color: blue[500],},
+      '&$checked + $track': {backgroundColor: blue[600],},
+    }, checked: {},track: {},
   })(Switch);
 
   const [color, setColor] = useState('#b7bfbe');
@@ -115,18 +125,18 @@ export default function Shema() {
                 />
             </Tooltip>
             <Tooltip title="With Trope / Ta'amim" arrow placement="down">
-                <Switch checked={state.toggleTrope} onChange={handleChange}
+                <BlueSwitch checked={state.toggleTrope} onChange={handleChange}
                     name="toggleTrope" inputProps={{ 'aria-label': 'primary checkbox' }}
                 />
             </Tooltip>
             <Tooltip title="Highlight Trope" arrow placement="down">
-                <Checkbox checked={state.checked} onChange={handleChange} color='secondary' name="checked" inputProps={{ 'position' : 'right' }}/>
+                <Checkbox checked={state.checked} onChange={handleChange} color='primary' name="checked" inputProps={{ 'position' : 'right' }}/>
             </Tooltip>
             <Tooltip title="Adjust Text Color" arrow placement="down">
                  <ColorModal color = {color} callBack = {callBack} />
             </Tooltip> 
             <Tooltip title="See English Translation" arrow placement="right">
-                <Switch checked={state.toggleTranslation} onChange={handleChange}
+                <RedSwitch checked={state.toggleTranslation} onChange={handleChange}
                     color="primary" name="toggleTranslation"inputProps={{ 'aria-label': 'primary checkbox' }}
                 />
             </Tooltip>

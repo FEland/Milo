@@ -76,6 +76,10 @@ export default function Ropes ( ) {
             <div > 
               <h1>Practice the Tropes!</h1>
             </div>
+            <frontpage>
+
+            <AllTropesBox/>
+            </frontpage>
 
             <h5>Quiz Yourself
               {/* <p>HERE {{Samples}.length}</p> */}
@@ -93,6 +97,8 @@ export default function Ropes ( ) {
                     </Grid>
                   </Grid>
             </h5> 
+
+
         <h2>
         Press any trope below to hear the recording and view transliteration
         </h2>
@@ -100,12 +106,6 @@ export default function Ropes ( ) {
         <FlashcardList callBack1={callBack1} callBack4={callBack4}/>
 
         <br/>
-
-        <frontpage>
-
-<AllTropesBox/>
-
-</frontpage>
         
 
 

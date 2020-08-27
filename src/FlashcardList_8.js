@@ -8,6 +8,8 @@ import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
 import Hidden from '@material-ui/core/Hidden';
 import Tooltip from '@material-ui/core/Tooltip';
+import { red, blue, purple } from '@material-ui/core/colors';
+import { withStyles } from '@material-ui/core/styles';
 
 // import Slider from "@material-ui/core/Slider";
 
@@ -72,6 +74,13 @@ export default function FlashcardList( { callBack1} ) {
     callBack1(songList);
   };
 
+  const BlueSwitch = withStyles({
+    switchBase: {
+      color: 'white',
+      '&$checked': {color: blue[500],},
+      '&$checked + $track': {backgroundColor: blue[600],},
+    }, checked: {},track: {},
+  })(Switch);
   
 
   const callBack2 = (val) => {
@@ -120,7 +129,7 @@ export default function FlashcardList( { callBack1} ) {
           </Grid> */}
 
       <Tooltip title="Select Tropes to quiz yourself on" arrow placement="right">
-            <Switch
+            <BlueSwitch
             checked={flip}
             onChange={handleChange}
             name="toggle"

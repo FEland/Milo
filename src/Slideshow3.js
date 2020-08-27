@@ -41,6 +41,7 @@ const HebrewBasics1 = [importAll(require.context("./Slides3/HebrewBasics1/", fal
 const Months = [importAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), "Jewish Calendar", './Slides3/Months/Months.pdf', sizeofAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), 14];
 const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Months, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
+let backDropColor = 'brown';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -60,10 +61,10 @@ const useStyles = makeStyles((theme) => ({
     },
     cover: {
       height: "100%",
-      backgroundColor: '#835d16'
+      backgroundColor: backDropColor
     },
     content: {
-      backgroundColor: '#835d16'
+      backgroundColor: backDropColor
     },
     grid: {
       // // padding: theme.spacing(2),
@@ -89,10 +90,11 @@ const useStyles = makeStyles((theme) => ({
   
     return (
         <div>
-        <Card className={classes.root} style={{backgroundColor: '#835d16'}} >
+
+        <Card className={classes.root} style={{backgroundColor: backDropColor}} >
 
             <div class="lecture-cover" onClick={() => setHandleOpen({ open: true })} >
-            <RenderSmoothImage src={lesson[0][0]} ></RenderSmoothImage>
+              <RenderSmoothImage src={lesson[0][0]} ></RenderSmoothImage>
             </div>
                   <CardContent className={classes.content} >
                       <Grid container spacing={2} justify="space-between" alignItems="center"> 
@@ -106,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
                         <Grid item >
                           <Button variant="contained" color="secondary" >
                             <a href={lesson[2]} download={lesson[1]}>
-                              <CloudDownloadIcon style={{ color: blue[500], fontSize: '2.5vw' }} />
+                              <CloudDownloadIcon style={{ color: '#8eacbb', fontSize: '2.5vw' }} />
                             </a>
                           </Button>
                         </Grid>
@@ -134,6 +136,7 @@ const useStyles = makeStyles((theme) => ({
               </CardContent>
 
           </Card>
+
         </div>
     );
 }

@@ -22,6 +22,7 @@ import Hidden from '@material-ui/core/Hidden';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -212,7 +213,7 @@ export default function AllTropesBox( ) {
 
             {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
             <Tooltip title="Click the words to hear indivual recordings 
-            or listen to all of them by pressing the button on the far left" arrow placement="right">
+            or listen to all of them by pressing the button on the far left" arrow placement="top">
                 <div style={{color:'blue', 'font-size':'2vw'}}> &lt;&lt;&lt; </div>
 
             </Tooltip>

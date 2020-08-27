@@ -7,6 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Tooltip from '@material-ui/core/Tooltip';
+import { blue } from '@material-ui/core/colors';
 
 // import Slider from "@material-ui/core/Slider";
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -15,7 +16,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
-    // backgroundColor: 'brown',
+    // backgroundColor: 'green',
     color: 'white',
 
   },
@@ -42,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
   progress: {
+    top: -60,
     position: 'relative',
     // top: -50,
     // left: 54,
-    top: -60,
     // left: 54,
     // zIndex: 2,
   },
@@ -133,7 +134,9 @@ export default function Flashcard( {...props}) {
           <Grid item>
             <ButtonBase className={classes.image}>
 
-            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(props.flashcard.sound) }}  onMouseOver={() => {setFlip(!flip)}}/>
+            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}
+                  onClick={() => {playSound(props.flashcard.sound) }} 
+                  onMouseOver={() => {setFlip(!flip)}}/>
 
               {/* <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(song) }}  onMouseOver={() => {setFlip(!flip)}}/> */}
             </ButtonBase>
@@ -160,22 +163,24 @@ export default function Flashcard( {...props}) {
                   </g>
                 </svg>
                  </Grid>  :
+                 <>{!load ? 
+              <Grid item>
               <Tooltip title="Add trope to quizlet above" arrow placement="center">
-                <Checkbox
-                  icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
-                  checkedIcon={<CheckBoxIcon fontSize="small" />}
-                  checked={toggle} 
-                  onChange={handleChange}
+                <Checkbox color="default" icon={<CheckBoxOutlineBlankIcon fontSize="small" />} 
+                  checkedIcon={<CheckBoxIcon fontSize="small" />} checked={toggle} onChange={handleChange}
                 />
               </Tooltip>
-
+              </Grid>
+              : <Grid item> <CircularProgress size ={30} color="primary" /> </Grid> 
+                 }
+                 </>
             }
               {/* <Checkbox checked={toggle} onChange={handleChange}/> */}
 
               </Grid>
               {/* <Grid item> */}
-              {/* <Grid item> <CircularProgress color="secondary"  className={classes.fabProgress} /> </Grid>  */}
-              {load && <Grid item> <CircularProgress color="primary"  className={classes.progress} /> </Grid> }
+              {/* {!load && <Grid item> <CircularProgress color="primary" className={classes.progress} /> </Grid> } */}
+              {/* {!load && <CircularProgress size = {20} color="primary" className={classes.progress} /> } */}
             {/* </Grid> */}
             </Grid>
 
