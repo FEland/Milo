@@ -170,7 +170,7 @@ boxy{
   .MuiCard-root{ 
     /* visibility: visible; */
     padding: 1;
-    visibility: hidden;
+    visibility: visible;
     /* position: absolute; */
     /* position: flex; */
     /* font-size: x-small; */
@@ -421,7 +421,7 @@ boxy{
 
   }
   .smooth-image {
-    transition: opacity 1s;
+    transition: opacity .5s;
     width: 100%;
     height: 100%;    
   }
