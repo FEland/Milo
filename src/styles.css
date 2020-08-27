@@ -460,7 +460,7 @@ boxy{
       /* background-image: linear-gradient(to right, #c78a8a, #a14343, #aa2525); */
       width: 100%; height: 100%;  
       display: inline-block;
-      background-size: 200%;
+      /* background-size: 200%; */
       /* animation: preloader-block 2s linear 0s infinite reverse forwards; */
     }
   /*Smooth images */
