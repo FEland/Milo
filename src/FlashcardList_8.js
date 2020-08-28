@@ -8,7 +8,7 @@ import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
 import Hidden from '@material-ui/core/Hidden';
 import Tooltip from '@material-ui/core/Tooltip';
-import { red, blue, purple } from '@material-ui/core/colors';
+import {  blue } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
 // import Slider from "@material-ui/core/Slider";

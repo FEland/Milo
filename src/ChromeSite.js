@@ -16,8 +16,6 @@ import { Link, Route, Switch, HashRouter } from "react-router-dom";
 // import Countdown from './countdown'; // /** This countdown component is from https://medium.com/@kristin_baumann/react-countdown-6455838b6faf */
 
 import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
 
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -63,14 +61,6 @@ export default function ChromeSite(props) {
                 <Grid container spacing={3}> 
                   <Grid item xs={2} >
                     <div class="topleft">
-                    {/* TODO REMOVE PIC ON OPEN PAGE */}
-
-              
-
-
-
-
-                    {/*  */}
                     <Link to="/Practice">
                         <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                     </Link>

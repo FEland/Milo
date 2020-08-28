@@ -47,9 +47,29 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
- 
-
   let songList = Samples;
+
+//   function Age()  {
+//     const [d, setTimeSoFar] = useState(0);
+//     var t = document.getElementById('player');
+//     // t.addEventListener( 'timeupdate', function() {
+//     //     setTimeSoFar(t.currentTime);
+//     //     console.log(d);
+//     // });
+
+//     if (t!==null){
+//         t.addEventListener( 'timeupdate', function() {
+//             setTimeSoFar(t.currentTime);
+//             console.log(d);
+//         });
+//     }
+//     return (
+//         <div>
+
+//             {d}
+//         </div>
+//     );
+// }
 
 export default function AllTropesBox( ) {
 
@@ -118,23 +138,32 @@ export default function AllTropesBox( ) {
         }
     };
 
-    // const highlight = (song) => {
-    //     // new Audio(song).play();
-    //     setTrope = trope
-    //   };
+    const [timeSoFar, setTimeSoFar] = React.useState(0);
 
-    return (
-<div>
-        
-        {/* <audio id="player" controls></audio> */}
+    const hello = (e) => {
+        var t = document.getElementById('player');
 
+        t.addEventListener( 'timeupdate', function() {
+            setTimeSoFar(t.currentTime.toFixed(1));
+            // console.log(timeSoFar);
+        });
+    }
+
+
+    return (        
          <div className={classes.root}>
             <Paper className={classes.paper} >
 
             <Grid container spacing={2} > 
+            <p style = {{'display': 'none'}}>
+            TODO -- kareoke the words as you're speaking!!
+                {timeSoFar}
+            </p>
             
                 <Grid item xs={2}>
-                <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.m4a' />
+                    <div  onClick={() => { hello(true)}}> 
+                        <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.m4a'/>
+                    </div>
                 <Hidden smDown>
 
                      <Grid container direction='row' spacing={12}>
@@ -162,7 +191,7 @@ export default function AllTropesBox( ) {
                                         color='secondary' name="checked" 
                                         inputProps={{ 'position' : 'right' }}
                             /> */}
-                            <Tooltip title="Follow in Transliteration" arrow placement="right">
+                            <Tooltip title="Toggle the Shapes" arrow placement="right">
                                 <Switch
                                     checked={state.checked}
                                     onChange={handleChange}
@@ -214,9 +243,10 @@ export default function AllTropesBox( ) {
             {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
             <Tooltip title="Click the words to hear indivual recordings 
             or listen to all of them by pressing the button on the far left" arrow placement="top">
-                <div style={{color:'blue', 'font-size':'2vw'}}> &lt;&lt;&lt; </div>
+                <div style={{color:'#1c313a', 'font-size':'2vw'}}> &lt;&lt;&lt; </div>
 
             </Tooltip>
+
                     {songList.map(flash => {
                                 return (
                                     <fl style={{ 'font-size':'2vw', 'line-height': '1.6'}} onClick = {() => {playSound(flash.sound)}}>
@@ -258,7 +288,6 @@ export default function AllTropesBox( ) {
             
         </div>
 
-        </div>
 
     )
 }

@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { red, blue} from "@material-ui/core/colors";
-// import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
+import { red } from "@material-ui/core/colors";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import AutoRotatingCarousel from './AutoRotatingCarousel'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
@@ -13,7 +12,6 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
 import RenderSmoothImage from './RenderSmoothImage';
 
 function importAll(r) {

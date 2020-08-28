@@ -7,7 +7,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Tooltip from '@material-ui/core/Tooltip';
-import { blue } from '@material-ui/core/colors';
 
 // import Slider from "@material-ui/core/Slider";
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -19,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: 'green',
     color: 'white',
 
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // justifyContent: 'space-around',
+    // overflow: 'hidden',
+
   },
   paper: {
     // padding: theme.spacing(2),
@@ -27,10 +31,18 @@ const useStyles = makeStyles((theme) => ({
     // margin: 'auto',
     border: '4px double',
     color: 'white',
-
-
     // maxHeight: '%50',
     backgroundColor: 'brown',
+
+    // display: 'block',
+    // width: '10vw',
+    // transitionDuration: '0.3s',
+    // height: '8vw'
+    
+    //     display: 'flex',
+    // flexWrap: 'wrap',
+    // justifyContent: 'space-around',
+    // overflow: 'hidden',
   },
   image: {
     // width: 100,
@@ -43,10 +55,11 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
   progress: {
-    top: -60,
     position: 'relative',
+
+    top: 30,
     // top: -50,
-    // left: 54,
+    left: 80,
     // left: 54,
     // zIndex: 2,
   },
@@ -142,9 +155,9 @@ export default function Flashcard( {...props}) {
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
-            <Grid item  container direction="column" spacing={2} style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
+            <Grid item container direction="column" spacing={2} style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
                 {/* <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} > */}
-                    <fl style={{ 'font-size':'2vw' , 'line-height': '1.5'}} >{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
+                    <fl style={{ 'font-size':'2vw' , 'line-height': '1.3','max-height': '2vw'}} >{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
 
             {/* </Grid> */}
@@ -168,6 +181,7 @@ export default function Flashcard( {...props}) {
               <Tooltip title="Add trope to quizlet above" arrow placement="center">
                 <Checkbox color="default" icon={<CheckBoxOutlineBlankIcon fontSize="small" />} 
                   checkedIcon={<CheckBoxIcon fontSize="small" />} checked={toggle} onChange={handleChange}
+                  // className={classes.progress}
                 />
               </Tooltip>
               </Grid>

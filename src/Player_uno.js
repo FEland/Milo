@@ -36,6 +36,10 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
+function hello() {
+  console.log("helo");
+}
+
 export default function Player({...props}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -46,6 +50,7 @@ export default function Player({...props}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
 
   return (
     <div>
@@ -69,8 +74,10 @@ export default function Player({...props}) {
         <StyledMenuItem>
             <ul>
             <ListItemText primary={props.title} />
-            <div className = "player-item">
-                <audio color="primary" controls src = {props.song}/>
+            <div className = "player-item" onplay={hello}>
+              {/* preload="auto" */}
+                <audio  color="primary" id="player" controls src = {props.song} />
+                
             </div> 
             </ul>
         </StyledMenuItem>

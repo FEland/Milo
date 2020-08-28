@@ -1,5 +1,6 @@
 import React, {useState}  from 'react'; 
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 export default function Master ( ) {
@@ -28,7 +29,14 @@ export default function Master ( ) {
             return (<img src={image} alt="hiddenCovers" width='50%' style={{display: 'none'}}/>)
         })}
 
-        {!tikkun ? <Button variant="contained" color="primary" onClick={() => { setTikkun(true)}}>Open Up Tikkun</Button> : ''}
+       
+            
+        
+
+        {!tikkun ? 
+         <Tooltip title="Built by external party: Akiva Gordon"  placement="center">
+             <Button variant="contained" color="primary" onClick={() => { setTikkun(true)}}>Open Up Tikkun</Button> 
+        </Tooltip> : ''}
         {tikkun ? <iframe src="https://www.tikkun.io" width="80%" height="400" style={{'border': "4px solid blue"}} title="tikkunIO"></iframe> : ''}
         {/* <div style={{'position':"absolute"}}> */}
             {/* <img src="/Slides/Shema/02.jpg" 

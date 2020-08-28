@@ -76,10 +76,10 @@ export default function Ropes ( ) {
             <div > 
               <h1>Practice the Tropes!</h1>
             </div>
-            <frontpage>
+            {/* <frontpage> */}
 
             <AllTropesBox/>
-            </frontpage>
+            {/* </frontpage>  */}
 
             <h5>Quiz Yourself
               {/* <p>HERE {{Samples}.length}</p> */}
