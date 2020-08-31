@@ -7,10 +7,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Tooltip from '@material-ui/core/Tooltip';
+import Button from "@material-ui/core/Button";
 
 // import Slider from "@material-ui/core/Slider";
 import CircularProgress from '@material-ui/core/CircularProgress';
 // import EqualizerIcon from '@material-ui/icons/Equalizer';
+import LanguageTwoToneIcon from '@material-ui/icons/LanguageTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -149,7 +151,7 @@ export default function Flashcard( {...props}) {
 
             <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}
                   onClick={() => {playSound(props.flashcard.sound) }} 
-                  onMouseOver={() => {setFlip(!flip)}}/>
+                  />
 
               {/* <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(song) }}  onMouseOver={() => {setFlip(!flip)}}/> */}
             </ButtonBase>
@@ -165,6 +167,7 @@ export default function Flashcard( {...props}) {
             <Grid item xs container direction="column" spacing={2}>
             <br/>
             <Grid item>
+            
               {playing ?  
                 <Grid item>
                   <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7">
@@ -184,11 +187,19 @@ export default function Flashcard( {...props}) {
                   // className={classes.progress}
                 />
               </Tooltip>
+
+              {/* <Button variant="contained" color="primary" 
+              onClick={() => {setFlip(!flip)}} 
+              startIcon={<LanguageTwoToneIcon />}> 
+              </Button> */}
+              <LanguageTwoToneIcon onClick={() => {setFlip(!flip)}} />
+
               </Grid>
               : <Grid item> <CircularProgress size ={30} color="primary" /> </Grid> 
                  }
                  </>
             }
+              
               {/* <Checkbox checked={toggle} onChange={handleChange}/> */}
 
               </Grid>

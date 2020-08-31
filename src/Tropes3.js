@@ -28,7 +28,7 @@ export const Samples = [
         checked: 1,
         image: "./images/munach_revii.png",
         sound: './sounds/munach_revii.m4a',
-        heb: ' מֻנַּ֣ח רְבִ֗יע',
+        heb: ' מֻנַּ֣ח רְבִ֗יעִי',
         eng: 'Munach Reviyi'
     },
     {
@@ -62,7 +62,7 @@ export const Samples = [
         checked: 1,
         image: "./images/mercha_tipcha.png",
         sound: './sounds/mercha_tipcha.m4a',
-        heb: ' מֵרְכָ֥א טִפְחָ֖א',
+        heb: ' מֵרְכָ֥א טִפְּחָ֖א',
         eng: 'Mercha Tipcha'
     },
     {

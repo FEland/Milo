@@ -14,6 +14,13 @@
     src: url(./fonts/ShlomoStam/ShlomoStam.ttf);
     
   }
+  div.lecture-cover {
+    /* border: 3px solid black; */
+        /* opacity: 0.5; */
+    background-color: black;
+
+    /* transition: opacity 1ms; */
+  }
   div.lecture-cover :hover{
     /* border: 3px solid green;
     background-color: #a13b3b;
@@ -22,13 +29,7 @@
     opacity: 0.8;
 
   }
-  div.lecture-cover {
-    /* border: 3px solid black; */
-        /* opacity: 0.5; */
-    background-color: black;
 
-    /* transition: opacity 1ms; */
-  }
   .topleft {
     position: absolute;
     top: 8px;
@@ -60,7 +61,7 @@
     border: 2px solid #e7e7e7;
     font-size: large;
     background-color: brown;
-    color: rgb(204, 204, 204);
+    color: rgb(196, 53, 53);
     position: center;
     margin: 5px auto;
     padding: 5px 32px;
@@ -116,13 +117,6 @@ frontpage {
     position: -webkit-sticky;
     top: 0; */
   }
-
- .MuiTab-root :hover {
-    border: 4px solid #e7e7e7;
-    background-color: #ddd;
-    color: rgb(116, 142, 216);
-  }
-
   .MuiCardContent-root {
     /* visibility: hidden; */
     color: 'green';
@@ -139,6 +133,13 @@ frontpage {
     /* display: inline-flex; */
 
   }
+ .MuiTab-root :hover {
+    border: 4px solid #e7e7e7;
+    background-color: #ddd;
+    color: rgb(116, 142, 216);
+  }
+
+
   
 backup{
   visibility: hidden;
@@ -347,13 +348,16 @@ boxy{
     /* overflow-y: auto; */
 
   }
-  hov:active {
-    color: yellow;
-    cursor: none;
+  /* hov:active {
+    /* color: yellow; */
+    /* cursor: none; */
     /* font-size: 150%; */
-    background-color: rgb(13, 20, 6);
+    /* background-color: rgb(13, 20, 6);} */
 
+  hov2 {
+    letter-spacing: .05em;
   }
+
   hov2:hover {
     cursor: none; 
     background-color: rgba(160, 100, 96, 0.527);
@@ -363,7 +367,7 @@ boxy{
     /* color: rgb(223, 162, 57); */
     /* color: rgb(255, 255, 134); */
     /* color: rgb(255, 255, 255); */
-    color: white
+    color: white;
 
   }
 
