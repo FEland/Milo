@@ -161,6 +161,7 @@ const AutoRotatingCarouselModal = ({isMobile, lesson }) => {
           onStart={() => setHandleOpen({ open: false })}
           autoplay={false}
           mobile={isMobile}
+          landscape={true}
           style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
         >
             {lesson[0].map(image => {

@@ -71,6 +71,17 @@ const useStyles = makeStyles((theme) => ({
 //     );
 // }
 
+// const Highlite = ({timeSoFar}) => {
+
+//     var w = 0;
+//     for (w = 0; w < songList.length; w++){
+//         if (timeSoFar >= songList[w].start && timeSoFar < songList[w].end){
+//             return (<p>{songList[w].eng}</p>);
+//         }
+//     }
+//     return (<p>f</p>);
+// }
+
 export default function AllTropesBox( ) {
 
     const [trope, setTrope] = useState(0);
@@ -145,8 +156,41 @@ export default function AllTropesBox( ) {
 
         t.addEventListener( 'timeupdate', function() {
             setTimeSoFar(t.currentTime.toFixed(1));
+            setPlaying(true);
+
+            // highlite();
             // console.log(timeSoFar);
+            // var w = 0;
+            for (var w = 0; w < songList.length; w++){
+                if (t.currentTime >= songList[w].start && t.currentTime < songList[w].end){
+                    // return (<p>{songList[w].eng}</p>);
+                    setTrope(songList[w].id);
+                    // console.log(trope, songList[w].eng);
+                    break;
+                }
+            }
         });
+        // t.addEventListener('playing', function () {
+        //     setLoading(false);
+        //     setPlaying(true);
+        // }, false);
+    
+        // t.addEventListener('ended', function () {
+        //     setPlaying(false);
+        // }, false);
+    }
+
+
+    const highlite = () => {
+
+        var w = 0;
+        for (w = 0; w < songList.length; w++){
+            if (timeSoFar >= songList[w].start && timeSoFar < songList[w].end){
+                // return (<p>{songList[w].eng}</p>);
+                setTrope(songList[w].id);
+            }
+        }
+        // return (<p>f</p>);
     }
 
 
@@ -155,9 +199,10 @@ export default function AllTropesBox( ) {
             <Paper className={classes.paper} >
 
             <Grid container spacing={2} > 
-            <p style = {{'display': 'none'}}>
-            TODO -- kareoke the words as you're speaking!!
-                {timeSoFar}
+            {/* <p style = {{'display': 'none'}}> */}
+            <p>
+                {/* {timeSoFar}A{trope} */}
+                {/* <Highlite timeSoFar={timeSoFar} /> */}
             </p>
             
                 <Grid item xs={2}>
@@ -251,12 +296,11 @@ export default function AllTropesBox( ) {
                                 return (
                                     <fl style={{ 'font-size':'2vw', 'line-height': '1.6'}} onClick = {() => {playSound(flash.sound)}}>
                                     
-                                    
 
                                     {/* TODO COLOR */}
                                         {/* {state.checked ? < div style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>{flash.heb} {'\u00A0'}</div> :  <>{flash.eng} {'\u00A0'}</> } */}
                                         {/* {!state.checked ? <>{flash.heb} {'\u00A0'}</> :  <>{flash.eng} {'\u00A0'}</> } */}
-                                        {!state.checked ? <>{flash.heb} {'\u00A0'}</> : 
+                                        {!state.checked ? < span style={(trope === flash.id && playing) ?  {'opacity' : '.5'} : {'':''}} >{flash.heb} {'\u00A0'}</span > : 
                                         <>
                                         <Hidden smDown>
                                             {(trope === flash.id) ? 

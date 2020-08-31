@@ -5,33 +5,6 @@ import React, {useState} from 'react'
 // const hebrewLetters = "אבבּגדהוזחטיככּךלמםנןסעפפּףצץקרשׁשׂתתּ" ;
 const nekudot = " ֯ ֮ ֭ ֬ ֫ ֩ ֨ ֧ ֦ ֥ ֤ ֣ ֽ֢ ֢ ֡ ֠ ֟ ֞ ֝ ֜ ֛ ֚  ֙ ֘ ֗ ֖ ֕  ֔ ֓ ֒ ֑  ׀    ֑♢ "
 
-const Letter = ({l}) => {
-
-    const [flip, setFlip] = useState(false);
-  
-    // return ( 
-
-    if (nekudot.indexOf(String(l)) === -1) {
-
-        return (<hov style={flip? {'mix-blend-mode': 'color-burn'} : {'':''} } onDoubleClick={() => {setFlip(!flip)}} >a</hov>)
-
-        // return ( <hov  onClick={() => {setFlip(!flip)}} >{l}</hov>)}
-
-        // <Letter l={l}></Letter>
-        //   return ( <hov style={{'color': flip && l[1]}} onClick={() => {setFlip(!flip)}} >{l}</hov>)}
-      }
-
-    else {
-
-        return (<hov ><vowel>&shy;{l}</vowel></hov>)
-    }
-
-    // <hov style={{'color': flip && 'red'}} onClick={() => {setFlip(!flip)}} contenteditable="true">
-    //     {l}
-    // </hov>
-
-  };
-
 const Vowel = ({l}) => {
 
     return (<hov><vowel>&shy;{l}</vowel></hov>)
