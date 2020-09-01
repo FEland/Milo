@@ -7,12 +7,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Tooltip from '@material-ui/core/Tooltip';
-import Button from "@material-ui/core/Button";
+// import IconButton from "@material-ui/core/IconButton";
+import Hidden from '@material-ui/core/Hidden';
 
 // import Slider from "@material-ui/core/Slider";
 import CircularProgress from '@material-ui/core/CircularProgress';
 // import EqualizerIcon from '@material-ui/icons/Equalizer';
-import LanguageTwoToneIcon from '@material-ui/icons/LanguageTwoTone';
+// import LanguageTwoToneIcon from '@material-ui/icons/LanguageTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     // maxHeight: '%50',
     backgroundColor: 'brown',
+    
 
     // display: 'block',
     // width: '10vw',
@@ -63,6 +65,11 @@ const useStyles = makeStyles((theme) => ({
     // top: -50,
     left: 80,
     // left: 54,
+    // zIndex: 2,
+  },
+  translation: {
+    top: -1,
+    right:0,
     // zIndex: 2,
   },
 }));
@@ -149,19 +156,28 @@ export default function Flashcard( {...props}) {
           <Grid item>
             <ButtonBase className={classes.image}>
 
-            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}
+            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={playSound}  onMouseOver={() => {setFlip(!flip)}}/>
+
+            {/* <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}
                   onClick={() => {playSound(props.flashcard.sound) }} 
-                  />
+                  /> */}
 
               {/* <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={() => {playSound(song) }}  onMouseOver={() => {setFlip(!flip)}}/> */}
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
+          <Hidden smDown>
             <Grid item container direction="column" spacing={2} style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
                 {/* <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} > */}
                     <fl style={{ 'font-size':'2vw' , 'line-height': '1.3','max-height': '2vw'}} >{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
-
+          </Hidden>
+          <Hidden mdUp>
+            <Grid item container direction="column" spacing={2} style={{ cursor: 'pointer' }} onClick = {() => {playSound(props.flashcard.sound)}} >
+                {/* <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} > */}
+                    <fl style={{ 'font-size':'4vw' , 'line-height': '1.2','max-height': '4vw'}} >{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
+              </Grid>
+          </Hidden>
             {/* </Grid> */}
 
             <Grid item xs container direction="column" spacing={2}>
@@ -180,21 +196,34 @@ export default function Flashcard( {...props}) {
                 </svg>
                  </Grid>  :
                  <>{!load ? 
-              <Grid item>
-              <Tooltip title="Add trope to quizlet above" arrow placement="center">
+                // <Grid item  container  >
+                <Grid item>
+                  <br/>
+                <Tooltip title="Add trope to quizlet above" arrow placement="center">
                 <Checkbox color="default" icon={<CheckBoxOutlineBlankIcon fontSize="small" />} 
                   checkedIcon={<CheckBoxIcon fontSize="small" />} checked={toggle} onChange={handleChange}
                   // className={classes.progress}
                 />
               </Tooltip>
-
-              {/* <Button variant="contained" color="primary" 
-              onClick={() => {setFlip(!flip)}} 
-              startIcon={<LanguageTwoToneIcon />}> 
-              </Button> */}
-              <LanguageTwoToneIcon onClick={() => {setFlip(!flip)}} />
-
               </Grid>
+              
+              /* <Grid item>
+              <Tooltip title="See Transliteration" arrow placement="center">
+
+              <ButtonBase centerRipple="true" focusRipple="true" className={classes.translation}
+>
+              <IconButton color="primary" className={classes.translation}
+              onClick={() => {setFlip(!flip)}}>
+                <LanguageTwoToneIcon/>
+                </IconButton>
+              </ButtonBase>
+              </Tooltip>
+
+              </Grid> */
+
+              /* <LanguageTwoToneIcon onClick={() => {setFlip(!flip)}} /> */
+
+              // </Grid>
               : <Grid item> <CircularProgress size ={30} color="primary" /> </Grid> 
                  }
                  </>

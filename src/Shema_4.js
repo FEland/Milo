@@ -12,6 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import ColorModal from './ColorModal';
 import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
+import Hidden from '@material-ui/core/Hidden';
 
 
 export default function Shema() {
@@ -142,6 +143,8 @@ export default function Shema() {
             </Tooltip>
         </div>
 
+    <Hidden smDown>
+
     {/* 1st Paragraph */}
     {!state.toggleTranslation ? 
         !state.toggleTrope ?
@@ -177,6 +180,45 @@ export default function Shema() {
         <quiz style = {{ 'color': color}}> {Shemas[11]}</quiz>
         
     }
+    </Hidden>
+    <Hidden mdUp>
+
+    {/* 1st Paragraph */}
+    {!state.toggleTranslation ? 
+        !state.toggleTrope ?
+            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'large', 'color': color}}> <Sophie p = {Shemas[0]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam', 'color': color }}> <Sophie p = {Shemas[2]}/> </quiz> 
+            : 
+            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'large', 'color': color}}>
+                {state.checked ? <Sophie p = {Shemas[1]}/> :  <Batsheva p = {Shemas[1]} />  }
+            </quiz>
+        :
+        <quiz style = {{ 'color': color}}> {Shemas[3]}</quiz>
+    }
+    
+    {/* 2nd Paragraph */}
+    {!state.toggleTranslation ? 
+        !state.toggleTrope ?
+            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'large', 'color': color}}> <Sophie p = {Shemas[4]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam', 'color': color }}> <Sophie p = {Shemas[6]}/> </quiz> 
+            : 
+            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'large', 'color': color}}>
+                {state.checked ? <Sophie p = {Shemas[5]}/> :  <Batsheva p = {Shemas[5]} />  }
+            </quiz>
+        :
+        <quiz style = {{ 'color': color}}> {Shemas[7]}</quiz>
+    }
+    {/* 3rd Paragraph */}
+    {!state.toggleTranslation ? 
+        !state.toggleTrope ?
+            !state.toggle ? <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'large', 'color': color}}> <Sophie p = {Shemas[8]}/> </quiz> : <quiz style = {{ 'font-family': 'ShlomosemiStam', 'color': color }}> <Sophie p = {Shemas[10]}/> </quiz> 
+            : 
+            <quiz style = {{ 'font-family': 'Times New Roman', 'font-size': 'large', 'color': color}}>    
+                {state.checked ? <Sophie p = {Shemas[9]}/> :  <Batsheva p = {Shemas[9]} />  }
+            </quiz>
+        :
+        <quiz style = {{ 'color': color}}> {Shemas[11]}</quiz>
+        
+    }
+    </Hidden>
 
 
 

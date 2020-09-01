@@ -149,16 +149,14 @@ export default function AllTropesBox( ) {
         }
     };
 
-    const [timeSoFar, setTimeSoFar] = React.useState(0);
+    // const [timeSoFar, setTimeSoFar] = React.useState(0);
 
-    const hello = (e) => {
+    const enableHighlight = (e) => {
         var t = document.getElementById('player');
 
         t.addEventListener( 'timeupdate', function() {
-            setTimeSoFar(t.currentTime.toFixed(1));
+            // setTimeSoFar(t.currentTime.toFixed(1));
             setPlaying(true);
-
-            // highlite();
             // console.log(timeSoFar);
             // var w = 0;
             for (var w = 0; w < songList.length; w++){
@@ -170,6 +168,11 @@ export default function AllTropesBox( ) {
                 }
             }
         });
+        //Removes "playing" animation and removes highlite
+        setPlaying(false);
+        setTrope(0);
+
+
         // t.addEventListener('playing', function () {
         //     setLoading(false);
         //     setPlaying(true);
@@ -181,17 +184,6 @@ export default function AllTropesBox( ) {
     }
 
 
-    const highlite = () => {
-
-        var w = 0;
-        for (w = 0; w < songList.length; w++){
-            if (timeSoFar >= songList[w].start && timeSoFar < songList[w].end){
-                // return (<p>{songList[w].eng}</p>);
-                setTrope(songList[w].id);
-            }
-        }
-        // return (<p>f</p>);
-    }
 
 
     return (        
@@ -199,14 +191,9 @@ export default function AllTropesBox( ) {
             <Paper className={classes.paper} >
 
             <Grid container spacing={2} > 
-            {/* <p style = {{'display': 'none'}}> */}
-            <p>
-                {/* {timeSoFar}A{trope} */}
-                {/* <Highlite timeSoFar={timeSoFar} /> */}
-            </p>
             
                 <Grid item xs={2}>
-                    <div  onClick={() => { hello(true)}}> 
+                    <div  onClick={() => { enableHighlight(true)}}> 
                         <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.m4a'/>
                     </div>
                 <Hidden smDown>
@@ -300,7 +287,15 @@ export default function AllTropesBox( ) {
                                     {/* TODO COLOR */}
                                         {/* {state.checked ? < div style = {{ 'font-family': 'Times New Roman', 'font-size': 'x-large', 'color': color}}>{flash.heb} {'\u00A0'}</div> :  <>{flash.eng} {'\u00A0'}</> } */}
                                         {/* {!state.checked ? <>{flash.heb} {'\u00A0'}</> :  <>{flash.eng} {'\u00A0'}</> } */}
-                                        {!state.checked ? < span style={(trope === flash.id && playing) ?  {'opacity' : '.5'} : {'':''}} >{flash.heb} {'\u00A0'}</span > : 
+                                        {!state.checked ? 
+                                        <>
+                                        <Hidden smDown>
+                                            <span style={(trope === flash.id && playing) ?  {'opacity' : '.5'} : {'':''}} >{flash.heb} {'\u00A0'}</span > 
+                                        </Hidden>
+                                        <Hidden mdUp>
+                                            <span style={(trope === flash.id && playing) ?  {'opacity' : '.5', 'fontSize' : '3vw'} : {'fontSize' : '3vw'}} >{flash.heb} {'\u00A0'}</span > 
+                                        </Hidden>
+                                        </>: 
                                         <>
                                         <Hidden smDown>
                                             {(trope === flash.id) ? 
