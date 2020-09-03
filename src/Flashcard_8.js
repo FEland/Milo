@@ -156,7 +156,7 @@ export default function Flashcard( {...props}) {
           <Grid item>
             <ButtonBase className={classes.image}>
 
-            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}  onClick={playSound}  onMouseOver={() => {setFlip(!flip)}}/>
+            <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image} onClick={() => {playSound(props.flashcard.sound)}} onMouseOver={() => {setFlip(!flip)}}/>
 
             {/* <img className={classes.img} alt="complex" loading="lazy" src={props.flashcard.image}
                   onClick={() => {playSound(props.flashcard.sound) }} 
