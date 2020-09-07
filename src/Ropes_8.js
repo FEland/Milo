@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
 // }
 // let songList = prePopulateItems();
 
-let songList = Samples;
+// let songList = Samples;
 
 export default function Ropes ( ) {
 
@@ -46,15 +46,18 @@ export default function Ropes ( ) {
 
 
     // let songList = {...Samples};
-    const [checked, setChecked] = React.useState({songList});
+    
+    // const [checked, setChecked] = React.useState({songList});
+    const [checked, setChecked] = React.useState({...Samples});
+
     
     const callBack4 = (...val) => {
       console.log("in Ropes callback4 starting w" + val, ...val);
     }
 
     const callBack1 = (...val) => {
-      // console.log("in Ropes callback1 starting w" + val, ...val);
-      songList = {...val};
+      console.log("in Ropes callback1 starting w" + val, ...val);
+      // songList = {...val};
       setChecked(...val);
       // console.log("in Ropes callback1 invoked", songList);
 
@@ -67,7 +70,10 @@ export default function Ropes ( ) {
       // Quiz.items = songList;
       // console.log(val);
       // return (<p>HELP</p>);
+    
     };
+
+    // setChecked(songList);
     
     return (
 

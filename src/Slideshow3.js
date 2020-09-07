@@ -120,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
                     onClose={() => setHandleOpen({ open: false })}
                     onStart={() => setHandleOpen({ open: false })}
                     onFullScreen={() => setHandleFullScreen({ fullScreen: false})}
-                    autoplay={false} mobile={matches} fullScreen={handleFullScreen.fullScreen}
+                    autoplay={false} landscape={true} mobile={matches} fullScreen={handleFullScreen.fullScreen}
                     style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
                   >
                       {lesson[0].map(image => { return (

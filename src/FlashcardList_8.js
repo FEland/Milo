@@ -100,6 +100,7 @@ export default function FlashcardList( { callBack1} ) {
 
     const classes = useStyles();
     
+    callBack1(songList); //initialize all tropes as valid for quiz
 
     return (
 
