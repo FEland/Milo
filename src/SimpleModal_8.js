@@ -105,7 +105,7 @@ export default function SimpleModal({flashcards, level, name}) {
             BackdropProps={{
               timeout: 500,
             }}
-            style={{top: "25%", left: "25%",  width: "50%", maxWidth: "50%"}}
+            style={{top: "25%", left: "25%",  width: "50%", maxWidth: "50%", height: "50%", maxheight: "50%"}}
             >
             <Fade in={open} out={!open}>
               <div >
