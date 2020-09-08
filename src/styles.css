@@ -59,15 +59,18 @@
 
   quiz {
     border: 2px solid #e7e7e7;
-    font-size: large;
+    font-size: max(3ex, 1em, 1rem);
     background-color: brown;
     color: rgb(241, 187, 187);
     position: center;
     margin: 5px auto;
-    padding: 5px 32px;
+    padding: 32px 32px;
     text-align: center;
     display: inline-block;
     overflow-wrap: break-word;
+    width: "80%";
+    /* max-width: "80%" */
+
 
   }
 
