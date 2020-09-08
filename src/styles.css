@@ -59,7 +59,8 @@
 
   quiz {
     border: 2px solid #e7e7e7;
-    font-size: max(3ex, 1em, 1rem);
+    /* font-size: max(3ex, 1em, 1rem); */
+    font-size: x-large;
     background-color: brown;
     color: rgb(241, 187, 187);
     position: center;
