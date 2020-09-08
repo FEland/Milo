@@ -52,14 +52,19 @@ export default function SimpleModal({flashcards, level, name}) {
   // const [up, setUp] = React.useState(false);
   let audio = new Audio();
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-    // var t = document.getElementById('audio');
-    // t.pause();
+  // const handleClose = () => {
+  //   setOpen(false);
+  //   // var t = document.getElementById('audio');
+  //   // t.pause();
+  //   audio.pause();
+  // };
+
+  const toggleModal = () => {
+    setOpen(!open);
     audio.pause();
   };
 
@@ -93,13 +98,13 @@ export default function SimpleModal({flashcards, level, name}) {
     <div>
       {/* {orientation ? "P" : "L"}
       {isMobile ? "M" : "C"} */}
-      <button type="button" onClick={handleOpen}>
+      <button type="button" onClick={toggleModal}>
         {name}
       </button>
       
       {/* {(!orientation && isMobile)?  */}
       <Hidden smUp>
-      <Modal open={open} onClose={handleClose}         
+      {/* <Modal open={open} onClose={handleClose}         
             closeAfterTransition
             BackdropComponent={Backdrop}
             BackdropProps={{
@@ -107,19 +112,20 @@ export default function SimpleModal({flashcards, level, name}) {
             }}
             style={{top: "25%", left: "25%",  width: "50%", maxWidth: "50%", height: "50%", maxheight: "50%"}}
             >
-            <Fade in={open} out={!open}>
+            <Fade in={open} out={!open}> */}
               <div >
-                <button style={buttonStyle} onClick={() => {handleClose()}} >x</button> 
-                <CreateQuiz flashcards = {flashcards} audio={audio} level={level} orientation={0}/>
-              </div>
-        </Fade>
+                {open && <CreateQuiz flashcards = {flashcards} audio={audio} level={level} orientation={0}/>}
+                {/* <button style={{position: 'fixed', top: 0, right: 0, color: 'red'}} onClick={() => {handleClose()}} >x</button>  */}
 
-      </Modal>
+              </div>
+        {/* </Fade>
+
+      </Modal> */}
       
       </Hidden>
       {/* :  */}
       <Hidden xsDown>
-      <Modal open={open} onClose={handleClose}         
+      <Modal open={open} onClose={toggleModal}         
             closeAfterTransition
             BackdropComponent={Backdrop}
             BackdropProps={{
@@ -130,7 +136,7 @@ export default function SimpleModal({flashcards, level, name}) {
               <div style={modalStyle} className={classes.paper}>
               <p id="simple-modal-description">
 
-                <button style={buttonStyle} onClick={() => {handleClose()}} >x</button> 
+                <button style={buttonStyle} onClick={() => {toggleModal()}} >x</button> 
                     {/* {(up) ? <div>FINITO</div> : <div> JUST START</div> } */}
       {/* 
                     <Quiz 
