@@ -19,6 +19,7 @@ import virtualize from 'react-swipeable-views-utils/lib/virtualize'
 import bindKeyboard from 'react-swipeable-views-utils/lib/bindKeyboard'
 import SwipeableViews from 'react-swipeable-views'
 
+
 const modulo = (a, n) => ((a % n) + n) % n
 
 const VirtualizeSwipeViews = bindKeyboard(virtualize(SwipeableViews))
@@ -268,7 +269,6 @@ class AutoRotatingCarousel extends Component {
                 })}
               >
                 {label && <Button
-                  variant='contained'
                   onClick={onStart}
                 //   onClick={down(lesson[1])}
                   {...ButtonProps}
@@ -285,13 +285,22 @@ class AutoRotatingCarousel extends Component {
                   {label}
                 </Button> */}
                 
-                {label2 && <Button
+                {/* {label2 && <Button
                   variant='contained'
                   {...ButtonProps}
                 >
                   {label2}
                 </Button>
-                }
+                } */}
+
+                {label2}
+                {/* <Button
+                  variant='contained'
+                  {...ButtonProps}
+                >
+                  JESSE
+                </Button> */}
+
                 {
                   hasMultipleChildren &&
                   <Dots

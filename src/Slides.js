@@ -26,6 +26,7 @@ const styles = {
   },
   mediaMobile: {
     position: 'relative',
+    
     top: '50%',
     transform: 'translateY(-50%)'
   },
@@ -36,7 +37,9 @@ const styles = {
     textAlign: 'center'
   },
   mediaBackgroundMobile: {
-    height: 'calc(100% - 241px)'
+    // height: 'calc(100% - 241px)'
+    height: '65%'
+
   },
   mediaBackgroundMobileLandscape: {
     height: '100%',

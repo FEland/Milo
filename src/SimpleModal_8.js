@@ -26,7 +26,7 @@ function getButtonStyle() {
     top: 0,
     right: 0,
     color: 'red',
-
+    fontSize: '1.5vw'
   };
 }
 

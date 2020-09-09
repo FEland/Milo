@@ -13,6 +13,10 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import RenderSmoothImage from './RenderSmoothImage';
+import Dialog from '@material-ui/core/Dialog';
+
+import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function importAll(r) {
   return r.keys().map(r);
@@ -41,6 +45,20 @@ const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Months, Shema, Al
 
 let backDropColor = 'brown';
 
+function getButtonStyle() {
+
+  return {
+    position: 'absolute',
+    // position: '-webkit-sticky',
+    // position: 'sticky',
+    top: 0,
+    right: 0,
+    color: 'red',
+    fontSize: '1.5vw'
+    // alignSelf: 'flex-start'
+
+  };
+}
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -82,7 +100,22 @@ const useStyles = makeStyles((theme) => ({
   
   const Yalla = ({lesson}) => {
     const [handleOpen, setHandleOpen] = useState({ open: false });
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+    // const [openModal, setModalOpen] = useState(false);
+
     const [handleFullScreen, setHandleFullScreen] = useState({ fullScreen: false });
+    const [buttonStyle] = React.useState(getButtonStyle);
+
     const matches = useMediaQuery("(max-width:600px)");
     const classes = useStyles();
   
@@ -116,11 +149,24 @@ const useStyles = makeStyles((theme) => ({
                         </Grid>
                       </Grid>
                   <AutoRotatingCarousel
-                    label = {lesson[1]} open={handleOpen.open}
+                    label = {
+                      <Button variant="contained" color="primary">
+                        <ExitToAppIcon color="secondary" style={{transform: "rotate(-180deg)"}}/>
+                      </Button>
+                    } 
+                    label2 = {
+                      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+                        <ZoomOutMapIcon color="secondary"/>
+                      </Button>
+                    }
+                    open={handleOpen.open}
                     onClose={() => setHandleOpen({ open: false })}
                     onStart={() => setHandleOpen({ open: false })}
                     onFullScreen={() => setHandleFullScreen({ fullScreen: false})}
-                    autoplay={false}  mobile={matches} fullScreen={handleFullScreen.fullScreen}
+                    autoplay={false} 
+                    // mobile={matches} 
+                    mobile={(!!navigator.maxTouchPoints || matches)}
+                    fullScreen={handleFullScreen.fullScreen}
                     style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
                   >
                       {lesson[0].map(image => { return (
@@ -129,8 +175,25 @@ const useStyles = makeStyles((theme) => ({
                                     media={<RenderSmoothImage src={image}></RenderSmoothImage>}
                                     mediaBackgroundStyle={{ backgroundColor: red[400] }}
                                     style={{backgroundColor: red[600]}}
-                                  />)})}
+                                  />
+                                  )
+                                  
+                                  })}
+                                  
                   </AutoRotatingCarousel>
+
+
+                  <div>
+
+                  <Dialog fullScreen open={open} onClose={handleClose}>
+                  {lesson[0].map(image => { return (<RenderSmoothImage src={image}/>)})}
+                  
+                  <button style={buttonStyle} onClick={() => {handleClose(); setHandleOpen({ open: false });}} >x</button> 
+                  
+                  <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} onClick={() => {handleClose(); setHandleOpen({ open: false });}}>Exit</Button>
+                  </Dialog>
+                  </div>
+
               </CardContent>
 
           </Card>
@@ -157,6 +220,7 @@ export default function Slideshow(){
               </Grid>
           )})}
       </Grid>
+
       </div>
 
     </div>
