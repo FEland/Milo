@@ -86,7 +86,7 @@ const styles = {
   }
 }
 
-function Slide (props) {
+function Slide2 (props) {
   const {
     classes,
     media,
@@ -139,7 +139,7 @@ function Slide (props) {
   )
 }
 
-Slide.propTypes = {
+Slide2.propTypes = {
   /**
    * Useful to extend the style applied to components.
    */
@@ -153,11 +153,11 @@ Slide.propTypes = {
    */
   mediaBackgroundStyle: PropTypes.object,
   /**
-   * Subtitle of the slide.
+   * Subtitle of the slide2.
    */
   subtitle: PropTypes.string.isRequired,
   /**
-   * Title of the slide.
+   * Title of the slide2.
    */
   title: PropTypes.string.isRequired,
   /**
@@ -166,10 +166,10 @@ Slide.propTypes = {
    */
   mobile: PropTypes.bool,
   /**
-   * If `true`, slide will adjust content for wide mobile screens.
+   * If `true`, slide2 will adjust content for wide mobile screens.
    * @ignore
    */
   landscape: PropTypes.bool
 }
 
-export default withStyles(styles)(Slide)
+export default withStyles(styles)(Slide2)

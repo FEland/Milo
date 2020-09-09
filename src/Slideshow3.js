@@ -7,14 +7,13 @@ import { red } from "@material-ui/core/colors";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import AutoRotatingCarousel from './AutoRotatingCarousel'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
-import Slide from './Slides'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
+import Slide2 from './Slides'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import RenderSmoothImage from './RenderSmoothImage';
 import Dialog from '@material-ui/core/Dialog';
-
 import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -55,6 +54,7 @@ function getButtonStyle() {
     right: 0,
     color: 'red',
     fontSize: '1.5vw'
+
     // alignSelf: 'flex-start'
 
   };
@@ -119,6 +119,10 @@ const useStyles = makeStyles((theme) => ({
     const matches = useMediaQuery("(max-width:600px)");
     const classes = useStyles();
   
+    // const Transition = React.forwardRef(function Transition(props, ref) {
+    //   return <img direction="up" ref={ref} {...props} />;
+    // });
+
     return (
         <div>
 
@@ -170,7 +174,7 @@ const useStyles = makeStyles((theme) => ({
                     style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
                   >
                       {lesson[0].map(image => { return (
-                                  <Slide
+                                  <Slide2
                                     // media={<img src={image} alt={image} width='150%'/>}
                                     media={<RenderSmoothImage src={image}></RenderSmoothImage>}
                                     mediaBackgroundStyle={{ backgroundColor: red[400] }}
@@ -185,7 +189,10 @@ const useStyles = makeStyles((theme) => ({
 
                   <div>
 
-                  <Dialog fullScreen open={open} onClose={handleClose}>
+                  {/* <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}> */}
+                  
+                <Dialog fullScreen open={open} onClose={handleClose} PaperProps={{style: {backgroundColor: red[600],boxShadow: 'none'}}} >
+
                   {lesson[0].map(image => { return (<RenderSmoothImage src={image}/>)})}
                   
                   <button style={buttonStyle} onClick={() => {handleClose(); setHandleOpen({ open: false });}} >x</button> 

@@ -6,6 +6,11 @@ export default function Final(props) {
   
   let Safari = navigator.vendor.includes('Apple');
   let Chrome = navigator.vendor.includes('Google');
+  // function detectDevice(){
+  //   // console.log(!!navigator.maxTouchPoints)
+  //   return !!(navigator.maxTouchPoints) 
+  // }
+
 
   // if (Safari){
   //   return (

@@ -143,6 +143,13 @@ frontpage {
     color: rgb(116, 142, 216);
   }
 
+  .MuiBottomNavigationAction-label{
+    /* background-color: rgb(175, 167, 167); */
+    color: rgb(255, 255, 255);
+
+  }
+
+
 
   
 backup{

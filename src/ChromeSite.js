@@ -3,14 +3,19 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Ropes from './Ropes_8';
+import Fresh from './Fresh';
 import Shema from './Shema_4';
 import Master from './Master';
 import Slideshow from './Slideshow3';
 import Practice from './Practice';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-
-
+// import MenuBar from './MenuBar';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+// import FolderIcon from '@material-ui/icons/Folder';
+import SlideshowIcon from '@material-ui/icons/Slideshow';
 import { Link, Route, Switch, HashRouter } from "react-router-dom";
 
 // import Countdown from './countdown'; // /** This countdown component is from https://medium.com/@kristin_baumann/react-countdown-6455838b6faf */
@@ -39,11 +44,29 @@ const theme = createMuiTheme({
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  nav: {
+    backgroundColor: 'brown',
   }
+  
 }));
 
 export default function ChromeSite(props) {
   
+  function detectDevice(){
+    let detectObj = {
+      device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+      orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape'
+    }
+    return detectObj
+  }
+
+  const [value, setValue] = React.useState('recents');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const classes = useStyles();
 
     return (
@@ -58,7 +81,63 @@ export default function ChromeSite(props) {
           render={({ location }) => (
             <Fragment variant="dense" >
                 <div>
-                <Grid container spacing={3}> 
+                {detectDevice().device === 'computer' ?   
+                    <Grid container spacing={3}> 
+                      <Grid item xs={2} >
+                        <div class="topleft">
+                        <Link to="/Practice">
+                            <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
+                        </Link>
+                        </div>
+                      </Grid>
+
+                    {/* <MenuBar /> */}
+                    
+                    <Grid item xs={8} >
+                      <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
+                        <Tooltip title="Practice the Shema" arrow placement="left">
+                          <Tab label="Shema" component={Link} to="/Shema" />
+                        </Tooltip>
+                        
+                        <Tab label="Lecture Slides" component={Link} to="/Lectures" />
+
+                        <Tooltip title="Quiz yourself on the Tropes" arrow placement="right">
+                          <Tab label="Tropes" component={Link} to="/Tropes" />
+                        </Tooltip>
+{/* 
+                        <Tooltip title="Quiz yourself on the Fresh" arrow placement="right">
+                          <Tab label="Fresh" component={Link} to="/Fresh" />
+                        </Tooltip> */}
+
+                      </Tabs>
+                    </Grid>
+
+                    <Grid item xs={2} >
+                    <div class="topright">
+                      <Link to="/">
+                        <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" />
+                      
+                      </Link>
+                    </div>
+                    </Grid>
+        
+                  </Grid>
+                :
+                <>{detectDevice().orientation === 'portrait' ? 
+
+
+                  <Grid item  >
+                    <BottomNavigation value={value} onChange={handleChange} className={classes.nav}>
+                      <BottomNavigationAction component={Link} to="/Shema" label="Shema" value="Shema" icon={<img src="./images/ShemaPic.png" alt="Shema" loading="lazy" width="40" height='auto'/>} />
+                      <BottomNavigationAction component={Link} to="/Lectures" label="Lectures" value="Lectures" icon={<SlideshowIcon />} />
+                      <BottomNavigationAction component={Link} to="/Tropes" label="Tropes" value="Tropes" icon={<MusicNoteIcon />} />
+                      <BottomNavigationAction component={Link} to="/" label="Home" value="Home" icon={<img src="./images/barmit.png" alt="icon" loading="lazy" width="40" height='auto'/>} />
+                    </BottomNavigation>
+                    
+                  </Grid>
+      
+                :
+                  <Grid container spacing={3}> 
                   <Grid item xs={2} >
                     <div class="topleft">
                     <Link to="/Practice">
@@ -66,6 +145,9 @@ export default function ChromeSite(props) {
                     </Link>
                     </div>
                   </Grid>
+
+                {/* <MenuBar /> */}
+                
                 <Grid item xs={8} >
                   <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
                     <Tooltip title="Practice the Shema" arrow placement="left">
@@ -77,6 +159,11 @@ export default function ChromeSite(props) {
                     <Tooltip title="Quiz yourself on the Tropes" arrow placement="right">
                       <Tab label="Tropes" component={Link} to="/Tropes" />
                     </Tooltip>
+
+                    {/* <Tooltip title="Quiz yourself on the Fresh" arrow placement="right">
+                      <Tab label="Fresh" component={Link} to="/Fresh" />
+                    </Tooltip> */}
+
                   </Tabs>
                 </Grid>
 
@@ -90,8 +177,9 @@ export default function ChromeSite(props) {
                 </Grid>
     
               </Grid>
-
-
+                }
+              </>
+              }
                 </div>
 
 
@@ -102,6 +190,7 @@ export default function ChromeSite(props) {
                 <Route path="/Lectures" render={() => <div> <Slideshow/> </div>} />
                 <Route path="/Tropes" render={() => <div> <Ropes/>  </div>} />
                 <Route path="/Practice" render={() => <div> <Practice/>  </div>} />
+                <Route path="/Fresh" render={() => <div> <Fresh/>  </div>} />
 
                 {/* <Route path="/" render={() => <div> <MainScreen/> </div>} /> */}
                 <Route path="/" render={() => <div> <Master/> </div>} />
