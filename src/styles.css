@@ -451,3 +451,12 @@ boxy{
     background-image: url('/Slides3/loadin.gif'); width: 100%; height: 100%; display: inline-block; background-size: 100%;
   }
   /*Smooth images */
+
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }

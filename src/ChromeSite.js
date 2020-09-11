@@ -8,6 +8,8 @@ import Shema from './Shema_4';
 import Master from './Master';
 import Slideshow from './Slideshow3';
 import Practice from './Practice';
+import Login from "./Login";
+
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 // import MenuBar from './MenuBar';
@@ -191,6 +193,7 @@ export default function ChromeSite(props) {
                 <Route path="/Tropes" render={() => <div> <Ropes/>  </div>} />
                 <Route path="/Practice" render={() => <div> <Practice/>  </div>} />
                 <Route path="/Fresh" render={() => <div> <Fresh/>  </div>} />
+                <Route path="/Login" render={() => <div> <Login/>  </div>} />
 
                 {/* <Route path="/" render={() => <div> <MainScreen/> </div>} /> */}
                 <Route path="/" render={() => <div> <Master/> </div>} />
