@@ -40,7 +40,11 @@ const TenCommandments = [importAll(require.context("./Slides3/TenCommandments/",
 const AlephBet2 = [importAll(require.context("./Slides3/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides3/AlephBet2/AlephBet2.pdf', sizeofAll(require.context("./Slides3/AlephBet2/", false, /^\.\/.*\.jpg$/)), 13];
 const HebrewBasics1 = [importAll(require.context("./Slides3/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides3/HebrewBasics1/HebrewBasics1.pdf', sizeofAll(require.context("./Slides3/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), 14];
 const Months = [importAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), "Jewish Calendar", './Slides3/Months/Months.pdf', sizeofAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), 14];
-const slideshows = [Vocab, Mitzvas, Abraham, Neshama, Brachas, Months, Shema, AlephBet2, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
+const HighHolidays = [importAll(require.context("./Slides3/HighHolidays/", false, /^\.\/.*\.jpg$/)), "High Holidays", './Slides3/HighHolidays/HighHolidays.pdf', sizeofAll(require.context("./Slides3/HighHolidays/", false, /^\.\/.*\.jpg$/)), 16];
+const Tefilin = [importAll(require.context("./Slides3/Tefilin/", false, /^\.\/.*\.jpg$/)), "Tefillin", './Slides3/Tefilin/Tefilin.pdf', sizeofAll(require.context("./Slides3/Tefilin/", false, /^\.\/.*\.jpg$/)), 16];
+const JewishHistory = [importAll(require.context("./Slides3/JewishHistory/", false, /^\.\/.*\.jpg$/)), "Jewish History", './Slides3/JewishHistory/JewishHistory.pdf', sizeofAll(require.context("./Slides3/JewishHistory/", false, /^\.\/.*\.jpg$/)), 16];
+
+const slideshows = [Vocab, Mitzvas, Abraham, Neshama, JewishHistory, Brachas, HighHolidays, Months, Shema, AlephBet2, Tefilin, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 let backDropColor = 'brown';
 
@@ -129,7 +133,10 @@ const useStyles = makeStyles((theme) => ({
         <Card className={classes.root} style={{backgroundColor: backDropColor}} >
 
             <div class="lecture-cover" onClick={() => setHandleOpen({ open: true })} >
+              {/* <infoHover> */}
               <RenderSmoothImage src={lesson[0][0]} ></RenderSmoothImage>
+              {/* </infoHover> */}
+              {/* <StuTe></StuTe> */}
             </div>
                   <CardContent className={classes.content} >
                       <Grid container spacing={2} justify="space-between" alignItems="center"> 
@@ -148,9 +155,9 @@ const useStyles = makeStyles((theme) => ({
                           </Button>
                         </Grid>
 
-                        <Grid item >
+                        {/* <Grid item >
                           {lesson[3]}
-                        </Grid>
+                        </Grid> */}
                       </Grid>
                   <AutoRotatingCarousel
                     label = {
