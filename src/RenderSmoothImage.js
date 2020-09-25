@@ -1,25 +1,4 @@
-// function RenderSmoothImage({src, alt, width}) {
-//     const [imageLoaded, setImageLoaded]=React.useState(false);
-
-//     return (
-//       <div className="smooth-image-wrapper">
-//         <img
-//           src={src} alt={alt}
-//           className={`smooth-image image-${imageLoaded ? 'visible' :  'hidden'}`}
-//           onLoad={()=> setImageLoaded(true)}
-//           width={width}
-//           />
-//         {!imageLoaded && (
-//           <div className="smooth-preloader">
-//             <span className="loader" />
-//           </div>
-//         )}
-//       </div>
-//     )
-// }
-
-  /*Downloaded from https://codebrahma.com/how-to-smoothly-render-images-in-react-app/ */
-
+  /*From https://codebrahma.com/how-to-smoothly-render-images-in-react-app/ */
 
 import React from "react";
 

@@ -1,6 +1,7 @@
 // TODO: mess w/ BackdropProps? to get backdrop of carosel darker
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { red } from "@material-ui/core/colors";
@@ -16,6 +17,20 @@ import RenderSmoothImage from './RenderSmoothImage';
 import Dialog from '@material-ui/core/Dialog';
 import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Tooltip from '@material-ui/core/Tooltip';
+
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import {Slideshows} from './Lectures';
+import { NewReleases } from "@material-ui/icons";
+import useKeyPress from './useKeyPress';
+
+import Hidden from '@material-ui/core/Hidden';
+
 
 function importAll(r) {
   return r.keys().map(r);
@@ -24,27 +39,6 @@ function importAll(r) {
 function sizeofAll(r) {
   return r.keys().map(r).length + ' slides';
 }
-
-const Mitzvas = [importAll(require.context("./Slides3/Mitzvas/", false, /^\.\/.*\.jpg$/)), "Mitzvas", './Slides3/Mitzvas/Mitzvas.pdf', sizeofAll(require.context("./Slides3/Mitzvas/", false, /^\.\/.*\.jpg$/)), 1];
-const Neshama = [importAll(require.context("./Slides3/Neshama/", false, /^\.\/.*\.jpg$/)), "Neshama", './Slides3/Neshama/Neshama.pdf', sizeofAll(require.context("./Slides3/Neshama/", false, /^\.\/.*\.jpg$/)), 2];
-const Abraham = [importAll(require.context("./Slides3/Abraham/", false, /^\.\/.*\.jpg$/)), "Abraham", './Slides3/Abraham/Abraham.pdf', sizeofAll(require.context("./Slides3/Abraham/", false, /^\.\/.*\.jpg$/)), 3];
-const Bereishit = [importAll(require.context("./Slides3/Bereishit/", false, /^\.\/.*\.jpg$/)), "Creation", './Slides3/Bereishit/Creation.pdf', sizeofAll(require.context("./Slides3/Bereishit/", false, /^\.\/.*\.jpg$/)), 4];
-const Brachas = [importAll(require.context("./Slides3/Brachas/", false, /^\.\/.*\.jpg$/)), "Brachot", './Slides3/Brachas/Brachas.pdf', sizeofAll(require.context("./Slides3/Brachas/", false, /^\.\/.*\.jpg$/)), 5];
-const YomYeru = [importAll(require.context("./Slides3/YomYeru/", false, /^\.\/.*\.jpg$/)), "Jerusalem Day", './Slides3/YomYeru/YomYeru.pdf', sizeofAll(require.context("./Slides3/YomYeru/", false, /^\.\/.*\.jpg$/)), 6];
-const Tishbav = [importAll(require.context("./Slides3/Tishbav/", false, /^\.\/.*\.jpg$/)), "Tisha B'av", './Slides3/Tishbav/Tishbav.pdf', sizeofAll(require.context("./Slides3/Tishbav/", false, /^\.\/.*\.jpg$/)), 7];
-const Shema = [importAll(require.context("./Slides3/Shema/", false, /^\.\/.*\.jpg$/)), "Shema", './Slides3/Shema/Shema.pdf', sizeofAll(require.context("./Slides3/Shema/", false, /^\.\/.*\.jpg$/)), 8];
-const Mezuza = [importAll(require.context("./Slides3/Mezuzah/", false, /^\.\/.*\.jpg$/)), "Mezuzah", './Slides3/Mezuzah/Mezuzah.pdf', sizeofAll(require.context("./Slides3/Mezuzah/", false, /^\.\/.*\.jpg$/)), 9];
-const Sefira = [importAll(require.context("./Slides3/Sefira/", false, /^\.\/.*\.jpg$/)), "Sefirat HaOmer", './Slides3/Sefira/Sefira.pdf', sizeofAll(require.context("./Slides3/Sefira/", false, /^\.\/.*\.jpg$/)), 10];
-const Vocab = [importAll(require.context("./Slides3/Vocab/", false, /^\.\/.*\.jpg$/)), "Vocabulary", './Slides3/Vocab/Vocab.pdf', sizeofAll(require.context("./Slides3/Vocab/", false, /^\.\/.*\.jpg$/)), 11];
-const TenCommandments = [importAll(require.context("./Slides3/TenCommandments/", false, /^\.\/.*\.jpg$/)), "Ten Commandments", './Slides3/TenCommandments/TenCommandments.pdf', sizeofAll(require.context("./Slides3/TenCommandments/", false, /^\.\/.*\.jpg$/)), 12];
-const AlephBet2 = [importAll(require.context("./Slides3/AlephBet2/", false, /^\.\/.*\.jpg$/)), "AlephBet Revisited", './Slides3/AlephBet2/AlephBet2.pdf', sizeofAll(require.context("./Slides3/AlephBet2/", false, /^\.\/.*\.jpg$/)), 13];
-const HebrewBasics1 = [importAll(require.context("./Slides3/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), "Hebrew Basics", './Slides3/HebrewBasics1/HebrewBasics1.pdf', sizeofAll(require.context("./Slides3/HebrewBasics1/", false, /^\.\/.*\.jpg$/)), 14];
-const Months = [importAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), "Jewish Calendar", './Slides3/Months/Months.pdf', sizeofAll(require.context("./Slides3/Months/", false, /^\.\/.*\.jpg$/)), 14];
-const HighHolidays = [importAll(require.context("./Slides3/HighHolidays/", false, /^\.\/.*\.jpg$/)), "High Holidays", './Slides3/HighHolidays/HighHolidays.pdf', sizeofAll(require.context("./Slides3/HighHolidays/", false, /^\.\/.*\.jpg$/)), 16];
-const Tefilin = [importAll(require.context("./Slides3/Tefilin/", false, /^\.\/.*\.jpg$/)), "Tefillin", './Slides3/Tefilin/Tefilin.pdf', sizeofAll(require.context("./Slides3/Tefilin/", false, /^\.\/.*\.jpg$/)), 16];
-const JewishHistory = [importAll(require.context("./Slides3/JewishHistory/", false, /^\.\/.*\.jpg$/)), "Jewish History", './Slides3/JewishHistory/JewishHistory.pdf', sizeofAll(require.context("./Slides3/JewishHistory/", false, /^\.\/.*\.jpg$/)), 16];
-
-const slideshows = [Vocab, Mitzvas, Abraham, Neshama, JewishHistory, Brachas, HighHolidays, Months, Shema, AlephBet2, Tefilin, TenCommandments, Mezuza, Sefira, YomYeru, Tishbav, Bereishit, HebrewBasics1];
 
 let backDropColor = 'brown';
 
@@ -102,62 +96,101 @@ const useStyles = makeStyles((theme) => ({
 
   }));
   
+  
+
+//   const handleEsc = (event) => {
+//     if (event.keyCode === 27) {
+//     console.log('Close')
+//   }
+// };
+// window.addEventListener('keydown', handleEsc);
+
+let selected = -1;
+
+
   const Yalla = ({lesson}) => {
-    const [handleOpen, setHandleOpen] = useState({ open: false });
+    const [modalOpen, setModalOpen] = React.useState(false);
 
-  const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+    const [revealDate, setRevealDate] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+    const handleModalOpen = () => {
+      selected = lesson.id;
+      setModalOpen(true);
+      console.log("selected", selected, "name", lesson.name);
+    };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    const handleModalClose = () => {
+      setModalOpen(false);
+      selected = -1;
 
-    // const [openModal, setModalOpen] = useState(false);
+    };
+
+    const handleClickOpen = () => {
+      console.log("handlingClickOpenb", selected, "name", lesson.name, lesson.id);
+      selected = lesson.id;
+      setOpen(true);
+      console.log("handlingClickOpena", selected, "name", lesson.name, lesson.id);
+
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+      selected = -1;
+    };
 
     const [handleFullScreen, setHandleFullScreen] = useState({ fullScreen: false });
     const [buttonStyle] = React.useState(getButtonStyle);
 
     const matches = useMediaQuery("(max-width:600px)");
     const classes = useStyles();
+
+    //BUGGY -- when resorting the list, the open state on modal launches wrong lesson/selected..
+    useKeyPress('f', () => {
+      console.log("f", selected, lesson.id, lesson.name);
+
+      if(lesson.id === selected){
+        handleClickOpen();
+      }
+    });
   
-    // const Transition = React.forwardRef(function Transition(props, ref) {
-    //   return <img direction="up" ref={ref} {...props} />;
-    // });
 
     return (
         <div>
 
         <Card className={classes.root} style={{backgroundColor: backDropColor}} >
-
-            <div class="lecture-cover" onClick={() => setHandleOpen({ open: true })} >
+            <div class="lecture-cover" onClick={() => handleModalOpen()} onMouseOver={() => {setRevealDate(!revealDate)}}>
               {/* <infoHover> */}
-              <RenderSmoothImage src={lesson[0][0]} ></RenderSmoothImage>
+              <RenderSmoothImage src={lesson.images_path[0]} ></RenderSmoothImage>
               {/* </infoHover> */}
               {/* <StuTe></StuTe> */}
             </div>
                   <CardContent className={classes.content} >
                       <Grid container spacing={2} justify="space-between" alignItems="center"> 
                         <Grid item >
+                        <Tooltip title="Preview Slides" arrow placement="up">
+
                           <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} 
-                            onClick={() => setHandleOpen({ open: true })} startIcon={<OpenInNewIcon />}> 
-                            {lesson[1]} 
+                            onClick={() => handleModalOpen() } startIcon={<OpenInNewIcon />}> 
+                            {lesson.name} 
                           </Button>
+                          </Tooltip>
                         </Grid>
 
                         <Grid item >
+                        <Tooltip title="Download pdf" arrow placement="up">
+
                           <Button variant="contained" color="secondary" >
-                            <a href={lesson[2]} download={lesson[1]}>
+                            <a href={lesson.pdf} download={lesson.name}>
                               <CloudDownloadIcon style={{ color: '#8eacbb', fontSize: '2.5vw' }} />
                             </a>
                           </Button>
+                          </Tooltip>
                         </Grid>
 
-                        {/* <Grid item >
-                          {lesson[3]}
-                        </Grid> */}
+                        <Grid item >
+                        {revealDate && <h8 style = {{color: 'white'}}>{lesson.date}</h8>}
+                        </Grid>
                       </Grid>
                   <AutoRotatingCarousel
                     label = {
@@ -170,9 +203,9 @@ const useStyles = makeStyles((theme) => ({
                         <ZoomOutMapIcon color="secondary"/>
                       </Button>
                     }
-                    open={handleOpen.open}
-                    onClose={() => setHandleOpen({ open: false })}
-                    onStart={() => setHandleOpen({ open: false })}
+                    open={modalOpen}
+                    onClose={() => handleModalClose()}
+                    onStart={() => handleModalClose()}
                     onFullScreen={() => setHandleFullScreen({ fullScreen: false})}
                     autoplay={false} 
                     // mobile={matches} 
@@ -180,31 +213,28 @@ const useStyles = makeStyles((theme) => ({
                     fullScreen={handleFullScreen.fullScreen}
                     style={{ position: 'absolute', width: '100%', height: 900, footer: false}}
                   >
-                      {lesson[0].map(image => { return (
-                                  <Slide2
-                                    // media={<img src={image} alt={image} width='150%'/>}
-                                    media={<RenderSmoothImage src={image}></RenderSmoothImage>}
-                                    mediaBackgroundStyle={{ backgroundColor: red[400] }}
-                                    style={{backgroundColor: red[600]}}
-                                  />
-                                  )
-                                  
-                                  })}
-                                  
+                      {lesson.images_path.map(image => { return (
+                        <Slide2
+                          // media={<img src={image} alt={image} width='150%'/>}
+                          media={<RenderSmoothImage src={image}></RenderSmoothImage>}
+                          mediaBackgroundStyle={{ backgroundColor: red[400] }}
+                          style={{backgroundColor: red[600]}}
+                        />
+                        )
+                      })}
+
                   </AutoRotatingCarousel>
 
 
                   <div>
-
-                  {/* <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}> */}
                   
                 <Dialog fullScreen open={open} onClose={handleClose} PaperProps={{style: {backgroundColor: red[600],boxShadow: 'none'}}} >
-
-                  {lesson[0].map(image => { return (<RenderSmoothImage src={image}/>)})}
+                  {lesson.images_path.map(image => { return (<RenderSmoothImage src={image}/>)})}
                   
-                  <button style={buttonStyle} onClick={() => {handleClose(); setHandleOpen({ open: false });}} >x</button> 
+                  <button style={buttonStyle} onClick={() => {handleClose(); handleModalClose();}} >x</button> 
                   
-                  <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} onClick={() => {handleClose(); setHandleOpen({ open: false });}}>Exit</Button>
+                  <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} onClick={() => {handleClose(); handleModalClose();}}>Exit</Button>
+                  
                   </Dialog>
                   </div>
 
@@ -216,19 +246,164 @@ const useStyles = makeStyles((theme) => ({
     );
 }
 
+
+const StyledMenu = withStyles({
+  paper: {
+    border: '1px solid #d3d4d5',
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+));
+
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    '&:focus': {
+      backgroundColor: theme.palette.primary.main,
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+}))(MenuItem);
+
+// Defaults to sorting by date of lesson
+let sorted = [...Slideshows].sort((a, b) => (new Date(a.date)) - (new Date(b.date)));
+
 export default function Slideshow(){
 
   const classes = useStyles();
+  const [sortType, setSortType] = useState('date');
+  const [data, setData] = useState(sorted);
+  const [asc, setAsc] = useState(1);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (type) => {
+    setAnchorEl(null);
+  };
+
+
+  const handleChange = (type) => {
+
+    if (sortType === type){
+      setAsc(-1*asc);
+    }
+    else{
+      setAsc(1);
+    }
+
+    switch (type) {
+      case 'asc':
+        setAsc(-1*asc);
+        handleChange(sortType);
+        return;
+      case 'desc':
+        setAsc(1);
+        handleChange(sortType);
+        return;
+      case 'date':
+        sorted = [...Slideshows].sort((a, b) => (asc * (new Date(b.date))) - (asc * (new Date(a.date))));
+        break;
+      case 'name':
+          sorted = [...Slideshows].sort((a, b) =>  asc * (a.name).localeCompare(b.name));
+          break;
+      case 'size':
+        sorted = [...Slideshows].sort((a, b) => (asc * b.images_path.length) - (asc * a.images_path.length));
+        break;
+      case 'id':
+        sorted = [...Slideshows].sort((a, b) =>  (asc * b.id) -  (asc * a.id));
+        break;
+    }
+    setSortType(type);
+    setData(sorted);
+    handleClose();
+
+  };
   
   return (
 
     <div className={classes.root}>
+      {/* INVISIBLE BUTTON SO THE LAYOUT WILL LOOK GOOD */}
+      <Hidden smDown>
+
+        <div style={{visibility: 'hidden' }}><h1>
+          <Button aria-controls="customized-menu" aria-haspopup="true" variant="contained" color="primary" >
+                  Sort By: {sortType} 
+          </Button>
+          </h1>
+        </div>
+      </Hidden>
         <div style={{color: 'white' }}> 
-              <h1>Review the Lectures!</h1>
+            <h1>Review the Lectures!</h1>
         </div> 
+      <Hidden smDown>
+
+        <div > 
+        <h1>
+        <Button aria-controls="customized-menu" aria-haspopup="true" variant="contained" color="primary" onClick={handleClick}>
+                Sort By: {sortType} 
+                {(asc!==1) ? <ExpandLessIcon onClick={() => handleChange('asc')}/> : <ExpandMoreIcon onClick={() => handleChange('desc')}/>}
+        </Button>
+        </h1>
+        </div> 
+      </Hidden>
+
       <div>
+        
+      <Hidden mdUp>
+        <Button aria-controls="customized-menu" aria-haspopup="true" variant="contained" color="primary" onClick={handleClick}>
+                Sort By: {sortType} 
+                {(asc!==1) ? <ExpandLessIcon onClick={() => handleChange('asc')}/> : <ExpandMoreIcon onClick={() => handleChange('desc')}/>}
+        </Button>
+        <br/><br/><br/>
+
+      </Hidden>
+
+      <StyledMenu id="customized-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+        <StyledMenuItem onClick={() => handleChange('date')}>
+            Date 
+            {(sortType === 'date') ?
+              (asc!==1) ? <ExpandLessIcon onClick={() => handleChange('asc')}/> : <ExpandMoreIcon onClick={() => handleChange('desc')}/>
+              :
+              ''
+            }
+              </StyledMenuItem>
+          <StyledMenuItem onClick={() => handleChange('name')}>
+            Name 
+            {(sortType === 'name') ?
+              (asc!==1) ? <ExpandLessIcon onClick={() => handleChange('asc')}/> : <ExpandMoreIcon onClick={() => handleChange('desc')}/>
+              :
+              ''
+            }
+          </StyledMenuItem>
+          {/* <StyledMenuItem onClick={() => handleChange('size')}>
+            Size 
+              {(sortType === 'size') ?
+                (asc!==1) ? <ExpandLessIcon onClick={() => handleChange('asc')}/> : <ExpandMoreIcon onClick={() => handleChange('desc')}/>
+                :
+                ''
+              }
+        </StyledMenuItem> */}
+      </StyledMenu>
+      
       <Grid container spacing={4} justify="space-between" alignItems="center"> 
-        {slideshows.map(lesson => { return (
+        {data.map(lesson => { return (
               <Grid item sm={4} xs={6}>
                 <Yalla lesson = {lesson}/>
               </Grid>
