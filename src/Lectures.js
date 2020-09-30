@@ -149,6 +149,14 @@ export const Slideshows = [
         size: sizeofAll(require.context("./Slides3/JewishHistory/", false, /^\.\/.*\.jpg$/)),
         date: "09/16/20",
         id: 18
+    },
+    {
+        images_path: importAll(require.context("./Slides3/Sukkot/", false, /^\.\/.*\.jpg$/)),
+        name: "Sukkot",
+        pdf: './Slides3/Sukkot/Sukkot.pdf', 
+        size: sizeofAll(require.context("./Slides3/Sukkot/", false, /^\.\/.*\.jpg$/)),
+        date: "09/30/20",
+        id: 18
     }
 
   ]
