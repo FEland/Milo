@@ -98,26 +98,26 @@ export default function Birkat( ) {
         // color: '#b7bfbe'
     });
 
-    const [load, setLoading] = React.useState(false);
+    // const [load, setLoading] = React.useState(false);
   const [volume, setVolume] = React.useState(.5);
   var audio = new Audio();
 
-  const [playing, setPlaying] = React.useState(false);
+//   const [playing, setPlaying] = React.useState(false);
 
-    audio.addEventListener('playing', function () {
-        setLoading(false);
-        setPlaying(true);
-    }, false);
+//     audio.addEventListener('playing', function () {
+//         // setLoading(false);
+//         setPlaying(true);
+//     }, false);
 
-    audio.addEventListener('ended', function () {
-        setPlaying(false);
-    }, false);
+//     audio.addEventListener('ended', function () {
+//         setPlaying(false);
+//     }, false);
 
     const classes = useStyles();
     
     const playSound = (song) => {
         // new Audio(song).play();
-        setLoading(true);
+        // setLoading(true);
 
         // console.log(volume);
         audio.src = song;
@@ -184,9 +184,9 @@ export default function Birkat( ) {
                 <Grid item xs={2}>
                     {/* <div  onClick={() => { enableHighlight(true)}}>  */}
                     {!state.checked ? 
-                        <Player icon={<PlayCircleFilled/>} label = " Play Opening" title = "Opening Blessing" song = './sounds/opening.m4a'/>
+                        <Player icon={<PlayCircleFilled/>} label = " Opening Blessing" title = "Opening Blessing" song = './sounds/opening.m4a'/>
                    :
-                   <Player icon={<PlayCircleFilled/>} label = " Play Closing" title = "Closing Blessing" song = './sounds/closing.m4a'/>
+                   <Player icon={<PlayCircleFilled/>} label = " Closing Blessing" title = "Closing Blessing" song = './sounds/closing.m4a'/>
                     }
                         {/* </div> */}
 
@@ -212,9 +212,9 @@ export default function Birkat( ) {
                             {/* <ColorModal color = {color} callBack = {callBack} /> */}
                         </Grid>
                     
-                    {load && <Grid item> <CircularProgress color="primary"  className={classes.progress} /> </Grid> }
+                    {/* {load && <Grid item> <CircularProgress color="primary"  className={classes.progress} /> </Grid> } */}
 
-                    {playing &&  
+                    {/* {playing &&  
                         <Grid item>
                         <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7">
                         <g fill="#000000">
@@ -223,7 +223,8 @@ export default function Birkat( ) {
                             <rect id="bar3" transform="translate(6.5, 3.5) rotate(180.0) translate(-6.5, -3.5) " x="6" y="0" width="1" height="7" />
                             <rect id="bar4" transform="translate(9.5, 5.0) rotate(180.0) translate(-9.5, -5.0) " x="9" y="3" width="1" height="4" />
                         </g>
-                        </svg> </Grid> }
+                        </svg> 
+                        </Grid> } */}
 
                     </Grid>
                 
@@ -241,10 +242,10 @@ export default function Birkat( ) {
                 <Grid item xs>
                 </Grid>
 
-            <Grid item xs={9}>
+            <Grid item >
 
 
-            <Grid container direction='row-reverse'  > 
+            {/* <Grid container direction='row-reverse'  >  */}
 
 
             {/* style= { !state.toggle ? { 'font-family': 'Times New Roman'} : { }} > */}
@@ -256,21 +257,36 @@ export default function Birkat( ) {
                                     <>
                                         <Hidden smDown>
                                             <span > 
-                                            {bracha1_1} <br/>
-                                            {bracha1_2} <br/>
+                                            <b>{bracha1_1}</b> <br/>
+                                            <span style={  { 'opacity': '.7'} } > {bracha1_2} </span >  <br/>
                                             {bracha1_3} <br/>
                                             {bracha1_4} <br/>
                                             {bracha1_5} 
-                                            </span > 
+                                            <br/> 
+                                            _______________________________________________________ <br/>
+                                            <b>Bless Hashem, the blessed One.</b><br/>
+                                            <span style={  { 'opacity': '.7'} } > Blessed is Hashem, the blessed One, for all eternity. </span >  <br/>
+                                            Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
+                                            That you chose us from all the Nations, and gave us your Torah <br/>
+                                            Blessed are You <i>Hashem</i>, who <i>[continuously]</i> gives us the Torah
+                                            </span >
+
                                         </Hidden>
                                         <Hidden mdUp>
                                             <span style={  { 'fontSize' : '3vw'} } > 
-                                            {bracha1_1} <br/>
-                                            {bracha1_2} <br/>
+                                            <b>{bracha1_1}</b> <br/>
+                                            <span style={  { 'opacity': '.7'} } > {bracha1_2} </span >  <br/>
                                             {bracha1_3} <br/>
                                             {bracha1_4} <br/>
                                             {bracha1_5} 
-                                            </span > 
+                                            <br/> 
+                                            ____________________________________ <br/>
+                                            <b>Bless Hashem, the blessed One.</b><br/>
+                                            <span style={  { 'opacity': '.7'} } > Blessed is Hashem, the blessed One, for all eternity. </span >  <br/>
+                                            Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
+                                            Who chose us from all the Nations, and gave us your Torah <br/>
+                                            Blessed are You <i>Hashem</i>, Giver of the Torah
+                                            </span >
                                         </Hidden>
                                         </>: 
                                         <>
@@ -278,21 +294,32 @@ export default function Birkat( ) {
                                             <span > 
                                             {bracha2_1} <br/>
                                             {bracha2_2} <br/>
-                                            {bracha2_3} 
-                                            </span >                                         </Hidden>
+                                            {bracha2_3} <br/>
+                                            _______________________________________________________ <br/>
+
+                                            Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
+                                            Who gave us the Torah of Truth, and planted eternal life within us <br/>
+                                            Blessed are You <i>Hashem</i>, who <i>[continuously]</i> gives us the Torah
+                                            </span >
+                                        </Hidden>
                                         <Hidden mdUp>
                                             <span style={  { 'fontSize' : '3vw'} } >
                                             {bracha2_1} <br/>
                                             {bracha2_2} <br/>
-                                            {bracha2_3} 
-                                            </span > 
-                                        </Hidden>
+                                            {bracha2_3} <br/>
+                                            ____________________________________ <br/>
+                                            Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
+                                            Who gave us the Torah of Truth, <br/>
+                                            and planted eternal life within us <br/>
+                                            Blessed are You <i>Hashem</i>, Giver of the Torah
+                                            </span >                                        
+                                            </Hidden>
                                         </>}
 
                                         
                                     </fl>
                         
-            </Grid>
+            {/* </Grid> */}
                 
             </Grid>
             <Divider orientation='vertical' flexItem/>
