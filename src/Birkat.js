@@ -177,6 +177,11 @@ export default function Birkat( ) {
 
     return (        
          <div className={classes.root}>
+
+            <div style={{ color: 'white' }}> 
+                    <h1>Practice the Blessings on the Torah!</h1>
+            </div>
+
             <Paper className={classes.paper} >
 
             <Grid container spacing={2} > 

@@ -8,7 +8,9 @@ import Shema from './Shema_4';
 import Master from './Master';
 import Slideshow from './Slideshow3';
 import Practice from './Practice';
-import Login from "./Login";
+import Birkat from "./Birkat";
+
+// import Login from "./Login";
 
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,6 +20,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 // import FolderIcon from '@material-ui/icons/Folder';
 import SlideshowIcon from '@material-ui/icons/Slideshow';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Link, Route, Switch, HashRouter } from "react-router-dom";
 
 // import Countdown from './countdown'; // /** This countdown component is from https://medium.com/@kristin_baumann/react-countdown-6455838b6faf */
@@ -101,6 +104,10 @@ export default function ChromeSite(props) {
                           <Tab label="Shema" component={Link} to="/Shema" />
                         </Tooltip>
                         
+                        <Tooltip title="Practice the Torah Blessings" arrow placement="center">
+                          <Tab label="Torah Blessings" component={Link} to="/Blessings" />
+                        </Tooltip>
+
                         <Tab label="Lecture Slides" component={Link} to="/Lectures" />
 
                         <Tooltip title="Quiz yourself on the Tropes" arrow placement="right">
@@ -132,6 +139,7 @@ export default function ChromeSite(props) {
                     <BottomNavigation value={value} onChange={handleChange} className={classes.nav}>
                       <BottomNavigationAction component={Link} to="/Shema" label="Shema" value="Shema" icon={<img src="./images/ShemaPic.png" alt="Shema" loading="lazy" width="40" height='auto'/>} />
                       <BottomNavigationAction component={Link} to="/Lectures" label="Lectures" value="Lectures" icon={<SlideshowIcon />} />
+                      <BottomNavigationAction component={Link} to="/Blessings" label="Blessings" value="Blessings" icon={<FavoriteBorderIcon />} />
                       <BottomNavigationAction component={Link} to="/Tropes" label="Tropes" value="Tropes" icon={<MusicNoteIcon />} />
                       <BottomNavigationAction component={Link} to="/" label="Home" value="Home" icon={<img src="./images/barmit.png" alt="icon" loading="lazy" width="40" height='auto'/>} />
                     </BottomNavigation>
@@ -155,7 +163,11 @@ export default function ChromeSite(props) {
                     <Tooltip title="Practice the Shema" arrow placement="left">
                       <Tab label="Shema" component={Link} to="/Shema" />
                     </Tooltip>
-                    
+
+                    <Tooltip title="Practice the Torah Blessings" arrow placement="center">
+                      <Tab label="Torah Blessings" component={Link} to="/Blessings" />
+                    </Tooltip>
+
                     <Tab label="Lecture Slides" component={Link} to="/Lectures" />
 
                     <Tooltip title="Quiz yourself on the Tropes" arrow placement="right">
@@ -189,11 +201,12 @@ export default function ChromeSite(props) {
                 
 
                 <Route path="/Shema" render={() => <div> <Shema/> </div>} />
+                <Route path="/Blessings" render={() => <div> <Birkat/> </div>} />
                 <Route path="/Lectures" render={() => <div> <Slideshow/> </div>} />
                 <Route path="/Tropes" render={() => <div> <Ropes/>  </div>} />
                 <Route path="/Practice" render={() => <div> <Practice/>  </div>} />
                 <Route path="/Fresh" render={() => <div> <Fresh/>  </div>} />
-                <Route path="/Login" render={() => <div> <Login/>  </div>} />
+                {/* <Route path="/Login" render={() => <div> <Login/>  </div>} /> */}
 
                 {/* <Route path="/" render={() => <div> <MainScreen/> </div>} /> */}
                 <Route path="/" render={() => <div> <Master/> </div>} />

@@ -109,17 +109,6 @@ export default function Shema() {
     
     <div >
 
-        <div style={{ color: 'white' }}> 
-          <h1>Practice the Blessings on the Torah!</h1>
-        </div>
-
-    <Birkat/>
-
-    <br/>
-    <br/>
-    <br/>
-
-
        <div style={{ color: 'white' }}> 
           <h1>Practice the Shema!</h1>
         </div>
