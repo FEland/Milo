@@ -13,6 +13,7 @@ import ColorModal from './ColorModal';
 import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
 import Hidden from '@material-ui/core/Hidden';
+import Birkat from "./Birkat"
 
 
 export default function Shema() {
@@ -108,8 +109,18 @@ export default function Shema() {
     
     <div >
 
+        <div style={{ color: 'white' }}> 
+          <h1>Practice the Blessings on the Torah!</h1>
+        </div>
+
+    <Birkat/>
+
+    <br/>
+    <br/>
+    <br/>
+
+
        <div style={{ color: 'white' }}> 
-        {/* <div style={{ color: color }}>  */}
           <h1>Practice the Shema!</h1>
         </div>
 
