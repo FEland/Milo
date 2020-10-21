@@ -107,7 +107,7 @@ export default function Ropes ( ) {
 
 
         <h2>
-        Press any trope below to hear the recording and view transliteration
+        Press any trope shape below to hear the recording and view transliteration
         </h2>
 
         <FlashcardList callBack1={callBack1} callBack4={callBack4}/>
