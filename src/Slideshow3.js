@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import AutoRotatingCarousel from './AutoRotatingCarousel'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
 import Slide2 from './Slides'; //https://github.com/TeamWertarbyte/material-auto-rotating-carousel
-import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+// import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -202,14 +202,14 @@ let selected = -1;
                         </Grid>
 
                         <Grid item >
-                        <Tooltip title="Download pdf" arrow placement="up">
+                        {/* <Tooltip title="Download pdf" arrow placement="up">
 
                           <Button variant="contained" color="secondary" onClick={() => fetchData(lesson.name + "Dwnlod")} >
                             <a href={lesson.pdf} download={lesson.name} >
                               <CloudDownloadIcon style={{ color: '#8eacbb', fontSize: '2.5vw' }}/>
                             </a>
                           </Button>
-                          </Tooltip>
+                          </Tooltip> */}
                         </Grid>
 
                         <Grid item >
