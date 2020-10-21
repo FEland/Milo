@@ -194,7 +194,7 @@ export default function AllTropesBox( ) {
             
                 <Grid item xs={2}>
                     <div  onClick={() => { enableHighlight(true)}}> 
-                        <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/allTropeSongs.m4a'/>
+                        <Player icon={<PlayCircleFilled/>} label = " Play All" title = "Tropes / Ta'amei Mikrah" song = './sounds/torah/allTropeSongs.m4a'/>
                     </div>
                 <Hidden smDown>
 
@@ -253,9 +253,9 @@ export default function AllTropesBox( ) {
                     </Grid>
                 
 
-                    
-                    {/* <Switch
-                    checked={flip}
+{/*                     
+                    <Switch
+                    checked={state.checked}
                     onChange={handleChange}
                     name="toggle"
                     inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -290,10 +290,10 @@ export default function AllTropesBox( ) {
                                         {!state.checked ? 
                                         <>
                                         <Hidden smDown>
-                                            <span style={(trope === flash.id && playing) ?  {'opacity' : '.5'} : {'':''}} >{flash.heb} {'\u00A0'}</span > 
+                                            <span style={(trope === flash.id && playing) ?  {'color' : 'rgb(169, 216, 238)'} : {'':''}} >{flash.heb} {'\u00A0'}</span > 
                                         </Hidden>
                                         <Hidden mdUp>
-                                            <span style={(trope === flash.id && playing) ?  {'opacity' : '.5', 'fontSize' : '3vw'} : {'fontSize' : '3vw'}} >{flash.heb} {'\u00A0'}</span > 
+                                            <span style={(trope === flash.id && playing) ?  {'color' : 'rgb(169, 216, 238)', 'fontSize' : '3vw'} : {'fontSize' : '3vw'}} >{flash.heb} {'\u00A0'}</span > 
                                         </Hidden>
                                         </>: 
                                         <>

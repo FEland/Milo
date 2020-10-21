@@ -15,6 +15,19 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 // import EqualizerIcon from '@material-ui/icons/Equalizer';
 // import LanguageTwoToneIcon from '@material-ui/icons/LanguageTwoTone';
 
+// import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+
+// import Snackbar from '@material-ui/core/Snackbar';
+// import MuiAlert from '@material-ui/core/Alert';
+
+// function Alert(props) {
+//   return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
@@ -72,10 +85,44 @@ const useStyles = makeStyles((theme) => ({
     right:0,
     // zIndex: 2,
   },
+  close: {
+    padding: theme.spacing(0.5),
+  },
 }));
 
 export default function Flashcard( {...props}) {
     const classes = useStyles();
+
+    const [snackPack, setSnackPack] = React.useState([]);
+    const [open, setOpen] = React.useState(false);
+    const [messageInfo, setMessageInfo] = React.useState(undefined);
+  
+    React.useEffect(() => {
+      if (snackPack.length && !messageInfo) {
+        // Set a new snack when we don't have an active one
+        setMessageInfo({ ...snackPack[0] });
+        setSnackPack((prev) => prev.slice(1));
+        setOpen(true);
+      } else if (snackPack.length && messageInfo && open) {
+        // Close an active snack when a new one is added
+        setOpen(false);
+      }
+    }, [snackPack, messageInfo, open]);
+
+    const handleClick = (message) => () => {
+      setSnackPack((prev) => [...prev, { message, key: new Date().getTime() }]);
+    };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const handleExited = () => {
+    setMessageInfo(undefined);
+  };
 
     let toggle = props.flashcard.checked;
 
@@ -150,7 +197,23 @@ export default function Flashcard( {...props}) {
     
     <div className={classes.root}>
 
+      {/* <Paper className={classes.paper} onClick={() => {playSound(props.flashcard.sound)}} > */}
       <Paper className={classes.paper} >
+
+        <div>
+          <Snackbar key={messageInfo ? messageInfo.key : undefined}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'left',}}
+            open={open} autoHideDuration={3000}
+            onClose={handleClose} onExited={handleExited} message={messageInfo ? messageInfo.message : undefined}
+            action={
+              <React.Fragment>            
+                <IconButton aria-label="close" color="inherit" className={classes.close} onClick={handleClose}>
+                  <CloseIcon />
+                </IconButton>
+              </React.Fragment>
+            }
+          />
+        </div>
 
         <Grid container spacing={2}>
           <Grid item>
@@ -200,10 +263,16 @@ export default function Flashcard( {...props}) {
                 <Grid item>
                   <br/>
                 <Tooltip title="Add trope to quizlet above" arrow placement="center">
-                <Checkbox color="default" icon={<CheckBoxOutlineBlankIcon fontSize="small" />} 
+
+               
+                {/* <Button onClick={ handleClick(props.flashcard.eng + (toggle ? "added" : "removed") + " from quiz")}> */}
+
+                <Checkbox color="default" icon={<CheckBoxOutlineBlankIcon fontSize="small" />} zindex='2' 
                   checkedIcon={<CheckBoxIcon fontSize="small" />} checked={toggle} onChange={handleChange}
+                  onClick={ handleClick((flip ? props.flashcard.eng : props.flashcard.heb) + (!toggle ? " added to quiz" : " removed from quiz") )}
                   // className={classes.progress}
                 />
+                {/* </Button> */}
               </Tooltip>
               </Grid>
               

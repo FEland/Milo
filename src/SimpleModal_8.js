@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import CreateQuiz from "./CreateQuiz";
-// import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -40,6 +40,29 @@ const useStyles = makeStyles((theme) => ({
 
   },
 }));
+
+function detectDevice(){
+  let detectObj = {
+    device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+    orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
+    browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
+  }
+  return detectObj
+}
+
+function makeResp(msg) {
+  var body = {"message": msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+  var headers = new Headers()
+  headers.append("Content-Type", "application/json")
+  var options = {method: "POST", headers, mode: "cors", body: JSON.stringify(body),}
+  return options;
+}
+
+const fetchData = async (msg) => {
+    try { await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(msg));} 
+    catch(err) {// console.log('failed webhook')
+    }
+};
 
 export default function SimpleModal({flashcards, level, name}) {
     // const Quiz = <Quiz flashcards = {flashcards}/>
@@ -98,10 +121,13 @@ export default function SimpleModal({flashcards, level, name}) {
     <div>
       {/* {orientation ? "P" : "L"}
       {isMobile ? "M" : "C"} */}
+      <Button onClick={() => fetchData(name + "quiz button")}>
+
       <button type="button" onClick={toggleModal}>
         {name}
       </button>
-      
+
+      </Button>
       {/* {(!orientation && isMobile)?  */}
       <Hidden smUp>
       {/* <Modal open={open} onClose={handleClose}         

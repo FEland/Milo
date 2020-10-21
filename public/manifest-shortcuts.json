@@ -21,17 +21,17 @@
     "theme_color": "#3367D6",
     "shortcuts": [
       {
-        "name": "How's weather today?",
-        "short_name": "Today",
-        "description": "View weather information for today",
+        "name": "Shema",
+        "short_name": "Shema",
+        "description": "Practice the Shema",
         "url": "/Shema?source=pwa",
         "icons": [{ "src": "./images/Year13small.png", "sizes": "192x192" }]
       },
       {
-        "name": "How's weather tomorrow?",
-        "short_name": "Tomorrow",
-        "description": "View weather information for tomorrow",
-        "url": "/Practice?source=pwa",
+        "name": "Lectures",
+        "short_name": "Lectures",
+        "description": "Review the Lectures",
+        "url": "/Lectures?source=pwa",
         "icons": [{ "src": "./images/Year13small.png", "sizes": "192x192" }]
       }
     ]

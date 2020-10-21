@@ -1,6 +1,11 @@
 import React from 'react';
 import ChromeSite from './ChromeSite'
 import SafariSite from './SafariSite'
+import Login from "./Login";
+
+// import Intro from "./Intro";
+// import Torah4 from "./Torah4";
+// import Landing from "./Landing"
 
 export default function Final(props) {
   
@@ -24,10 +29,29 @@ export default function Final(props) {
   //     <ChromeSite/>
   //   );
   // }
+  const pwd = ["13", "2020", "Torah", "torah", "Harrison", "Weinstock", "FE"];
+  const [validLogin, setValidLogin] = React.useState(false);
+
+  const handleResult = (...val) => {
+    setValidLogin(val);
+  }
+
+
   if (Safari || Chrome){
     return (
-      <ChromeSite/>
+      <>
+      {/* {!validLogin && <Intro/>} */}
+      {/* {!validLogin && <Torah4/>} */}
 
+      {!validLogin &&  <Login handleResult={handleResult} pwd={pwd}/> }
+      {validLogin && <ChromeSite/>}
+
+      {/* {!validLogin && <div style={{ position: 'center' , display: 'center'}}> <Login handleResult={handleResult} pwd={pwd}/> </div>} */}
+      {/* {!validLogin && <Landing/>} */}
+
+      {/* {!validLogin &&  <ChromeSite/> } */}
+
+      </>
     );
   }
   else {

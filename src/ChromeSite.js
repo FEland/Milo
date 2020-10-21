@@ -21,6 +21,8 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 // import FolderIcon from '@material-ui/icons/Folder';
 import SlideshowIcon from '@material-ui/icons/Slideshow';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+
 import { Link, Route, Switch, HashRouter } from "react-router-dom";
 
 // import Countdown from './countdown'; // /** This countdown component is from https://medium.com/@kristin_baumann/react-countdown-6455838b6faf */
@@ -58,17 +60,42 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ChromeSite(props) {
   
+  // function detectDevice(){
+  //   let detectObj = {
+  //     device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+  //     orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape'
+  //   }
+  //   return detectObj
+  // }
+
+
   function detectDevice(){
     let detectObj = {
       device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
-      orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape'
+      orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
+      browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
     }
     return detectObj
   }
 
+  function makeResp(msg) {
+    var body = {"message": msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+    var headers = new Headers()
+    headers.append("Content-Type", "application/json")
+    var options = {method: "POST", headers, mode: "cors", body: JSON.stringify(body),}
+    return options;
+  }
+
+  const fetchData = async (msg) => {
+      try { await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(msg));} 
+      catch(err) {// console.log('failed webhook')
+      }
+  };
+
   const [value, setValue] = React.useState('recents');
 
   const handleChange = (event, newValue) => {
+    fetchData("InAppBar chose " + newValue)
     setValue(newValue);
   };
 
@@ -90,7 +117,7 @@ export default function ChromeSite(props) {
                     <Grid container spacing={3}> 
                       <Grid item xs={2} >
                         <div class="topleft">
-                        <Link to="/Practice">
+                        <Link to="/Practice" onClick={() => fetchData("pressed PracticePage")}>
                             <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                         </Link>
                         </div>
@@ -101,18 +128,19 @@ export default function ChromeSite(props) {
                     <Grid item xs={8} >
                       <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
                         <Tooltip title="Practice the Shema" arrow placement="left">
-                          <Tab label="Shema" component={Link} to="/Shema" />
+                          <Tab label="Shema" wrapped component={Link} to="/Shema"  onClick={() => fetchData("pressed ShemaPage")} />
                         </Tooltip>
                         
-                        <Tooltip title="Practice the Torah Blessings" arrow placement="center">
-                          <Tab label="Torah Blessings" component={Link} to="/Blessings" />
+                        <Tooltip title="Quiz yourself on the Tropes" arrow placement="center">
+                          <Tab label="Tropes" wrapped component={Link} to="/Tropes"  onClick={() => fetchData("pressed TropesPage")} />
                         </Tooltip>
 
-                        <Tab label="Lecture Slides" component={Link} to="/Lectures" />
+                        <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => fetchData("pressed LecturesPage")} />
 
-                        <Tooltip title="Quiz yourself on the Tropes" arrow placement="right">
-                          <Tab label="Tropes" component={Link} to="/Tropes" />
+                        <Tooltip title="Practice the Torah Blessings" arrow placement="right">
+                          <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => fetchData("pressed BlessingsPage")} />
                         </Tooltip>
+
 {/* 
                         <Tooltip title="Quiz yourself on the Fresh" arrow placement="right">
                           <Tab label="Fresh" component={Link} to="/Fresh" />
@@ -123,9 +151,9 @@ export default function ChromeSite(props) {
 
                     <Grid item xs={2} >
                     <div class="topright">
-                      <Link to="/">
-                        <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" />
-                      
+                      <Link to="/"  onClick={() => fetchData("pressed MainPage")}>
+                        {/* <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" /> */}
+                        <HomeOutlinedIcon style={{background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)', width:"50", height:'auto', position:"absolute"}}/>
                       </Link>
                     </div>
                     </Grid>
@@ -150,7 +178,7 @@ export default function ChromeSite(props) {
                   <Grid container spacing={3}> 
                   <Grid item xs={2} >
                     <div class="topleft">
-                    <Link to="/Practice">
+                    <Link to="/Practice" onClick={() => fetchData("pressed PracticePage")}>
                         <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                     </Link>
                     </div>
@@ -161,17 +189,17 @@ export default function ChromeSite(props) {
                 <Grid item xs={8} >
                   <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
                     <Tooltip title="Practice the Shema" arrow placement="left">
-                      <Tab label="Shema" component={Link} to="/Shema" />
+                      <Tab label="Shema" wrapped component={Link} to="/Shema"  onClick={() => fetchData("pressed ShemaPage")} />
                     </Tooltip>
 
-                    <Tooltip title="Practice the Torah Blessings" arrow placement="center">
-                      <Tab label="Torah Blessings" component={Link} to="/Blessings" />
+                    <Tooltip title="Quiz yourself on the Tropes" arrow placement="center">
+                      <Tab label="Tropes" wrapped component={Link} to="/Tropes"  onClick={() => fetchData("pressed TropesPage")} />
                     </Tooltip>
 
-                    <Tab label="Lecture Slides" component={Link} to="/Lectures" />
+                    <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => fetchData("pressed LecturesPage")} />
 
-                    <Tooltip title="Quiz yourself on the Tropes" arrow placement="right">
-                      <Tab label="Tropes" component={Link} to="/Tropes" />
+                    <Tooltip title="Practice the Torah Blessings" arrow placement="Right">
+                      <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => fetchData("pressed BlessingsPage")} />
                     </Tooltip>
 
                     {/* <Tooltip title="Quiz yourself on the Fresh" arrow placement="right">
@@ -183,7 +211,7 @@ export default function ChromeSite(props) {
 
                 <Grid item xs={2} >
                 <div class="topright">
-                  <Link to="/">
+                  <Link to="/"  onClick={() => fetchData("pressed MainPage")}>
                     <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" />
                   
                   </Link>
@@ -216,8 +244,12 @@ export default function ChromeSite(props) {
           )}
         />
         <br/>
-            <h6 style={{backgroundColor: 'white', color: 'black',position: 'flex' }}> Copyright © 2020 Year13 Productions. All Rights Reserved.
+            {/* <h6 style={{backgroundColor: 'white', color: 'black',position: 'flex' }}> Copyright © 2020 Year13 Productions. All Rights Reserved.
       Built by Effie Landau. No recordings or lectures may be shared without my written consent.</h6>
+       */}
+              <span style={{'color': 'white'}}>Copyright © 2020 Year13 Productions. All Rights Reserved.
+      Built by Effie Landau. No content may be shared without my written consent. </span>
+       
       </div>
       
     </HashRouter>

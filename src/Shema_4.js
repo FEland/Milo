@@ -13,7 +13,6 @@ import ColorModal from './ColorModal';
 import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
 import Hidden from '@material-ui/core/Hidden';
-import Birkat from "./Birkat"
 
 
 export default function Shema() {

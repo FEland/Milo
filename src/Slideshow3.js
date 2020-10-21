@@ -1,6 +1,8 @@
 // TODO: mess w/ BackdropProps? to get backdrop of carosel darker
 
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -26,19 +28,19 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import {Slideshows} from './Lectures';
-import { NewReleases } from "@material-ui/icons";
+// import { NewReleases } from "@material-ui/icons";
 import useKeyPress from './useKeyPress';
 
 import Hidden from '@material-ui/core/Hidden';
 
 
-function importAll(r) {
-  return r.keys().map(r);
-}
+// function importAll(r) {
+//   return r.keys().map(r);
+// }
 
-function sizeofAll(r) {
-  return r.keys().map(r).length + ' slides';
-}
+// function sizeofAll(r) {
+//   return r.keys().map(r).length + ' slides';
+// }
 
 let backDropColor = 'brown';
 
@@ -96,7 +98,28 @@ const useStyles = makeStyles((theme) => ({
 
   }));
   
-  
+  function detectDevice(){
+    let detectObj = {
+      device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+      orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
+      browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
+    }
+    return detectObj
+  }
+
+  function makeResp(downloadedFile) {
+    var body = {"message": downloadedFile + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+    var headers = new Headers()
+    headers.append("Content-Type", "application/json")
+    var options = {method: "POST", headers, mode: "cors", body: JSON.stringify(body),}
+    return options;
+  }
+
+  const fetchData = async (downloadedFile) => {
+      try {await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(downloadedFile));} 
+      catch(err) {// console.log('failed webhook')
+      }
+  };
 
 //   const handleEsc = (event) => {
 //     if (event.keyCode === 27) {
@@ -109,6 +132,7 @@ let selected = -1;
 
 
   const Yalla = ({lesson}) => {
+
     const [modalOpen, setModalOpen] = React.useState(false);
 
     const [open, setOpen] = React.useState(false);
@@ -159,7 +183,7 @@ let selected = -1;
         <div>
 
         <Card className={classes.root} style={{backgroundColor: backDropColor}} >
-            <div class="lecture-cover" onClick={() => handleModalOpen()} onMouseOver={() => {setRevealDate(!revealDate)}}>
+            <div class="lecture-cover" onClick={() => {handleModalOpen(); fetchData(lesson.name + "Opend-imgclk")}} onMouseOver={() => {setRevealDate(!revealDate)}}>
               {/* <infoHover> */}
               <RenderSmoothImage src={lesson.images_path[0]} ></RenderSmoothImage>
               {/* </infoHover> */}
@@ -171,7 +195,7 @@ let selected = -1;
                         <Tooltip title="Preview Slides" arrow placement="up">
 
                           <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} 
-                            onClick={() => handleModalOpen() } startIcon={<OpenInNewIcon />}> 
+                            onClick={() => {handleModalOpen(); fetchData(lesson.name + "Opend-btnclk")}} startIcon={<OpenInNewIcon />}> 
                             {lesson.name} 
                           </Button>
                           </Tooltip>
@@ -180,16 +204,18 @@ let selected = -1;
                         <Grid item >
                         <Tooltip title="Download pdf" arrow placement="up">
 
-                          <Button variant="contained" color="secondary" >
-                            <a href={lesson.pdf} download={lesson.name}>
-                              <CloudDownloadIcon style={{ color: '#8eacbb', fontSize: '2.5vw' }} />
+                          <Button variant="contained" color="secondary" onClick={() => fetchData(lesson.name + "Dwnlod")} >
+                            <a href={lesson.pdf} download={lesson.name} >
+                              <CloudDownloadIcon style={{ color: '#8eacbb', fontSize: '2.5vw' }}/>
                             </a>
                           </Button>
                           </Tooltip>
                         </Grid>
 
                         <Grid item >
-                        {revealDate && <h8 style = {{color: 'white'}}>{lesson.date}</h8>}
+                        {/* {revealDate && <h8 style = {{color: 'white'}}>{lesson.date}</h8>} */}
+                        <h8 style = {{color: 'white'}}>{lesson.date}</h8>
+
                         </Grid>
                       </Grid>
                   <AutoRotatingCarousel
@@ -279,7 +305,7 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 // Defaults to sorting by date of lesson
-let sorted = [...Slideshows].sort((a, b) => (new Date(a.date)) - (new Date(b.date)));
+let sorted = [...Slideshows].sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
 
 export default function Slideshow(){
 
@@ -318,7 +344,7 @@ export default function Slideshow(){
         handleChange(sortType);
         return;
       case 'date':
-        sorted = [...Slideshows].sort((a, b) => (asc * (new Date(b.date))) - (asc * (new Date(a.date))));
+        sorted = [...Slideshows].sort((a, b) => (asc * (new Date(a.date))) - (asc * (new Date(b.date))));
         break;
       case 'name':
           sorted = [...Slideshows].sort((a, b) =>  asc * (a.name).localeCompare(b.name));
@@ -333,7 +359,7 @@ export default function Slideshow(){
     setSortType(type);
     setData(sorted);
     handleClose();
-
+    fetchData("sortedSlides");
   };
   
   return (

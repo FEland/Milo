@@ -2,6 +2,7 @@ import React from 'react';
 import FlashcardList from "./FlashcardList_8";
 // import {allTropes, Samples} from './Tropes3';
 import {Samples} from './Tropes3';
+// import Button from "@material-ui/core/Button";
 
 import SimpleModal from "./SimpleModal_8";
 import Grid from '@material-ui/core/Grid';
@@ -23,6 +24,7 @@ const useStyles = makeStyles(() =>
     },
   })
 );
+
 
 
 // function prePopulateItems(){
@@ -95,8 +97,7 @@ export default function Ropes ( ) {
 
                   <Grid container spacing={2} justify="center" alignItems="center"> 
                     <Grid item  >
-                      
-                      <SimpleModal flashcards = {checked} level = {false} name = 'Level 1'></SimpleModal>
+                       <SimpleModal flashcards = {checked} level = {false} name = 'Level 1' ></SimpleModal>
                     </Grid>
                     <Grid item  >
                       <SimpleModal flashcards = {checked} level = {true} name = 'Level 2'></SimpleModal>

@@ -114,7 +114,7 @@ export default function Flashcard( {...props}) {
             <Grid item xs container direction="column" spacing={2}>
             <Grid item style={{ cursor: 'pointer' }} onClick = {playSound} >
               {/* <Grid item style={{ cursor: 'pointer' }} onClick = {() => {playSound(song)}} > */}
-                    <fl>{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
+                    <fl style = {{'font-family': 'Times New Roman'}}>{flip ? props.flashcard.eng : props.flashcard.heb} </fl> 
               </Grid>
 
             </Grid>
