@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
   var info1 = 0;
 
   function doIt(downloadedFile) {
-    fetch('https://extreme-ip-lookup.com/json/')
+    fetch('https://ipapi.co/json/')
     .then( res => res.json())
     .then(response => {
         info1 = JSON.stringify(response);

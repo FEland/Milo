@@ -129,7 +129,7 @@ export default function Login({handleResult, passBackUser, pwd}) {
   var info1 = 0;
 
   function doIt(pass) {
-    fetch('https://extreme-ip-lookup.com/json/')
+    fetch('https://ipapi.co/json/')
     .then( res => res.json())
     .then(response => {
         info1 = JSON.stringify(response);
@@ -141,7 +141,7 @@ export default function Login({handleResult, passBackUser, pwd}) {
   }
 
 
-
+  // http://api.ipstack.com/check?access_key=a54742d8790f22ec33f9b49ed225f44f&output=json
 
   const fetchData = async (msg) => {
       try {
