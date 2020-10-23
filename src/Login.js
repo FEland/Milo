@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Login({handleResult, pwd}) {
+export default function Login({handleResult, passBackUser, pwd}) {
   const classes = useStyles();
 
 
@@ -64,39 +64,96 @@ export default function Login({handleResult, pwd}) {
   //   return "Lat: " + crd.latitude + " Long: " + crd.longitude + " acrcy: " + crd.accuracy + "meters";
   // }
   
+  // function detectDevice(){
+  //   let detectObj = {
+  //     device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+  //     orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
+  //     browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
+  //     // geoB: navigator.geolocation.getCurrentPosition(geo),
+  //   }
+  //   return detectObj
+  // }
+
+  // const headers = new Headers()
+  // headers.append("Content-Type", "application/json")
+
+  // function makeResp(pass) {
+  //   var body = {"message": pass + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+  //   var options = {
+  //     method: "POST",
+  //     headers,
+  //     mode: "cors",
+  //     body: JSON.stringify(body),
+  //   }
+  //   return options;
+  // }
+
+  // const fetchData = async (pass) => {
+  //     try {
+  //         // const resp = await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", options);
+  //         // const resp = await fetch("https://hooks.zapier.com/hooks/catch/8684953/ogsgyo3", options);
+  //         // https://docs.google.com/spreadsheets/d/14ZaqW1MGneEsSRnhjyCzioX_iS3mDpRpVtDvtVOh8YQ/edit#gid=0
+  //         // https://pipedream.com/@FEland/p_dDCmmK/edit
+  //         // alert(resp);
+
+  //         await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(pass));
+
+  //         // console.log(resp);
+  //     } 
+  //     catch(err) {
+  //         // console.log('failed webhook')
+  //     }
+  // };
+
+
   function detectDevice(){
     let detectObj = {
+      // account: user,
       device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
       orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
       browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
-      // geoB: navigator.geolocation.getCurrentPosition(geo),
     }
     return detectObj
   }
 
-  const headers = new Headers()
-  headers.append("Content-Type", "application/json")
-
-  function makeResp(pass) {
-    var body = {"message": pass + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
-    var options = {
-      method: "POST",
-      headers,
-      mode: "cors",
-      body: JSON.stringify(body),
-    }
+  function makeResp(msg) {
+    var body = {"message": msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+    // var body = {"message": detectDevice.account + ", " + msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+    var headers = new Headers()
+    headers.append("Content-Type", "application/json")
+    var options = {method: "POST", headers, mode: "cors", body: JSON.stringify(body),}
     return options;
   }
 
-  const fetchData = async (pass) => {
+
+  var info1 = 0;
+
+  function doIt(pass) {
+    fetch('http://ip-api.com/json')
+    .then( res => res.json())
+    .then(response => {
+        info1 = JSON.stringify(response);
+        fetchData(pass + ", " + info1 );
+      })
+    .catch((data, status) => {
+        console.log('Request failed');
+    })
+  }
+
+
+
+
+  const fetchData = async (msg) => {
       try {
           // const resp = await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", options);
           // const resp = await fetch("https://hooks.zapier.com/hooks/catch/8684953/ogsgyo3", options);
           // https://docs.google.com/spreadsheets/d/14ZaqW1MGneEsSRnhjyCzioX_iS3mDpRpVtDvtVOh8YQ/edit#gid=0
           // https://pipedream.com/@FEland/p_dDCmmK/edit
           // alert(resp);
+          // doIt();
 
-          await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(pass));
+          // await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(pass + ", " + info1 + ", " + info2));
+          await fetch("https://76103417c60b0ff306268dcb81ecf967.m.pipedream.net", makeResp(msg));
 
           // console.log(resp);
       } 
@@ -105,11 +162,15 @@ export default function Login({handleResult, pwd}) {
       }
   };
 
+
   const handleChange = (event) => {
     // console.log(event.target.value + ", " + event.target.value.toLowerCase)
     if (pwd.includes(event.target.value)){
         handleResult(true);
-        fetchData(event.target.value);
+        passBackUser(event.target.value);
+        // fetchData(event.target.value);
+        doIt(event.target.value);
+
     }
   };
 

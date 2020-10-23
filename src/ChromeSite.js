@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function ChromeSite(props) {
+export default function ChromeSite(user) {
   
   // function detectDevice(){
   //   let detectObj = {
@@ -71,6 +71,7 @@ export default function ChromeSite(props) {
 
   function detectDevice(){
     let detectObj = {
+      // account: user,
       device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
       orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
       browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
@@ -79,7 +80,9 @@ export default function ChromeSite(props) {
   }
 
   function makeResp(msg) {
-    var body = {"message": msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+    var body = {"message":  msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+
+    // var body = {"message": detectDevice.account + ", " + msg + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
     var headers = new Headers()
     headers.append("Content-Type", "application/json")
     var options = {method: "POST", headers, mode: "cors", body: JSON.stringify(body),}
@@ -92,10 +95,24 @@ export default function ChromeSite(props) {
       }
   };
 
+  var info1 = 0;
+
+  function doIt(downloadedFile) {
+    fetch('http://ip-api.com/json')
+    .then( res => res.json())
+    .then(response => {
+        info1 = JSON.stringify(response);
+        fetchData(downloadedFile + ", " + info1 );
+      })
+    .catch((data, status) => {
+        console.log('Request failed');
+    })
+  }
+
   const [value, setValue] = React.useState('recents');
 
   const handleChange = (event, newValue) => {
-    fetchData("InAppBar chose " + newValue)
+    doIt("InAppBar chose " + newValue)
     setValue(newValue);
   };
 
@@ -117,7 +134,7 @@ export default function ChromeSite(props) {
                     <Grid container spacing={3}> 
                       <Grid item xs={2} >
                         <div class="topleft">
-                        <Link to="/Practice" onClick={() => fetchData("pressed PracticePage")}>
+                        <Link to="/Practice" onClick={() => doIt("pressed PracticePage")}>
                             <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                         </Link>
                         </div>
@@ -128,17 +145,17 @@ export default function ChromeSite(props) {
                     <Grid item xs={8} >
                       <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
                         <Tooltip title="Practice the Shema" arrow placement="left">
-                          <Tab label="Shema" wrapped component={Link} to="/Shema"  onClick={() => fetchData("pressed ShemaPage")} />
+                          <Tab label="Shema" wrapped component={Link} to="/Shema"  onClick={() => doIt("pressed ShemaPage")} />
                         </Tooltip>
                         
                         <Tooltip title="Quiz yourself on the Tropes" arrow placement="center">
-                          <Tab label="Tropes" wrapped component={Link} to="/Tropes"  onClick={() => fetchData("pressed TropesPage")} />
+                          <Tab label="Tropes" wrapped component={Link} to="/Tropes"  onClick={() => doIt("pressed TropesPage")} />
                         </Tooltip>
 
-                        <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => fetchData("pressed LecturesPage")} />
+                        <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => doIt("pressed LecturesPage")} />
 
                         <Tooltip title="Practice the Torah Blessings" arrow placement="right">
-                          <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => fetchData("pressed BlessingsPage")} />
+                          <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => doIt("pressed BlessingsPage")} />
                         </Tooltip>
 
 {/* 
@@ -151,7 +168,7 @@ export default function ChromeSite(props) {
 
                     <Grid item xs={2} >
                     <div class="topright">
-                      <Link to="/"  onClick={() => fetchData("pressed MainPage")}>
+                      <Link to="/"  onClick={() => doIt("pressed MainPage")}>
                         {/* <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" /> */}
                         <HomeOutlinedIcon style={{background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)', width:"50", height:'auto', position:"absolute"}}/>
                       </Link>
@@ -178,7 +195,7 @@ export default function ChromeSite(props) {
                   <Grid container spacing={3}> 
                   <Grid item xs={2} >
                     <div class="topleft">
-                    <Link to="/Practice" onClick={() => fetchData("pressed PracticePage")}>
+                    <Link to="/Practice" onClick={() => doIt("pressed PracticePage")}>
                         <img src="./images/barmit.png" alt="icon" loading="lazy" width="50" height='auto'/>
                     </Link>
                     </div>
@@ -189,17 +206,17 @@ export default function ChromeSite(props) {
                 <Grid item xs={8} >
                   <Tabs value={location.pathname} textColor="primary" variant="fullWidth" centered > 
                     <Tooltip title="Practice the Shema" arrow placement="left">
-                      <Tab label="Shema" wrapped component={Link} to="/Shema"  onClick={() => fetchData("pressed ShemaPage")} />
+                      <Tab label="Shema" wrapped component={Link} to="/Shema"  onClick={() => doIt("pressed ShemaPage")} />
                     </Tooltip>
 
                     <Tooltip title="Quiz yourself on the Tropes" arrow placement="center">
-                      <Tab label="Tropes" wrapped component={Link} to="/Tropes"  onClick={() => fetchData("pressed TropesPage")} />
+                      <Tab label="Tropes" wrapped component={Link} to="/Tropes"  onClick={() => doIt("pressed TropesPage")} />
                     </Tooltip>
 
-                    <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => fetchData("pressed LecturesPage")} />
+                    <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => doIt("pressed LecturesPage")} />
 
                     <Tooltip title="Practice the Torah Blessings" arrow placement="Right">
-                      <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => fetchData("pressed BlessingsPage")} />
+                      <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => doIt("pressed BlessingsPage")} />
                     </Tooltip>
 
                     {/* <Tooltip title="Quiz yourself on the Fresh" arrow placement="right">
@@ -211,7 +228,7 @@ export default function ChromeSite(props) {
 
                 <Grid item xs={2} >
                 <div class="topright">
-                  <Link to="/"  onClick={() => fetchData("pressed MainPage")}>
+                  <Link to="/"  onClick={() => doIt("pressed MainPage")}>
                     <img src="/Slides3/Cov.jpg" alt="icon" loading="lazy" width="50" height='auto' position="absolute" />
                   
                   </Link>
@@ -230,7 +247,7 @@ export default function ChromeSite(props) {
 
                 <Route path="/Shema" render={() => <div> <Shema/> </div>} />
                 <Route path="/Blessings" render={() => <div> <Birkat/> </div>} />
-                <Route path="/Lectures" render={() => <div> <Slideshow/> </div>} />
+                <Route path="/Lectures" render={() => <div> <Slideshow user={user}/> </div>} />
                 <Route path="/Tropes" render={() => <div> <Ropes/>  </div>} />
                 <Route path="/Practice" render={() => <div> <Practice/>  </div>} />
                 <Route path="/Fresh" render={() => <div> <Fresh/>  </div>} />

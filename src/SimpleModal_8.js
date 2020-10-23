@@ -64,6 +64,20 @@ const fetchData = async (msg) => {
     }
 };
 
+var info1 = 0;
+
+function doIt(downloadedFile) {
+  fetch('http://ip-api.com/json')
+  .then( res => res.json())
+  .then(response => {
+      info1 = JSON.stringify(response);
+      fetchData(downloadedFile + ", " + info1 );
+    })
+  .catch((data, status) => {
+      console.log('Request failed');
+  })
+}
+
 export default function SimpleModal({flashcards, level, name}) {
     // const Quiz = <Quiz flashcards = {flashcards}/>
   const classes = useStyles();
@@ -121,7 +135,7 @@ export default function SimpleModal({flashcards, level, name}) {
     <div>
       {/* {orientation ? "P" : "L"}
       {isMobile ? "M" : "C"} */}
-      <Button onClick={() => fetchData(name + "quiz button")}>
+      <Button onClick={() => doIt(name + "quiz button")}>
 
       <button type="button" onClick={toggleModal}>
         {name}

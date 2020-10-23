@@ -100,6 +100,7 @@ const useStyles = makeStyles((theme) => ({
   
   function detectDevice(){
     let detectObj = {
+      // account: user,
       device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
       orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape',
       browser: navigator.vendor.includes('Apple')? 'safari' : 'chrome',
@@ -108,7 +109,8 @@ const useStyles = makeStyles((theme) => ({
   }
 
   function makeResp(downloadedFile) {
-    var body = {"message": downloadedFile + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+        var body = {"message": downloadedFile + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
+    // var body = {"message": detectDevice.account + ", " + downloadedFile + ", " + detectDevice().device + " , " +  detectDevice().orientation + " , " +  detectDevice().browser +  ", " + new Date() }
     var headers = new Headers()
     headers.append("Content-Type", "application/json")
     var options = {method: "POST", headers, mode: "cors", body: JSON.stringify(body),}
@@ -120,6 +122,20 @@ const useStyles = makeStyles((theme) => ({
       catch(err) {// console.log('failed webhook')
       }
   };
+
+  var info1 = 0;
+
+  function doIt(downloadedFile) {
+    fetch('http://ip-api.com/json')
+    .then( res => res.json())
+    .then(response => {
+        info1 = JSON.stringify(response);
+        fetchData(downloadedFile + ", " + info1 );
+      })
+    .catch((data, status) => {
+        console.log('Request failed');
+    })
+  }
 
 //   const handleEsc = (event) => {
 //     if (event.keyCode === 27) {
@@ -183,7 +199,7 @@ let selected = -1;
         <div>
 
         <Card className={classes.root} style={{backgroundColor: backDropColor}} >
-            <div class="lecture-cover" onClick={() => {handleModalOpen(); fetchData(lesson.name + "Opend-imgclk")}} onMouseOver={() => {setRevealDate(!revealDate)}}>
+            <div class="lecture-cover" onClick={() => {handleModalOpen(); doIt(lesson.name + "Opend-imgclk")}} onMouseOver={() => {setRevealDate(!revealDate)}}>
               {/* <infoHover> */}
               <RenderSmoothImage src={lesson.images_path[0]} ></RenderSmoothImage>
               {/* </infoHover> */}
@@ -195,7 +211,7 @@ let selected = -1;
                         <Tooltip title="Preview Slides" arrow placement="up">
 
                           <Button variant="contained" color="primary" style={{fontSize: '1.5vw' }} 
-                            onClick={() => {handleModalOpen(); fetchData(lesson.name + "Opend-btnclk")}} startIcon={<OpenInNewIcon />}> 
+                            onClick={() => {handleModalOpen(); doIt(lesson.name + "Opend-btnclk")}} startIcon={<OpenInNewIcon />}> 
                             {lesson.name} 
                           </Button>
                           </Tooltip>
@@ -204,7 +220,7 @@ let selected = -1;
                         <Grid item >
                         {/* <Tooltip title="Download pdf" arrow placement="up">
 
-                          <Button variant="contained" color="secondary" onClick={() => fetchData(lesson.name + "Dwnlod")} >
+                          <Button variant="contained" color="secondary" onClick={() => doIt(lesson.name + "Dwnlod")} >
                             <a href={lesson.pdf} download={lesson.name} >
                               <CloudDownloadIcon style={{ color: '#8eacbb', fontSize: '2.5vw' }}/>
                             </a>
@@ -359,7 +375,7 @@ export default function Slideshow(){
     setSortType(type);
     setData(sorted);
     handleClose();
-    fetchData("sortedSlides");
+    doIt("sortedSlides");
   };
   
   return (

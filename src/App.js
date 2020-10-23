@@ -31,11 +31,15 @@ export default function Final(props) {
   // }
   const pwd = ["13", "2020", "Torah", "torah", "Harrison", "Weinstock", "FE"];
   const [validLogin, setValidLogin] = React.useState(false);
+  const [currentUser, setUser] = React.useState("guest");
 
   const handleResult = (...val) => {
     setValidLogin(val);
   }
 
+  const passBackUser = (...val) => {
+    setUser(val);
+  }
 
   if (Safari || Chrome){
     return (
@@ -43,8 +47,8 @@ export default function Final(props) {
       {/* {!validLogin && <Intro/>} */}
       {/* {!validLogin && <Torah4/>} */}
 
-      {!validLogin &&  <Login handleResult={handleResult} pwd={pwd}/> }
-      {validLogin && <ChromeSite/>}
+      {!validLogin &&  <Login handleResult={handleResult} passBackUser={passBackUser} pwd={pwd}/> }
+      {validLogin && <ChromeSite user={currentUser}/>}
 
       {/* {!validLogin && <div style={{ position: 'center' , display: 'center'}}> <Login handleResult={handleResult} pwd={pwd}/> </div>} */}
       {/* {!validLogin && <Landing/>} */}
