@@ -98,7 +98,7 @@ export default function ChromeSite(user) {
   var info1 = 0;
 
   function doIt(downloadedFile) {
-    fetch('http://ip-api.com/json')
+    fetch('https://extreme-ip-lookup.com/json/')
     .then( res => res.json())
     .then(response => {
         info1 = JSON.stringify(response);

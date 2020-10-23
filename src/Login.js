@@ -129,7 +129,7 @@ export default function Login({handleResult, passBackUser, pwd}) {
   var info1 = 0;
 
   function doIt(pass) {
-    fetch('http://ip-api.com/json')
+    fetch('https://extreme-ip-lookup.com/json/')
     .then( res => res.json())
     .then(response => {
         info1 = JSON.stringify(response);
