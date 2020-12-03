@@ -29,7 +29,7 @@ export default function Final(props) {
   //     <ChromeSite/>
   //   );
   // }
-  const pwd = ["13", "2020", "Torah", "torah", "Harrison", "Weinstock", "FE"];
+  const pwd = ["13", "2020", "Torah", "torah", "Harrison", "Weinstock", "Steinmetz", "FE"];
   const [validLogin, setValidLogin] = React.useState(false);
   const [currentUser, setUser] = React.useState("guest");
 
