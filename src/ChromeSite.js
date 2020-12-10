@@ -9,6 +9,9 @@ import Master from './Master';
 import Slideshow from './Slideshow3';
 import Practice from './Practice';
 import Birkat from "./Birkat";
+import Shmona from "./Shmona";
+
+// import Birkat from "./Birkat2";
 
 // import Login from "./Login";
 
@@ -154,6 +157,10 @@ export default function ChromeSite(user) {
 
                         <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => doIt("pressed LecturesPage")} />
 
+                        <Tooltip title="Practice the Shemona Esrei / Amida" arrow placement="Right">
+                          <Tab label="Shemona Esrei / Amida" wrapped component={Link} to="/Shmona"  onClick={() => doIt("pressed ShmonaPage")} />
+                        </Tooltip>
+
                         <Tooltip title="Practice the Torah Blessings" arrow placement="right">
                           <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => doIt("pressed BlessingsPage")} />
                         </Tooltip>
@@ -185,6 +192,7 @@ export default function ChromeSite(user) {
                       <BottomNavigationAction component={Link} to="/Shema" label="Shema" value="Shema" icon={<img src="./images/ShemaPic.png" alt="Shema" loading="lazy" width="40" height='auto'/>} />
                       <BottomNavigationAction component={Link} to="/Lectures" label="Lectures" value="Lectures" icon={<SlideshowIcon />} />
                       <BottomNavigationAction component={Link} to="/Blessings" label="Blessings" value="Blessings" icon={<FavoriteBorderIcon />} />
+                      <BottomNavigationAction component={Link} to="/Shmona" label="Shemona Esrei / Amida" value="Amida" icon={<FavoriteBorderIcon />} />
                       <BottomNavigationAction component={Link} to="/Tropes" label="Tropes" value="Tropes" icon={<MusicNoteIcon />} />
                       <BottomNavigationAction component={Link} to="/" label="Home" value="Home" icon={<img src="./images/barmit.png" alt="icon" loading="lazy" width="40" height='auto'/>} />
                     </BottomNavigation>
@@ -214,6 +222,10 @@ export default function ChromeSite(user) {
                     </Tooltip>
 
                     <Tab label="Lecture Slides" wrapped component={Link} to="/Lectures" onClick={() => doIt("pressed LecturesPage")} />
+
+                    <Tooltip title="Practice the Shemona Esrei / Amida" arrow placement="Right">
+                      <Tab label="Shemona Esrei / Amida" wrapped component={Link} to="/Shmona"  onClick={() => doIt("pressed ShmonaPage")} />
+                    </Tooltip>
 
                     <Tooltip title="Practice the Torah Blessings" arrow placement="Right">
                       <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => doIt("pressed BlessingsPage")} />
@@ -247,6 +259,7 @@ export default function ChromeSite(user) {
 
                 <Route path="/Shema" render={() => <div> <Shema/> </div>} />
                 <Route path="/Blessings" render={() => <div> <Birkat/> </div>} />
+                <Route path="/Shmona" render={() => <div> <Shmona/> </div>} />
                 <Route path="/Lectures" render={() => <div> <Slideshow user={user}/> </div>} />
                 <Route path="/Tropes" render={() => <div> <Ropes/>  </div>} />
                 <Route path="/Practice" render={() => <div> <Practice/>  </div>} />

@@ -233,7 +233,7 @@ import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
 
 function TabPanel(props) {
-    // const classes = useStyles();
+    const classes = useStyles();
   const { children, value, index, ...other } = props;
 
   return (
