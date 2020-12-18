@@ -25,6 +25,7 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import SlideshowIcon from '@material-ui/icons/Slideshow';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 
 import { Link, Route, Switch, HashRouter } from "react-router-dom";
 
@@ -192,7 +193,7 @@ export default function ChromeSite(user) {
                       <BottomNavigationAction component={Link} to="/Shema" label="Shema" value="Shema" icon={<img src="./images/ShemaPic.png" alt="Shema" loading="lazy" width="40" height='auto'/>} />
                       <BottomNavigationAction component={Link} to="/Lectures" label="Lectures" value="Lectures" icon={<SlideshowIcon />} />
                       <BottomNavigationAction component={Link} to="/Blessings" label="Blessings" value="Blessings" icon={<FavoriteBorderIcon />} />
-                      <BottomNavigationAction component={Link} to="/Shmona" label="Shemona Esrei / Amida" value="Amida" icon={<FavoriteBorderIcon />} />
+                      <BottomNavigationAction component={Link} to="/Shmona" label="Shemona Esrei / Amida" value="Amida" icon={<AccessibilityNewIcon />} />
                       <BottomNavigationAction component={Link} to="/Tropes" label="Tropes" value="Tropes" icon={<MusicNoteIcon />} />
                       <BottomNavigationAction component={Link} to="/" label="Home" value="Home" icon={<img src="./images/barmit.png" alt="icon" loading="lazy" width="40" height='auto'/>} />
                     </BottomNavigation>
