@@ -230,21 +230,25 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Hidden from '@material-ui/core/Hidden';
+// import Hidden from '@material-ui/core/Hidden';
+import Grid from '@material-ui/core/Grid';
+import PlayCircleFilled from '@material-ui/icons/PlayCircleFilled';
+import Player from './Player_uno';
+
 
 function TabPanel(props) {
     const classes = useStyles();
-  const { children, value, index, ...other } = props;
+    const { children, value, index, } = props;
 
   return (
-    // <div role="tabpanel" hidden={value !== index} id={`vertical-tabpanel-${index}`} aria-labelledby={`vertical-tab-${index}`} {...other}>
+    // <div role="tabpanel" hidden={value !== index} id={`vertical-tabpanel-${index}`}  {...other}> 
     <div>
     {value === index && (
-        // <Box p={5}> 
+        <Box p={5}> 
             <div className={classes.paper}>
                 <Typography>{children}</Typography> 
             </div>
-        // </Box>
+         </Box>
       )}
       </div>
   );
@@ -256,6 +260,21 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
+function PlayerPanel(props) {
+    // const classes = useStyles();
+    const { name, song, value, index, ytbe, } = props;
+
+  return (
+    <div>
+    {value === index && song !== "skip" && (
+        <Player icon={<PlayCircleFilled/>} label = {name} title = {name} song = {song}/>
+      )}
+      {value === index && song === "skip" && (
+        <iframe title = {name} src = {ytbe} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      )}
+      </div>
+  );
+}
 
 function a11yProps(index) {
   return {
@@ -270,25 +289,40 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
+        backgroundColor: theme.palette.primary.secondary,
+
     },
     menu: {
-        flexGrow: 1,
+        // flexGrow: 1,
         backgroundColor: theme.palette.primary.main,
         color: "primary",
         display: 'flex',
-        height: 224,
+        height: '40vw',
+        justifyContent: 'space-around',
+
+        // height: 224,
   },
   tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
+    // borderRight: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.secondary.main,
     color: "white"
   },
   paper: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
     border: '8px double',
     color: 'white',
     backgroundColor: 'brown',
+    width: 500,
+    height: 450,
+    overflow: 'auto',
     },
+  grid: {
+    width: 500,
+    height: 450,
+    direction: "row",
+    justify: "center",
+    alignItems: "center",
+  },
 }));
 
 export default function VerticalTabs() {
@@ -300,103 +334,271 @@ export default function VerticalTabs() {
   };
 
   return (
-    <div className={classes.root}>
+    // <div className={classes.root}>
+    <div>
 
        <div style={{ color: 'white' }}> 
                      <h1>Prayers & Blessings</h1>
                      {/* <Button  onClick={() => { fetchData()}} > Br </Button>  */}
-        <br/><br/>
-        <br/><br/>
+
 
        </div>
+                           <div className={classes.root}>
 
-        <div className={classes.menu}>
-        <br/><br/>
-        <br/><br/>
+       <Grid container spacing={3} justify="center">
+            
+                <Grid item xs={2}>
+                    <br></br>
 
-        <Tabs
-            orientation="vertical" variant="scrollable" scrollButtons="on"
-            value={value} onChange={handleChange}
-            className={classes.tabs}
-        >
-            <Tab label="Torah Blessing - Before Aliyah" {...a11yProps(0)} />
-            <Tab label="Torah Blessing - After Aliyah" {...a11yProps(1)} />
-            <Tab label="Modeh Ani" {...a11yProps(2)} />
-            <Tab label="Adon Olam" {...a11yProps(3)} />
-            <Tab label="Shehechiyanu" {...a11yProps(4)} />
-            <Tab label="Birkot HaShachar" {...a11yProps(5)} />
-            <Tab label="Amidah / Shemona Esrei - The Silent Prayer" {...a11yProps(6)} />
-            <Tab label="Alenu" {...a11yProps(7)} />
-            <Tab label="Friday Night Kiddush" {...a11yProps(8)} />
-            <Tab label="Saturday Lunch Kiddush" {...a11yProps(9)} />
-            <Tab label="Havdala" {...a11yProps(10)} />
-        </Tabs>
-        <TabPanel value={value} index={0}>
-            Torah Blessing - Before Aliyah
+                <div className={classes.menu}>
 
-            <Hidden smDown>
-                <span > 
-                <b>בָּרְכוּ אֶת ה' הַמְבֹרָך</b> <br/>
-                <span style={  { 'opacity': '.7'} } > בָּרוּךְ ה' הַמְבֹרָךְ לְעוֹלָם וָעֶד</span >  <br/>
-                בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם<br/>
-                אֲשֶׁר בָּחַר בָּנוּ מִכָּל הָעַמִּים וְנָתַן לָנוּ אֶת תּוֹרָתוֹ<br/>
-                ה‎בָּרוּךְ אַתָּה ה׳ נוֹתֵן הַתּוֹרָ<br/>
-                _______________________________________________________ <br/>
-                <b>Bless Hashem, the blessed One.</b><br/>
-                <span style={  { 'opacity': '.7'} } > Blessed is Hashem, the blessed One, for all eternity. </span >  <br/>
-                Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
-                That you chose us from all the Nations, and gave us your Torah <br/>
-                Blessed are You <i>Hashem</i>, who <i>[continuously]</i> gives us the Torah
-                </span >
+                <Tabs
+                    orientation="vertical" variant="scrollable" scrollButtons="on"
+                    value={value} onChange={handleChange}
+                    className={classes.tabs}
+                >
+                    <Tab label="Torah Blessing - Before Aliyah " {...a11yProps(0)} />
+                    <Tab label="Torah Blessing - After Aliyah" {...a11yProps(1)} />
+                    <Tab label="Modeh Ani" {...a11yProps(2)} />
+                    <Tab label="Friday Night Kiddush" {...a11yProps(3)} />
+                    <Tab label="Saturday Lunch Kiddush" {...a11yProps(4)} />
+                    <Tab label="Havdala" {...a11yProps(5)} />
+                    <Tab label="Adon Olam" {...a11yProps(6)} />
+                    <Tab label="Shehechiyanu" {...a11yProps(7)} />
+                    <Tab label="Asher Yatzar" {...a11yProps(8)} />
+                    {/* <Tab label="Alenu" {...a11yProps(9)} /> */}
+                    {/* <Tab label="Amidah / Shemona Esrei - The Silent Prayer" {...a11yProps(10)} /> */}
 
-            </Hidden>
-            <Hidden mdUp>
-                <span style={  { 'fontSize' : '3vw'} } > 
-                <b>בָּרְכוּ אֶת ה' הַמְבֹרָך</b> <br/>
-                <span style={  { 'opacity': '.7'} } > בָּרוּךְ ה' הַמְבֹרָךְ לְעוֹלָם וָעֶד</span >  <br/>
-                בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם<br/>
-                אֲשֶׁר בָּחַר בָּנוּ מִכָּל הָעַמִּים וְנָתַן לָנוּ אֶת תּוֹרָתוֹ<br/>
-                ה‎בָּרוּךְ אַתָּה ה׳ נוֹתֵן הַתּוֹרָ<br/>
-                ____________________________________ <br/>
-                <b>Bless Hashem, the blessed One.</b><br/>
-                <span style={  { 'opacity': '.7'} } > Blessed is Hashem, the blessed One, for all eternity. </span >  <br/>
-                Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
-                Who chose us from all the Nations, and gave us your Torah <br/>
-                Blessed are You <i>Hashem</i>, Giver of the Torah
-                </span >
-            </Hidden>
+                </Tabs>
+                </div>
+            </Grid>
+            <Grid item xs={6}> 
+            {/* <Grid item > */}
 
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-            Torah Blessing - After Aliyah
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-            Modeh Ani
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-            Adon Olam
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-            Shehechiyanu
-        </TabPanel>
-        <TabPanel value={value} index={5}>
-            Birkot HaShachar
-        </TabPanel>
-        <TabPanel value={value} index={6}>
-            Amidah / Shemona Esrei - The Silent Prayer
-        </TabPanel>
-        <TabPanel value={value} index={7}>
-            Alenu
-        </TabPanel>
-        <TabPanel value={value} index={8}>
-            Friday Night Kiddush
-        </TabPanel>
-        <TabPanel value={value} index={9}>
-            Saturday Lunch Kiddush
-        </TabPanel>
-        <TabPanel value={value} index={10}>
-            Havdala
-        </TabPanel>
+                <TabPanel value={value} index={0}>
+                    <h3>Torah Blessing - Before Aliyah </h3>
+
+                            <span style={  { 'fontSize' : '2vw'} } >
+
+                            <b>בָּרְכוּ אֶת ה' הַמְבֹרָך</b> <br/>
+                            <span style={  { 'opacity': '.7'} } > בָּרוּךְ ה' הַמְבֹרָךְ לְעוֹלָם וָעֶד</span >  <br/>
+                            בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם<br/>
+                            אֲשֶׁר בָּחַר בָּנוּ מִכָּל הָעַמִּים וְנָתַן לָנוּ אֶת תּוֹרָתוֹ<br/>
+                            ה‎בָּרוּךְ אַתָּה ה׳ נוֹתֵן הַתּוֹרָ<br/>
+                            _______________________________________________________ <br/>
+                            <b>Bless Hashem, the blessed One.</b><br/>
+                            <span style={  { 'opacity': '.7'} } > Blessed is Hashem, the blessed One, for all eternity. </span >  <br/>
+                            Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
+                            That you chose us from all the Nations, and gave us your Torah <br/>
+                            Blessed are You <i>Hashem</i>, who <i>[continuously]</i> gives us the Torah
+                            </span >
+
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <h3>Torah Blessing - After Aliyah</h3>
+
+                    <span style={  { 'fontSize' : '2vw'} } >
+
+                                            בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם<br/>
+                                            אֲשֶׁר נָתַן לָנוּ תּוֹרַת אֱמֶת וְחַיֵּי עוֹלָם נָטַע בְּתוֹכֵנוּ<br/>
+                                            ה‎בָּרוּךְ אַתָּה ה׳ נוֹתֵן הַתּוֹרָ<br/>
+                                            ____________________________________ <br/>
+                                            Blessed are You, <i>Hashem</i>, our God, King of the Universe, <br/>
+                                            Who gave us the Torah of Truth, <br/>
+                                            and planted eternal life within us <br/>
+                                            Blessed are You <i>Hashem</i>, Giver of the Torah
+                                            </span >    
+
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                <h3>Modeh Ani</h3>
+                    <span style={  { 'fontSize' : '2vw'} } >
+
+                    מוֹדֶה אֲנִי לְפָנֶֽיךָ מֶֽלֶךְ חַי וְקַיָּם<br/>
+                        שֶׁהֶחֱזַֽרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה, רַבָּה אֱמוּנָתֶֽךָ<br/>
+                        ____________________________________ <br/>
+                        Grateful am I to You, O living and eternal King <br/>
+                        for You have returned my soul within me with compassion <br/>
+                        abundant is Your loyalty + faithfulness [in me]!
+                        </span >    
+
+                </TabPanel>
+
+                <TabPanel value={value} index={3}>
+                    <h3>Friday Night Kiddush</h3>
+
+                    (וַיְהִי עֶֽרֶב וַיְהִי בֹֽקֶר)<br/>
+                                            יוֹם הַשִּׁשִּׁי. וַיְכֻלּוּ הַשָּׁמַֽיִם וְהָאָֽרֶץ וְכׇל–צְבָאָם<br/>
+                                            וַיְכַל אֱלֹהִים בַּיּוֹם הַשְּׁבִיעִי מְלַאכְתּוֹ אֲשֶׁר עָשָׂה<br/>
+                                            וַיִּשְׁבֹּת בַּיּוֹם הַשְּׁבִיעִי מִכׇּל–מְלַאכְתּוֹ אֲשֶׁר עָשָׂה<br/>
+                                            וַיְבָֽרֶךְ אֱלֹהִים אֶת–יוֹם הַשְּׁבִיעִי וַיְקַדֵּשׁ אֹתוֹ<br/>
+                                            כִּי בוֹ שָׁבַת מִכׇּל–מְלַאכְתּוֹ אֲשֶׁר בָּרָא אֱלֹהִים לַעֲשׂוֹת<br/>
+
+                                            It was evening and it was morning. The sixth day. The heavens and the earth and all their hosts were completed. God finished by the Seventh Day His work which He had done, and He rested on the Seventh Day from all His work which He had done. God blessed the Seventh Day and made it holy, because on it He ceased from all His creative work, which God had created to fulfill its purpose.
+                                            <br/>
+                                            בָּרוּךְ אַתָּה ה' אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם
+בּוֹרֵא פְּרִי הַגָּפֶן<br/>
+
+                                            Blessed are You, Lord our God, King of the universe, who creates the fruit of the vine. (Amen)
+
+
+                                            בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם<br/>
+                                            אֲשֶׁר קִדְּשָֽׁנוּ בְּמִצְוֺתָיו וְרָֽצָה בָֽנוּ,
+וְשַׁבַּת קׇדְשׁוֹ בְּאַהֲבָה וּבְרָצוֹן הִנְחִילָֽנוּ  
+זִכָּרוֹן לְמַעֲשֵׂה בְרֵאשִׁית כִּי הוּא יוֹם תְּחִלָּה לְמִקְרָֽאֵי קֹֽדֶש
+זֵֽכֶר לִיצִיאַת מִצְרָֽיִם
+,כִּי בָֽנוּ בָחַֽרְתָּ, וְאוֹתָֽנוּ קִדַּֽשְׁתָּ
+מִכׇּל הָעַמִּים וְשַׁבַּת קׇדְשְׁךָ
+בְּאַהֲבָה וּבְרָצוֹן הִנְחַלְתָּֽנוּ.
+בָּרוּךְ אַתָּה יְיָ, מְקַדֵּשׁ הַשַּׁבָּת.
+
+Blessed are You, Lord our God, King of the universe, who made us holy with His commandments, has desired us, and has given us, in love and goodwill, His holy Shabbos as a heritage, as a reminder of the Creation. It [Shabbos] is the first day of the holy festivals, commemorating the Exodus from Egypt. For You [God] have chosen us and sanctified us from among all the nations, and with love and goodwill given us Your holy Shabbos as a heritage. Blessed are You Lord, who makes the Shabbos holy. (Amen)
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <h3>Saturday Lunch Kiddush</h3>
+
+                    וְשָׁמְרוּ בְנֵֽי יִשְׂרָאֵל אֶת–הַשַּׁבָּת,
+ לַעֲשׂוֹת אֶת–הַשַּׁבָּת לְדֹרֹתָם
+ בְּרִית עוֹלָם.
+ בֵּינִי וּבֵין בְּנֵי יִשְׂרָאֵל
+ אוֹת הִיא לְעֹלָם,
+ כִּי–שֵֽׁשֶׁת יָמִים עָשָׂה יְיָ
+ אֶת–הַשָּׁמַיִם וְאֶת–הָאָֽרֶץ,
+וּבַיּוֹם הַשְּׁבִיעִי שָׁבַת וַיִּנָּפַשׁ.
+
+The people of Israel shall keep Shabbat,
+observing Shabbat throughout the ages as a covenant for all time.
+It shall be a sign for all time between Me and the people of Israel,
+for in six days Adonai made heaven and earth,
+and on the seventh day God ceased from work and was refreshed.
+
+עַל–כֵּן בֵּרַךְ יְיָ אֶת–יוֹם הַשַּׁבָּת וַיְקַדְּשֵֽׁהוּ.
+
+Therefore Adonai blessed the day of Shabbat and hallowed it.
+
+
+בָּרוּךְ אַתָּה, יְיָ אֱלֹהֵֽינוּ,
+ מֶֽלֶךְ הָעוֹלָם, בּוֹרֵא פְּרִי הַגָּֽפֶן.
+
+Praise to You, Adonai our God, Sovereign of the universe, Creator of the fruit of the vine.
+
+                </TabPanel>
+                <TabPanel value={value} index={5}>
+                    <h3>Havdala</h3>
+                    הִנֵּה אֵל יְשׁוּעָתִי, אֶבְטַח וְלֹא אֶפְחָד,
+כִּי עָזִּי וְזִמְרָת יָהּ יְיָ, וַיְהִי לִי לִישׁוּעָה.
+וּשְׁאַבְתֶּם מַֽיִם בְּשָׂשׂוֹן, מִמַּעַיְנֵי הַיְשׁוּעָה.
+לַייָ הַיְשׁוּעָה, עַל עַמְּךָ בִרְכָתֶֽךָ סֶּֽלָה.
+יְיָ צְבָאוֹת עִמָּֽנוּ, מִשְׂגָּב לָנוּ אֱלֹהֵי יַעֲקֹב סֶֽלָה.
+יְיָ צְבָאוֹת, אַשְרֵי אָדָם בֹּטֵֽחַ בָּךְ. יְיָ הוֹשִֽׁיעָה, הַמֶּֽלֶךְ יַעֲנֵֽנוּ בְיוֹם קָרְאֵֽנוּ.
+לַיְּהוּדִים הָיְתָה אוֹרָה וְשִׂמְחָה וְשָׂשׂוֹן וִיקָר.
+כֵּן תִּהְיֶה לָּֽנוּ. כּוֹס יְשׁוּעוֹת אֶשָּׂא, וּבְשֵׁם יְיָ אֶקְרָא.<br/>
+
+בָּרוּךְ אַתָּה יְיָ, אֱלֹהֵֽינוּ מֶֽלֶךְ הָעוֹלָם, בּוֹרֵא פְּרִי הַגָּֽפֶן. <br/>
+
+בָּרוּךְ אַתָּה יְיָ, אֱלֹהֵֽינוּ מֶֽלֶךְ הָעוֹלָם, בּוֹרֵא מִינֵי בְשָׂמִים.<br/>
+
+בָּרוּךְ אַתָּה יְיָ, אֱלֹהֵֽינוּ מֶֽלֶךְ הָעוֹלָם, בּוֹרֵא מְאוֹרֵי הָאֵשׁ.<br/>
+
+בָּרוּךְ אַתָּה יְיָ, אֱלֹהֵֽינוּ מֶֽלֶךְ הָעוֹלָם, הַמַּבְדִיל בֵּין קֹֽדֶשׁ לְחוֹל, בֵּין אוֹר לְחֹֽשֶׁךְ, בֵּין יִשְׂרָאֵל לָעַמִּים, בֵּין יוֹם הַשְּׁבִיעִי לְשֵֽׁשֶׁת יְמֵי הַמַּעֲשֶׂה. בָּרוּךְ אַתָּה יְיָ, הַמַּבְדִיל בֵּין קֹֽדֶשׁ לְחוֹל
+
+Behold! God is my deliveran​​​​ce, I trust in Him and I am not afraid. God is my strength and song, He will be my deliveran​​​​ce. You shall draw water in joy from the waters of deliveran​​​​ce. Deliveran​ce is God's, for His nation that is his praise, Selah.
+The Lord of Hosts is with us, He is our support, the God of Jacob, Selah.
+The Lord of Hosts, praisewor​thy is the one who trusts in Him. The Lord will save, the King will answer on the day that we call. There was light, joy, gladness and honor for the Jews - so may there be for us.
+I will raise up the cup of deliveran​​​​ce, and call in the name the Lord.
+
+Prais​​​​ed are You, Lord, King of the Universe,​​​​ Who creates the fruit of the vine. <br/>
+
+Prais​​​​ed are You, Lord, King of the Universe,​​​​ Who creates fragrant species.<br/>
+
+Prais​​​​ed are You, Lord, King of the Universe,​​​​ Who created the light of the flame.<br/>
+
+Prais​​​​ed are You, Lord, King of the Universe,​​​​ Who distingui​​shes between sacred and profane, light and darkness,​ Israel and the nations, between the Seventh Day and the six days of creation.​ Praised are you, Lord, who distingui​​shes between sacred and profane.
+
+                </TabPanel>
+
+                <TabPanel value={value} index={6}>
+                    <h3>Adon Olam</h3>
+
+                    אֲדוֹן עוֹלָם אֲשֶׁר מָלַךְ,
+בְּטֶרֶם כָּל יְצִיר נִבְרָא.
+לְעֵת נַעֲשָׂה בְחֶפְצוֹ כֹּל,
+אֲזַי מֶלֶךְ שְׁמוֹ נִקְרָא.
+
+וְאַחֲרֵי כִּכְלוֹת הַכֹּל,
+לְבַדּוֹ יִמְלוֹךְ נוֹרָא.
+וְהוּא הָיָה, וְהוּא הֹוֶה,
+וְהוּא יִהְיֶה, בְּתִפְאָרָה.
+
+וְהוּא אֶחָד וְאֵין שֵׁנִי,
+לְהַמְשִׁיל לוֹ לְהַחְבִּירָה.
+בְּלִי רֵאשִׁית בְּלִי תַכְלִית,
+וְלוֹ הָעֹז וְהַמִּשְׂרָה.
+
+וְהוּא אֵלִי וְחַי גֹּאֲלִי,
+וְצוּר חֶבְלִי בְּעֵת צָרָה.
+וְהוּא נִסִּי וּמָנוֹס לִי,
+מְנָת כּוֹסִי בְּיוֹם אֶקְרָא.
+
+בְּיָדוֹ אַפְקִיד רוּחִי,
+בְּעֵת אִישַׁן וְאָעִירָה.
+וְעִם רוּחִי גְּוִיָּתִי,
+יְיָ לִי וְלֹא אִירָא.
+
+He is Lord of the Jewish People, who reigned ere any creature yet was formed:
+At the time when all things were made by his desire, then was his name proclaime​d King.
+And after all things shall have had an end, he alone, the dreaded one, shall reign;
+Who was, who is, and who will be in glory.
+And he is One, and there is no second to compare to him, to consort with him:
+Witho​ut beginning​, without end: to him belong strength and dominion.​
+And he is my God—my Redeemer liveth and—a rock in my travail in time of distress;​
+And he is my banner and my refuge, the portion of my cup on the day when I call.
+Into his hand I commend my spirit, when I sleep and when I wake;
+And with my spirit, my body also: the Lord is with me, and I will not fear.
+                </TabPanel>
+                <TabPanel value={value} index={7}>
+                    <h3>Shehechiyanu</h3>
+                    .בָּרוּךְ אַתָּה, יְיָ אֱלֹהֵינוּ, מֶלֶךְ הָעוֹלָם, שֶׁהֶחֱיָנוּ וְקִיְּמָנוּ וְהִגִּיעָנוּ לַזְּמַן הַזֶּה
+
+                    Blessed are You, Adonai our God, Sovereign of all, who has kept us alive, sustained us, and brought us to this season.
+
+
+                </TabPanel>
+                <TabPanel value={value} index={8}>
+                    <h3>Asher Yatzar</h3>
+                    בָּרוּךְ אַתָּה ה’ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר יָצַר אֶת הָאָדָם בְּחָכְמָה, וּבָרָא בוֹ נְקָבִים נְקָבִים חֲלוּלִים חֲלוּלִים .גָּלוּי וְיָדוּעַ לִפְנֵי כִסֵּא כְבוֹדֶךָ, שֶׁאִם יִפָּתֵחַ אֶחָד מֵהֶם, אוֹ יִסָּתֵם אֶחָד מֵהֶם, אִי אֶפְשַׁר לְהִתְקַיֵּם וְלַעֲמוֹד לְפָנֶיךָ אַפִלּוּ שָׁעָה אֶחָת. בָּרוּךְ אַתָּה יי, רוֹפֵא כָל בָּשָׂר וּמַפְלִיא לַעֲשׂוֹת:”
+
+
+                    Blessed are You, Adonai, our God, King of the universe, who formed man with wisdom and created within him many openings and many hollow spaces. It is obvious and known before Your Seat of Honor that if even one of them would be opened, or if even one of them would be sealed, it would be impossible to survive and to stand before You even for one hour. Blessed are You, Adonai, who heals all flesh and acts wondrously.
+                </TabPanel>
+                {/* <TabPanel value={value} index={9}>
+                    <h3>Alenu</h3>
+                </TabPanel> */}
+                {/* <TabPanel value={value} index={10}>
+                    <h3>Amidah / Shemona Esrei - The Silent Prayer</h3>
+                </TabPanel> */}
+               
+                
+            </Grid>
+            <Grid item xs={2}>
+                    <br></br>
+
+                <PlayerPanel value={value} index={0} name={'Torah Blessing - Before Aliyah'} song={'./sounds/opening.m4a'} />
+                <PlayerPanel value={value} index={1} name={'Torah Blessing - After Aliyah'} song={'./sounds/closing.m4a'} />
+                <PlayerPanel value={value} index={2} name={'Modeh Ani'} song={'./sounds/ModehAni.m4a'} />
+                <PlayerPanel value={value} index={3} name={'Friday Night Kiddush'} song={'./sounds/Fri-kiddush2.m4a'} />
+                <PlayerPanel value={value} index={4} name={'Saturday Lunch Kiddus'} song={'./sounds/Sat-Kiddush.m4a'} />
+                <PlayerPanel value={value} index={5} name={'Havdala'} song={'./sounds/Havdala-song.m4a'} />
+                <PlayerPanel value={value} index={6} name={'Adon Olam'} song={'skip'} ytbe = {"https://www.youtube.com/embed/KWhOUzOrbpM"}/>
+                <PlayerPanel value={value} index={7} name={'Shehechiyanu'} song={'skip'} ytbe = {'https://www.youtube.com/embed/-ynpfKLTp0g?start=4'} />
+                <PlayerPanel value={value} index={8} name={'Asher Yatzar'} song={'skip'} ytbe = {'https://www.youtube.com/embed/6MOw4E72i9I'}/>
+                {/* <PlayerPanel value={value} index={9} name={'Alenu'} song={'https://www.youtube.com/embed/RVMRKLKVgSw'} /> */}
+                {/* <PlayerPanel value={value} index={10} name={'Amidah / Shemona Esrei - The Silent Prayer'} song={'./sounds/ModehAni.m4a'} /> */}
+             </Grid>
+
+        {/* </div> */}
+
+        </Grid>
         </div>
 </div>
 

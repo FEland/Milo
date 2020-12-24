@@ -8,7 +8,8 @@ import Shema from './Shema_4';
 import Master from './Master';
 import Slideshow from './Slideshow3';
 import Practice from './Practice';
-import Birkat from "./Birkat";
+import Birkat from "./Birkat2";
+// import Birkat from "./Birkat";
 import Shmona from "./Shmona";
 
 // import Birkat from "./Birkat2";
