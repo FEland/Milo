@@ -163,8 +163,12 @@ export default function ChromeSite(user) {
                           <Tab label="Shemona Esrei / Amida" wrapped component={Link} to="/Shmona"  onClick={() => doIt("pressed ShmonaPage")} />
                         </Tooltip>
 
-                        <Tooltip title="Practice the Torah Blessings" arrow placement="right">
+                        {/* <Tooltip title="Practice the Torah Blessings" arrow placement="right">
                           <Tab label="Torah Blessings" wrapped component={Link} to="/Blessings"  onClick={() => doIt("pressed BlessingsPage")} />
+                        </Tooltip> */}
+
+                        <Tooltip title="Practice the Prayers/Blessings" arrow placement="right">
+                          <Tab label="Prayers & Blessings" wrapped component={Link} to="/Blessings"  onClick={() => doIt("pressed BlessingsPage")} />
                         </Tooltip>
 
 {/* 
