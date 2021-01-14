@@ -469,6 +469,10 @@ export default function VerticalTabs() {
 Blessed are You, <i>Hashem</i>, our God, King of the universe, who made us holy with His commandments, has desired us, and has given us, in love and goodwill, His holy Shabbos as a heritage, as a reminder of the Creation. It [Shabbos] is the first day of the holy festivals, commemorating the Exodus from Egypt. For You [God] have chosen us and sanctified us from among all the nations, and with love and goodwill given us Your holy Shabbos as a heritage. Blessed are You Lord, who makes the Shabbos holy. (Amen)<br/>
 </span>
 
+<img src="./images/Vachulu.png" alt="icon" loading="lazy" position="right"/>
+<img src="./images/Vachulu2.png" alt="icon" loading="lazy" position="right"/>
+                
+
                 </TabPanel>
                 <TabPanel value={value} index={4}>
                     <h3>Saturday Lunch Kiddush</h3>
