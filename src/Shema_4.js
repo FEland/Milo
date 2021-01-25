@@ -155,6 +155,9 @@ export default function Shema() {
         :
         <quiz style = {{ 'color': color}}> {Shemas[3]}</quiz>
     }
+
+    <img src="./images/ShemaTikkun.png" alt="icon" loading="lazy" position="right"/>
+
     
     {/* 2nd Paragraph */}
     {!state.toggleTranslation ? 
@@ -194,6 +197,8 @@ export default function Shema() {
         <quiz style = {{ 'color': color}}> {Shemas[3]}</quiz>
     }
     
+    <img src="./images/ShemaTikkun.png" alt="icon" loading="lazy" position="right"/>
+
     {/* 2nd Paragraph */}
     {!state.toggleTranslation ? 
         !state.toggleTrope ?
