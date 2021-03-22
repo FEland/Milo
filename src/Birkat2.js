@@ -471,7 +471,8 @@ Blessed are You, <i>Hashem</i>, our God, King of the universe, who made us holy 
 
 <img src="./images/Vachulu.png" alt="icon" loading="lazy" position="right"/>
 <img src="./images/Vachulu2.png" alt="icon" loading="lazy" position="right"/>
-                
+<iframe title="kdsh" width="560" height="315" src="https://docs.google.com/document/d/e/2PACX-1vSOJTrrB3rkBcyt7EGEXpREx2tSlj9StbSsn8rEWljSuPeKYSxvgFNbE1MySxhPjz6iE49hmCmxPBZh/pub?embedded=true" allowfullscreen="allowfullscreen"></iframe>
+
 
                 </TabPanel>
                 <TabPanel value={value} index={4}>
@@ -569,7 +570,9 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
                 <TabPanel value={value} index={6}>
                                     <h3>Adon Olam</h3>
 
-                <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+                                    <img src="./images/AdonOlamTransliterated.png" alt="icon" loading="lazy" height="100" position="right"/>
+
+                {/* <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
                 אֲדוֹן עוֹלָם אֲשֶׁר מָלַךְ,
                 בְּטֶרֶם כָּל יְצִיר נִבְרָא                    <br/>
                 לְעֵת נַעֲשָׂה בְחֶפְצוֹ כֹּל,
@@ -636,9 +639,24 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
 
                 Into his hand I commend my spirit, when I sleep and when I wake;
                 And with my spirit, my body also: <i>Hashem</i> is with me, and I will not fear.
-                <br/>
-                </span>
+                <br/> */}
+{/* 
+                nivra < yetzir < kol < b'terem < melech < asher < olam < adon
+                nikra < shimo < melech < azai < kol < bi-chef-zo < na'aseh < l'ate
+                nora < yimloch < l'vado < hakol < kich-lote < vi'acharei
+                b'tifara < yee-hi-yeh < vihu < hoveh < vihu < hayah < vihu
+                l'hach-bira < lo < l'hom-sheelo < shaynee < v'ayn < echad < vihu
+                v'hamees-ra < ha'oz < vilo < tach-leet < bilee < reisheet < bilee
+                tzara < b'ate < chev-li < v'tzur < go-ali < v'chai < eli < vihu 
+                ekra < b'yom < kosi < minat < li < u-ma-nos < neesee < vihu
+                v'ah-eera < eeshan < b'ate < roo-chi < off-keed < b'yado
+                eera < v'lo < li < ado-nai < g'vee-yah-ti < roo-chi < v'eem
+
+                 */}
+                {/* </span> */}
+
                 </TabPanel>
+                
                 <TabPanel value={value} index={7}>
                     <h3>Shehechiyanu</h3>
                     <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
@@ -683,9 +701,11 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
                 <PlayerPanel value={value} index={1} name={'Torah Blessing - After Aliyah'} song={'./sounds/closing.m4a'} ytbe = {'skip'} />
                 <PlayerPanel value={value} index={2} name={'Modeh Ani'} song={'./sounds/ModehAni.m4a'} ytbe = {'skip'}/>
                 <PlayerPanel value={value} index={3} name={'Friday Night Kiddush'} song={'./sounds/Fri-kiddush2.m4a'} ytbe = {'https://www.youtube.com/embed/7Byb1GQuuhE'}/>
+                {value === 3 && <iframe src="https://docs.google.com/document/d/e/2PACX-1vSOJTrrB3rkBcyt7EGEXpREx2tSlj9StbSsn8rEWljSuPeKYSxvgFNbE1MySxhPjz6iE49hmCmxPBZh/pub?embedded=true"></iframe>}
                 <PlayerPanel value={value} index={4} name={'Saturday Lunch Kiddush'} song={'./sounds/Sat-Kiddush.m4a'} ytbe = {'skip'}/>
                 <PlayerPanel value={value} index={5} name={'Havdala'} song={'./sounds/Havdala-song.m4a'} ytbe = {'skip'} />
                 <PlayerPanel value={value} index={6} name={'Adon Olam'} song={'skip'} ytbe = {"https://www.youtube.com/embed/KWhOUzOrbpM"}/>
+                {/* {value === 6 && <img src="./images/AdonOlamTransliterated.png" alt="icon" loading="lazy" height="100" position="right"/>} */}
                 <PlayerPanel value={value} index={7} name={'Shehechiyanu'} song={'skip'} ytbe = {'https://www.youtube.com/embed/-ynpfKLTp0g?start=4'} />
                 <PlayerPanel value={value} index={8} name={'Asher Yatzar'} song={'skip'} ytbe = {'https://www.youtube.com/embed/6MOw4E72i9I'}/>
                 {/* <PlayerPanel value={value} index={9} name={'Alenu'} song={'https://www.youtube.com/embed/RVMRKLKVgSw'} /> */}
