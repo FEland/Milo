@@ -570,7 +570,7 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
                 <TabPanel value={value} index={6}>
                                     <h3>Adon Olam</h3>
 
-                                    <img src="./images/AdonOlamTransliterated.png" alt="icon" loading="lazy" height="100" position="right"/>
+                                    <img src="./images/AdonOlamTransliterated1.png" alt="icon" loading="lazy" height="100" position="right"/>
 
                 {/* <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
                 אֲדוֹן עוֹלָם אֲשֶׁר מָלַךְ,
