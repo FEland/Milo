@@ -367,6 +367,9 @@ export default function VerticalTabs() {
                     <Tab label="Adon Olam" {...a11yProps(6)} />
                     <Tab label="Shehechiyanu" {...a11yProps(7)} />
                     <Tab label="Asher Yatzar" {...a11yProps(8)} />
+                    <Tab label="Gadlu - Taking Torah Out" {...a11yProps(9)} />
+                    <Tab label="Vzot Hatorah - Putting Torah Back" {...a11yProps(10)} />
+
                     {/* <Tab label="Alenu" {...a11yProps(9)} /> */}
                     {/* <Tab label="Amidah / Shemona Esrei - The Silent Prayer" {...a11yProps(10)} /> */}
 
@@ -569,10 +572,9 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
 
                 <TabPanel value={value} index={6}>
                                     <h3>Adon Olam</h3>
-
                                     <img src="./images/AdonOlamTransliterated1.png" alt="icon" loading="lazy" height="100" position="right"/>
-
-                {/* <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+                                    <br/>---------------------------------------------------<br/>
+                <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
                 אֲדוֹן עוֹלָם אֲשֶׁר מָלַךְ,
                 בְּטֶרֶם כָּל יְצִיר נִבְרָא                    <br/>
                 לְעֵת נַעֲשָׂה בְחֶפְצוֹ כֹּל,
@@ -639,7 +641,9 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
 
                 Into his hand I commend my spirit, when I sleep and when I wake;
                 And with my spirit, my body also: <i>Hashem</i> is with me, and I will not fear.
-                <br/> */}
+                <br/>
+                </span>
+
 {/* 
                 nivra < yetzir < kol < b'terem < melech < asher < olam < adon
                 nikra < shimo < melech < azai < kol < bi-chef-zo < na'aseh < l'ate
@@ -685,6 +689,73 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
                     </span>
 
                 </TabPanel>
+
+                <TabPanel value={value} index={9}>
+                    <h3>Gadlu - Taking the Torah Out</h3>
+
+                    <i>When the Ark is opened, the following is sung:</i>
+                    <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+
+                    <br/>וַיְהִי בִּנְסֹֽעַ הָאָרֹן וַיּֽאמֶר משֶׁה, קוּמָה יְהֹוָה וְיָפֻֽצוּ אֹיְבֶֽיךָ וְיָנֻֽסוּ מְשַׂנְאֶֽיךָ מִפָּנֶֽיךָ: כִּי מִצּיוֹן תֵּצֵא תוֹרָה וּדְבַר יְהֹוָה מִירוּשָׁלָֽםִ: בָּרוּךְ שֶׁנָּתַן תּוֹרָה לְעַמּוֹ יִשְׂרָאֵל בִּקְדֻשָּׁתוֹ
+                    </span>
+
+                    <br/>Whenever the Ark traveled, Moses would say: “Rise, Adonoy and let Your enemies be scattered, and those who hate You, flee before You.” For from Zion will go forth the Torah, and the word of Adonoy from Jerusalem. Blessed is He Who gave the Torah to His people Israel in His holiness.
+
+                    <br/>
+                    <br/>
+
+                    <i>The Chazzan then takes the Torah out and sings:</i>
+                    <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+
+                    <br/>גַּדלוּ לַיהוָֹה אִתִּי וּנְרוֹמְמָה שְׁמוֹ יַחְדָּו
+                    <br/>
+                    </span>
+
+                    <br/>
+                    <i>The Congregation responds: </i>
+                    <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+
+                    <br/>לְךָ יְהֹוָה הַגְּדֻלָּה, וְהַגְּבוּרָה, וְהַתִּפְאֶֽרֶת, וְהַנֵּֽצַח, וְהַהוֹד, כִּי כֹל בַּשָּׁמַֽיִם וּבָאָֽרֶץ, לְךָ יְהֹוָה, הַמַּמְלָכָה, וְהַמִּתְנַשֵּׂא, לְכֹל לְרֹאשׁ: רוֹמְמוּ יְהֹוָה אֱלֺהֵֽינוּ וְהִשְׁתַּחֲווּ לַהֲדֹם רַגְלָיו קָדוֹשׁ הוּא: רוֹמְמוּ יְהֹוָה אֱלֺהֵֽינוּ וְהִשְׁתַּחֲווּ לְהַר קָדְשׁוֹ כִּי קָדוֹשׁ יְהֹוָה אֱלֺהֵֽינוּ
+                    </span>
+
+                    <br/>Declare the greatness of Hashem, with me. and let us exalt His Name together.
+
+                    <br/>Yours, Hashem, is the greatness, the might, the glory, the victory, and the beauty, for everything in heaven and on earth [is Yours]; Yours, Hashem, is the kingdom, and You are uplifted over all rulers. Exalt Hashem, our God, and prostrate yourselves at His footstool, Holy is He. Exalt Hashem, Our God, and prostrate yourselves at His holy mountain for Hashem, our God, is holy.
+                   
+                   
+
+                </TabPanel>
+                <TabPanel value={value} index={10}>
+                    <h3>V'zot HaTorah & Etz Chaim Hi - Putting the Torah Back</h3>
+
+<i>[During Hagbah (lifting the Torah), the Congregation says together]</i>
+<span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+
+<br/>וְזֹאת הַתּוֹרָה אֲשֶׁר שָׂם משֶׁה לִפְנֵי בְּנֵי יִשְׂרָאֵל עַל פִּי יְהֹוָה בְּיַד משֶׁה
+</span>
+
+<br/>This is the Torah which Moses placed before the children of Israel at Adonoy’s command by the hand of Moses.
+
+<br/>
+<br/>
+
+<i>[As the Torah is returned to the Ark, we all sing]</i>
+
+<span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+<br/>
+
+עֵץ חַיִּים הִיא לַמַּחֲזִיקִים בָּהּ וְתוֹמְכֶֽיהָ מְאֻשָּׁר: דְּרָכֶֽיהָ דַּרְכֵי נֹֽעַם וְכָל נְתִיבוֹתֶֽיהָ שָׁלוֹם: הֲשִׁיבֵֽנוּ יְהֹוָה אֵלֶֽיךָ וְנָשׁוּבָה חַדֵּשׁ יָמֵֽינוּ כְּקֶֽדֶם
+</span>
+
+<br/>
+It is a tree of life to those who grasp hold of it, and those who support it are fortunate. Its ways are ways of pleasantness, and all its paths are peace. Return us to you, Hashem, and we shall return; Renew our days as they once were.
+                    <br/>
+
+                    <img src="./images/EtzTranslit.png" alt="icon" loading="lazy" height="100" position="right"/>
+
+<br/>
+
+                </TabPanel>
                 {/* <TabPanel value={value} index={9}>
                     <h3>Alenu</h3>
                 </TabPanel> */}
@@ -701,13 +772,19 @@ Blessed are You, <i>Hashem</i>, King of the universe,​​​​ Who distingui�
                 <PlayerPanel value={value} index={1} name={'Torah Blessing - After Aliyah'} song={'./sounds/closing.m4a'} ytbe = {'skip'} />
                 <PlayerPanel value={value} index={2} name={'Modeh Ani'} song={'./sounds/ModehAni.m4a'} ytbe = {'skip'}/>
                 <PlayerPanel value={value} index={3} name={'Friday Night Kiddush'} song={'./sounds/Fri-kiddush2.m4a'} ytbe = {'https://www.youtube.com/embed/7Byb1GQuuhE'}/>
-                {value === 3 && <iframe src="https://docs.google.com/document/d/e/2PACX-1vSOJTrrB3rkBcyt7EGEXpREx2tSlj9StbSsn8rEWljSuPeKYSxvgFNbE1MySxhPjz6iE49hmCmxPBZh/pub?embedded=true"></iframe>}
+                {/* {value === 3 && <iframe src="https://docs.google.com/document/d/e/2PACX-1vSOJTrrB3rkBcyt7EGEXpREx2tSlj9StbSsn8rEWljSuPeKYSxvgFNbE1MySxhPjz6iE49hmCmxPBZh/pub?embedded=true"></iframe>} */}
                 <PlayerPanel value={value} index={4} name={'Saturday Lunch Kiddush'} song={'./sounds/Sat-Kiddush.m4a'} ytbe = {'skip'}/>
                 <PlayerPanel value={value} index={5} name={'Havdala'} song={'./sounds/Havdala-song.m4a'} ytbe = {'skip'} />
                 <PlayerPanel value={value} index={6} name={'Adon Olam'} song={'skip'} ytbe = {"https://www.youtube.com/embed/KWhOUzOrbpM"}/>
                 {/* {value === 6 && <img src="./images/AdonOlamTransliterated.png" alt="icon" loading="lazy" height="100" position="right"/>} */}
                 <PlayerPanel value={value} index={7} name={'Shehechiyanu'} song={'skip'} ytbe = {'https://www.youtube.com/embed/-ynpfKLTp0g?start=4'} />
                 <PlayerPanel value={value} index={8} name={'Asher Yatzar'} song={'skip'} ytbe = {'https://www.youtube.com/embed/6MOw4E72i9I'}/>
+                <PlayerPanel value={value} index={9} name={'Vayehi Binsoa'} song={'./sounds/Vayehi-Binsoa1.m4a'} ytbe = {'skip'} />
+                {value === 9 && <PlayerPanel value={value} index={9} name={'Gadlu'} song={'./sounds/Gadlu.m4a'} ytbe = {'skip'} />}
+                <PlayerPanel value={value} index={10}  ytbe = {'https://www.youtube.com/embed/zwEpRmB_zWg'} name={'Vzot Hatorah'} song={'./sounds/Vzot-Hatorah.m4a'}/>
+                {value === 10 && <PlayerPanel value={value} index={10} name={'Etz Chayim - sung by Effie'} song={'./sounds/EtzChayim.m4a'} ytbe = {'skip'} />}
+
+                
                 {/* <PlayerPanel value={value} index={9} name={'Alenu'} song={'https://www.youtube.com/embed/RVMRKLKVgSw'} /> */}
                 {/* <PlayerPanel value={value} index={10} name={'Amidah / Shemona Esrei - The Silent Prayer'} song={'./sounds/ModehAni.m4a'} /> */}
              </Grid>
