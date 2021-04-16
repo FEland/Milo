@@ -818,6 +818,7 @@ It is a tree of life to those who grasp hold of it, and those who support it are
                 <PlayerPanel value={value} index={10}  ytbe = {'https://www.youtube.com/embed/zwEpRmB_zWg'} name={'Vzot Hatorah'} song={'./sounds/Vzot-Hatorah.m4a'}/>
                 {value === 10 && <PlayerPanel value={value} index={10} name={'Etz Chayim - sung by Effie'} song={'./sounds/EtzChayim.m4a'} ytbe = {'skip'} />}
                 {value === 11 && <PlayerPanel value={value} index={11} name={'Hatikva'} song={'skip'} ytbe = {'https://www.youtube.com/embed/1DPqNHkm1bM'} />}
+                {value === 11 && <PlayerPanel value={value} index={11} name={'Quick Video about Founding of Israel'} song={'skip'} ytbe = {'https://www.youtube.com/embed/7E-P4FG7Utc'} />}
 
                 
                 {/* <PlayerPanel value={value} index={9} name={'Alenu'} song={'https://www.youtube.com/embed/RVMRKLKVgSw'} /> */}
