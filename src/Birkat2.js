@@ -369,6 +369,7 @@ export default function VerticalTabs() {
                     <Tab label="Asher Yatzar" {...a11yProps(8)} />
                     <Tab label="Gadlu - Taking Torah Out" {...a11yProps(9)} />
                     <Tab label="Vzot Hatorah - Putting Torah Back" {...a11yProps(10)} />
+                    <Tab label="Hatikva - Israel's National Anthem" {...a11yProps(11)} />
 
                     {/* <Tab label="Alenu" {...a11yProps(9)} /> */}
                     {/* <Tab label="Amidah / Shemona Esrei - The Silent Prayer" {...a11yProps(10)} /> */}
@@ -756,6 +757,39 @@ It is a tree of life to those who grasp hold of it, and those who support it are
 <br/>
 
                 </TabPanel>
+                <TabPanel value={value} index={11}>
+                    <h3>Hatikva - The Hope - Israel's National Anthem</h3>
+
+                    {/* <img src="./images/Hatikva.png" alt="icon" loading="lazy" height="100" position="right"/> */}
+
+                    <span style={  { 'fontSize' : '2vw', 'font-family':  'Times New Roman'} } >
+
+                    כֹּל עוֹד בַּלֵּבָב פְּנִימָה<br/>
+                    נֶפֶשׁ יְהוּדִי הוֹמִיָּה <br/>
+                    וּלְפַאֲתֵי מִזְרָח קָדִימָה <br/>
+                    עַיִן לְצִיּוֹן צוֹפִיָּה <br/>
+                    <br/>
+                    עוֹד לֹא אָבְדָה תִּקְוָתֵנוּ<br/>
+                    הַתִּקְוָה בַּת שְׁנוֹת אַלְפַּיִם<br/>
+                    לִהְיוֹת עַם חָפְשִׁי בְּאַרְצֵנוּ<br/>
+                    אֶרֶץ צִיּוֹן וִיְרוּשָׁלַיִם
+                    <br/>
+                    <br/>
+                    </span>
+
+                    As long as our hearts beat,  <br/>
+                    The Jewish soul yearns, <br/>
+                    And toward the eastern edges, onward,  <br/>
+                    our eye gazes toward Zion.
+<br /><br />
+                    Our hope is not yet lost,<br/>
+                    The hope of of two-thousand years,<br/>
+                    To be a free nation in our land,<br/>
+                    The Land of Zion, Jerusalem.<br/>
+
+
+                </TabPanel>
+
                 {/* <TabPanel value={value} index={9}>
                     <h3>Alenu</h3>
                 </TabPanel> */}
@@ -783,6 +817,7 @@ It is a tree of life to those who grasp hold of it, and those who support it are
                 {value === 9 && <PlayerPanel value={value} index={9} name={'Gadlu'} song={'./sounds/Gadlu.m4a'} ytbe = {'skip'} />}
                 <PlayerPanel value={value} index={10}  ytbe = {'https://www.youtube.com/embed/zwEpRmB_zWg'} name={'Vzot Hatorah'} song={'./sounds/Vzot-Hatorah.m4a'}/>
                 {value === 10 && <PlayerPanel value={value} index={10} name={'Etz Chayim - sung by Effie'} song={'./sounds/EtzChayim.m4a'} ytbe = {'skip'} />}
+                {value === 11 && <PlayerPanel value={value} index={11} name={'Hatikva'} song={'skip'} ytbe = {'https://www.youtube.com/embed/1DPqNHkm1bM'} />}
 
                 
                 {/* <PlayerPanel value={value} index={9} name={'Alenu'} song={'https://www.youtube.com/embed/RVMRKLKVgSw'} /> */}
