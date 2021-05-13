@@ -13,6 +13,8 @@ import ColorModal from './ColorModal';
 import open from "./sounds/ui_lock.wav";
 import close from "./sounds/ui_unlock.wav";
 import Hidden from '@material-ui/core/Hidden';
+import Player2 from './Player_uno';
+import PlayCircleFilled from '@material-ui/icons/PlayCircleFilled';
 
 
 export default function Shema() {
@@ -156,8 +158,9 @@ export default function Shema() {
         <quiz style = {{ 'color': color}}> {Shemas[3]}</quiz>
     }
 
-    <img src="./images/ShemaTikkun.png" alt="icon" loading="lazy" position="right"/>
+    <Player2 icon={<PlayCircleFilled/>} label = " Fancy Shema!" title = "Fancy Shema!" song = './sounds/FancyShema.m4a'/>
 
+    <img src="./images/ShemaReal.png" alt="icon" loading="lazy" position="center"/>
     
     {/* 2nd Paragraph */}
     {!state.toggleTranslation ? 
@@ -197,7 +200,6 @@ export default function Shema() {
         <quiz style = {{ 'color': color}}> {Shemas[3]}</quiz>
     }
     
-    <img src="./images/ShemaTikkun.png" alt="icon" loading="lazy" position="right"/>
 
     {/* 2nd Paragraph */}
     {!state.toggleTranslation ? 
@@ -222,6 +224,9 @@ export default function Shema() {
         <quiz style = {{ 'color': color}}> {Shemas[11]}</quiz>
         
     }
+
+<img src="./images/ShemaTikkun.png" alt="icon" loading="lazy" position="right"/>
+
     </Hidden>
 
 
@@ -249,6 +254,8 @@ export default function Shema() {
         :
         <quiz> {Shemas[11]}</quiz>
     } */}
+
+<img src="./images/ShemaTikkun.png" alt="icon" loading="lazy" position="right"/>
 
 
 <img src="./images/AlephBetBanner.png" alt="icon" align="center" loading="lazy"  width="100%" />
