@@ -161,7 +161,8 @@ export default function Shema() {
     <Player2 icon={<PlayCircleFilled/>} label = " Fancy Shema!" title = "Fancy Shema!" song = './sounds/FancyShema.m4a'/>
 
     <img src="./images/ShemaReal.png" alt="icon" loading="lazy" position="center"/>
-    
+    <img src="./images/ShemaReal2.png" alt="icon" loading="lazy" position="center"/>
+
     {/* 2nd Paragraph */}
     {!state.toggleTranslation ? 
         !state.toggleTrope ?
