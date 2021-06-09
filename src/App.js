@@ -29,7 +29,7 @@ export default function Final(props) {
   //     <ChromeSite/>
   //   );
   // }
-  const pwd = ["13", "2020", "Torah", "torah", "Harrison", "Weinstock", "Steinmetz", "FE"];
+  const pwd = ["13", "2020", "Torah", "torah", "Harrison", "Weinstock", "Steinmetz", "FE", "RDK"];
   const [validLogin, setValidLogin] = React.useState(false);
   const [currentUser, setUser] = React.useState("guest");
 
@@ -47,13 +47,13 @@ export default function Final(props) {
       {/* {!validLogin && <Intro/>} */}
       {/* {!validLogin && <Torah4/>} */}
 
-      {!validLogin &&  <Login handleResult={handleResult} passBackUser={passBackUser} pwd={pwd}/> }
-      {validLogin && <ChromeSite user={currentUser}/>}
+      {/* {!validLogin &&  <Login handleResult={handleResult} passBackUser={passBackUser} pwd={pwd}/> }
+      {validLogin && <ChromeSite user={currentUser}/>} */}
 
       {/* {!validLogin && <div style={{ position: 'center' , display: 'center'}}> <Login handleResult={handleResult} pwd={pwd}/> </div>} */}
       {/* {!validLogin && <Landing/>} */}
 
-      {/* {!validLogin &&  <ChromeSite/> } */}
+      {!validLogin &&  <ChromeSite/> }
 
       </>
     );
